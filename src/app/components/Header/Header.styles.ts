@@ -1,4 +1,7 @@
-.header {
+import styled from '@emotion/styled';
+import Link from 'next/link';
+
+export const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
@@ -7,9 +10,9 @@
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   z-index: 100;
-}
+`;
 
-.container {
+export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -17,72 +20,52 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+`;
 
-.leftSection {
+export const LeftSection = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
-}
+`;
 
-.logo img {
-  height: 32px;
-}
+export const Logo = styled(Link)`
+  img {
+    height: 32px;
+  }
+`;
 
-.nav {
+export const Nav = styled.nav`
   display: flex;
   gap: 24px;
-}
+`;
 
-.nav a {
+export const NavLink = styled(Link)`
   color: #fff;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   transition: color 0.2s;
-}
 
-.nav a:hover {
-  color: #8A7CFF;
-}
+  &:hover {
+    color: #8A7CFF;
+  }
+`;
 
-.rightSection {
+export const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-}
+`;
 
-.themeToggle {
-  width: 50px;
-  height: 25px;
-  background-color: #333;
-  border-radius: 25px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border: 2px solid var(--Stroke-Secondary, #2E2E2E);
-}
+export const ThemeToggle = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2ch;
+  flex-direction: column;
+`;
 
-.toggleCircle {
-  width: 21px;
-  height: 21px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.3s;
-}
-
-.toggleCircleDark {
-  transform: translateX(25px);
-}
-
-.toggleCircleLight {
-  transform: translateX(0);
-}
-
-.tradeNowButton {
+export const TradeNowButton = styled(Link)`
   background: #8A7CFF;
   color: white;
   padding: 10px 20px;
@@ -93,8 +76,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.tradeNowButton:hover {
-  background: #7A6AFF;
-} 
+  &:hover {
+    background: #7A6AFF;
+  }
+`; 

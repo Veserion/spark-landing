@@ -1,0 +1,300 @@
+.orderBookWrapper {
+  border-radius: 16px;
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 8px;
+  border: 1px solid #b1b1b1;
+}
+
+.orderBook {
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  min-width: 200px;
+  height: 540px;
+  width: 260px;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: flex-start;
+  max-width: 300px;
+  margin: auto 0;
+  padding: 12px 12px 0;
+  border: 1px solid #f0f0f0;
+}
+
+.segments {
+  display: flex;
+  width: 100%;
+  padding-bottom: 12px;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  justify-content: flex-start;
+  font: 500 12px/1 'Space Grotesk', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.segmentActive {
+  align-self: stretch;
+  border-radius: 8px 0 0 8px;
+  background-color: #f7f7f7;
+  flex: 1;
+  margin: auto 0;
+  padding: 12px;
+  border: 1px solid #cbcbcb;
+}
+
+.segment {
+  align-self: stretch;
+  border-radius: 0 8px 8px 0;
+  flex: 1;
+  margin: auto 0;
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+}
+
+.inputWrapper {
+  display: flex;
+  margin-top: 4px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  white-space: nowrap;
+  letter-spacing: 0.24px;
+  justify-content: flex-start;
+  flex: 1;
+  flex-basis: 0%;
+  margin: auto 0;
+  font: 400 12px/1 'JetBrains Mono', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.field {
+  border-radius: 4px;
+  background-color: #f6f6f6;
+  display: flex;
+  min-height: 40px;
+  width: 100%;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-start;
+  padding: 13px 8px;
+  border: 1px solid #f0f0f0;
+}
+
+.amountInput {
+  align-self: stretch;
+  flex: 1;
+  margin: auto 0;
+  background: transparent;
+  border: none;
+  font: inherit;
+}
+
+.inputIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 12px;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.buttons {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  flex: 1;
+  flex-basis: 0%;
+  margin: auto 0;
+}
+
+.menuButton {
+  border-radius: 4px;
+  align-self: stretch;
+  display: flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  margin: auto 0;
+  border: 1px solid #cbcbcb;
+  background: transparent;
+  cursor: pointer;
+}
+
+.actionButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.buttonIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.orderList {
+  display: flex;
+  margin-top: 4px;
+  width: 100%;
+  flex-direction: column;
+  letter-spacing: 0.24px;
+  justify-content: flex-start;
+  padding: 4px 0;
+  font: 400 12px/1 'JetBrains Mono', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.header {
+  display: flex;
+  min-height: 28px;
+  width: 100%;
+  color: #969696;
+  line-height: 14px;
+  justify-content: flex-start;
+}
+
+.amountEth, .price, .totalUsdc {
+  flex: 1;
+  padding-right: 4px;
+  height: 100%;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  min-height: 16px;
+  width: 100%;
+  color: #000;
+  white-space: nowrap;
+  justify-content: flex-start;
+}
+
+.weakColor {
+  align-self: flex-start;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  min-width: 240px;
+  width: 249px;
+  height: 16px;
+  right: -13px;
+  top: 0;
+  bottom: 0;
+}
+
+.mediumColor {
+  align-self: flex-start;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  width: 64px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.amount, .total {
+  flex: 1;
+  padding-right: 4px;
+  height: 100%;
+  color: #000;
+  z-index: 10;
+}
+
+.buyRow .weakColor {
+  background-color: #e4fcf2;
+}
+
+.buyRow .mediumColor {
+  background-color: #d2faea;
+}
+
+.buyPrice {
+  flex: 1;
+  padding-right: 4px;
+  color: #00bb70;
+  height: 100%;
+}
+
+.sellRow .weakColor {
+  background-color: #fce8ee;
+}
+
+.sellRow .mediumColor {
+  background-color: #fcc7d8;
+}
+
+.sellPrice {
+  flex: 1;
+  padding-right: 4px;
+  color: #df0043;
+  height: 100%;
+}
+
+.spread {
+  display: flex;
+  min-height: 28px;
+  width: 100%;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  justify-content: flex-start;
+}
+
+.spreadLabel {
+  align-self: stretch;
+  padding-right: 4px;
+  color: #969696;
+  margin: auto 0;
+}
+
+.spreadValue {
+  align-self: stretch;
+  padding-right: 4px;
+  color: #000;
+  margin: auto 0;
+}
+
+.spreadPercentage {
+  align-self: stretch;
+  padding-right: 4px;
+  color: #00bb70;
+  margin: auto 0;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .orderBook {
+    width: 100%;
+    max-width: none;
+  }
+}

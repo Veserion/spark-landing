@@ -1,23 +1,25 @@
 "use client"
 
-import { useState } from 'react';
-import {Header, TradeAsset} from '@/components';
-import { useTheme } from 'next-themes';
+import styled from '@emotion/styled';
+import {Header, TradeAsset} from './components';
+import { TradingSection } from './components/TradingSection';
+import { RedemptionSection } from './components/RedemptionSection/RedemptionSection';
 
+const Wrapper = styled.div`
+  max-width: 1344px;
+  width: 100%;
+  margin: 0 auto;
+`
 export default function HomePage() {
-  const { theme, setTheme } = useTheme();
-  const [selectedTheme, setSelectedTheme] = useState(theme);
-
-  const toggleTheme = () => {
-    const newTheme = selectedTheme === 'dark' ? 'light' : 'dark';
-    setSelectedTheme(newTheme);
-    setTheme(newTheme);
-  };
 
   return (
     <>
-      <Header toggleTheme={toggleTheme} />
-      <TradeAsset />
+      <Header/>
+      <Wrapper>
+        <TradeAsset />
+        <TradingSection/>
+        <RedemptionSection/>
+      </Wrapper>
       {/* Другой контент страницы */}
     </>
   );
