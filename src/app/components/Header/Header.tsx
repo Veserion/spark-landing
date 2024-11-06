@@ -8,10 +8,8 @@ import {
   Nav,
   NavLink,
   RightSection,
-  // ThemeToggle,
   TradeNowButton
 } from './Header.styles';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { ThemeToggle } from './ThemeToggle';
 
 export const Header = () => {
@@ -34,14 +32,6 @@ export const Header = () => {
         </LeftSection>
 
         <RightSection>
-          {/* <ThemeToggle>
-            <DarkModeSwitch
-              style={{ marginBottom: '2rem' }}
-              checked={theme === 'dark'}
-              onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              size={24}
-            />
-          </ThemeToggle> */}
           <ThemeToggle/>
           <TradeNowButton href="/trade">
             Trade Now
