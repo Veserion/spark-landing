@@ -11,23 +11,25 @@ import {
   TradeNowButton
 } from './Header.styles';
 import { ThemeToggle } from './ThemeToggle';
+import Image from "next/image";
+import {useMemo} from "react";
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
-
+  const isDark = useMemo(() => theme === 'dark', [theme])
   return (
-    <HeaderWrapper>
+    <HeaderWrapper isDark={isDark}>
       <Container>
         <LeftSection>
-          <Logo href="/public">
-            <img src="/spark-logotype.svg" alt="Spark" />
+          <Logo href="/public" isDark={isDark}>
+            <Image src={`/spark-logotype${!isDark ? '-light' : ''}.svg`} alt="Spark" width={110} height={32}/>
           </Logo>
           
           <Nav>
-            <NavLink href="/learn">Learn</NavLink>
-            <NavLink href="/trade">Trade</NavLink>
-            <NavLink href="/build">Build</NavLink>
-            <NavLink href="/liquidity">Liquidity</NavLink>
+            <NavLink isDark={isDark} href="/learn">Learn</NavLink>
+            <NavLink isDark={isDark} href="/trade">Trade</NavLink>
+            <NavLink isDark={isDark} href="/build">Build</NavLink>
+            <NavLink isDark={isDark} href="/liquidity">Liquidity</NavLink>
           </Nav>
         </LeftSection>
 

@@ -12,23 +12,27 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en" suppressHydrationWarning className={syne.className}>
       <head>
         <style jsx global>{`
-          :root {
-            --background-color: #fff;
-            --text-color: #000;
-          }
+            :root {
+                --background-color: #fff;
+                --text-color: #000;
+                --light: #FFFFFF;
+                --light-a: #FFFFFFE6;
+                --light-500: rgba(247, 247, 247, 1);
+            }
 
-          [data-theme='dark'] {
-            --background-color: #000;
-            --text-color: #fff;
-          }
+            [data-theme='dark'] {
+                --background-color: #000;
+                --text-color: #fff;
+                --gray-text: rgba(177, 177, 177, 1);
+            }
 
-          body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease;
-            margin: 0;
-            padding: 0;
-          }
+            body {
+                background-color: var(--background-color);
+                color: var(--text-color);
+                transition: background-color 0.3s ease;
+                margin: 0;
+                padding: 0;
+            }
         `}</style>
       </head>
       <body>
