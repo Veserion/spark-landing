@@ -1,3 +1,3 @@
-export {Header} from './Header';
-export {TradeAsset} from './TradeAsset';
-// Добавьте другие компоненты по мере необходимости 
+export { Header } from './Header';
+export { TradeAsset } from './TradeAsset';
+export { BackedBest } from './BackedBest';
