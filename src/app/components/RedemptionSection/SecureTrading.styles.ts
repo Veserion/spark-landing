@@ -20,19 +20,34 @@ export const TradingContent = styled.div`
   gap: 24px;
   padding: 16px;
   flex-wrap: wrap;
+  overflow: hidden;
 
-  @media (max-width: 991px) {
-    max-width: 100%;
+  @media (max-width: 1024px) {
+    flex-direction: column;
   }
 `;
 
 export const TradingVisual = styled.div`
   flex: 1;
-  min-width: 240px;
   width: 412px;
+  max-width: 412px;
   height: 300px;
+  max-height: 300px;
   border-radius: 8px;
+  padding: 16px;
   background-color: rgba(246, 246, 246, 1);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;  
+  overflow: hidden;
+
+  @media (max-width: 1280px) {
+    width: 340px;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const TradingInfo = styled.div`

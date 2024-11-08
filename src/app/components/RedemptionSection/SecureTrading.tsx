@@ -1,11 +1,18 @@
 import React from 'react';
 import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, TradeButton, ButtonIcon, MobileOptimized, MobileIcon } from './SecureTrading.styles';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 export const SecureTrading: React.FC = () => {
+    const {theme} = useTheme();
+    const isDark = theme === 'dark';
+
   return (
     <SecureTradingContainer>
       <TradingContent>
-        <TradingVisual />
+        <TradingVisual>
+          <Image src={`/images/mobile-${isDark ? 'dark' : 'light'}.png`} alt="" width={293} height={600} />
+        </TradingVisual>
         <TradingInfo>
           <TradingTitle>Self Custody and Secure Trading</TradingTitle>
           <TradingDescription>
