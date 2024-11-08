@@ -21,6 +21,9 @@ export const Container = styled.div<{ isDark: boolean }>`
   justify-content: space-between;
   align-items: center;
   color: ${({ isDark }) => (isDark ? 'white' : 'black')};
+  @media screen and (max-width: 680px) {
+    padding: 0 8px;
+  }
 `;
 
 export const LeftSection = styled.div`

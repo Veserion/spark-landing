@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
+
 export const SecureTradingContainer = styled.div<{isDark: boolean}>`
   margin-top: 48px;
   width: 100%;
   border-radius: 20px;
   background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' : 'var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))'};
   padding: 4px;
-  animation: gradientAnimation 5s infinite alternate;
+  animation: gradientAnimation 3s infinite alternate;
 
   @media (max-width: 991px) {
     margin-top: 40px;

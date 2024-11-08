@@ -18,6 +18,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 --light: #FFFFFF;
                 --light-a: #FFFFFFE6;
                 --light-500: rgba(247, 247, 247, 1);
+                overflow: hidden;
             }
 
             [data-theme='dark'] {
