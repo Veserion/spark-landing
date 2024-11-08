@@ -1,12 +1,11 @@
-import React, {useMemo} from 'react';
-import styles from './FeatureCard.module.css';
-import {useTheme} from "next-themes";
-import Image from "next/image";
+import React, { useMemo } from 'react';
+import { useTheme } from "next-themes";
+import { ActionButton, BtnsContentWrapper, CardContent, CardTitle, FeatureCardContainer, FeatureImage, IconArrowRightStyled } from './FeatureCard.styles';
 
 export interface FeatureCardProps {
     title: string;
     buttonText: string;
-    iconSrc: string;
+    icon: React.FC<React.SVGProps<SVGSVGElement>>;
     imageSrc: string;
     backgroundColor: string;
     backgroundColorDark: string;
@@ -16,39 +15,47 @@ export interface FeatureCardProps {
     buttonColorDark: string;
 }
 
-export const FeatureCard: React.FC<FeatureCardProps> = (
-    {
-        title,
-        buttonText,
-        iconSrc,
-        imageSrc,
-        backgroundColor,
-        backgroundColorDark,
-        borderColor,
-        borderColorDark,
-        buttonColor,
-        buttonColorDark
-    }) => {
-    const {theme} = useTheme();
+
+export const FeatureCard: React.FC<FeatureCardProps> = ({
+    title,
+    buttonText,
+    icon: Icon,
+    imageSrc,
+    backgroundColor,
+    backgroundColorDark,
+    borderColor,
+    borderColorDark,
+    buttonColor,
+    buttonColorDark
+}) => {
+    const { theme } = useTheme();
     const isDark = useMemo(() => theme === 'dark', [theme]);
 
     return (
-        <div className={styles.featureCard} style={{
-            backgroundColor: isDark ? backgroundColorDark : backgroundColor,
-            border: `3px solid ${isDark ? borderColorDark : borderColor}`
-        }}>
-            <div className={styles.cardContent}>
-                <button className={styles.actionButton} style={{
-                    color: isDark ? buttonColorDark : buttonColor,
-                    backgroundColor: isDark ? 'black' : 'white'
-                }}>
-                    <Image src={'spark.svg'} alt={''} width={24} height={24}/>
-
-                    <span>{buttonText}</span>
-                </button>
-                <h2 className={styles.cardTitle}>{title}</h2>
-            </div>
-            <img src={imageSrc} alt="" className={styles.featureImage}/>
-        </div>
+        <FeatureCardContainer
+            isDark={isDark}
+            backgroundColor={backgroundColor}
+            backgroundColorDark={backgroundColorDark}
+            borderColor={borderColor}
+            borderColorDark={borderColorDark}
+        >
+            <CardContent>
+                <ActionButton
+                    isDark={isDark}
+                    buttonColor={buttonColor}
+                    buttonColorDark={buttonColorDark}
+                >
+                    <BtnsContentWrapper id='btns-content-wrapper'>
+                        <BtnsContentWrapper>
+                            <Icon/>
+                            <span>{buttonText}</span>
+                            <IconArrowRightStyled />
+                        </BtnsContentWrapper>
+                    </BtnsContentWrapper>
+                </ActionButton>
+                <CardTitle>{title}</CardTitle>
+            </CardContent>
+            <FeatureImage src={imageSrc} alt="" />
+        </FeatureCardContainer>
     );
 };
