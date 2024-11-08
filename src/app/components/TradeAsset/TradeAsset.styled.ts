@@ -16,7 +16,7 @@ const slideVerticalMobile = keyframes`
 // Анимация для горизонтального движения
 const slideHorizontal = keyframes`
   0%, 25% { transform: translateX(0); }
-  50%, 75% { transform: translateX(-70px); }
+  50%, 75% { transform: translateX(-80px); }
   100% { transform: translateX(0); }
 `;
 
@@ -32,6 +32,11 @@ const slideHorizontal2 = keyframes`
   100% { transform: translateX(0); }
 `;
 
+const slideHorizontal3 = keyframes`
+  0%, 25% { transform: translateX(0); }
+  50%, 75% { transform: translateX(40px); }
+  100% { transform: translateX(0); }
+`;
 
 export const AnimatedContainer = styled.div`
     overflow: hidden;
@@ -43,8 +48,11 @@ export const AnimatedContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
+    @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const AnimatedTitleWrapper = styled.div`
@@ -73,7 +81,7 @@ export const Title = styled.h1`
 export const StaticTitle = styled.h1`
     font-size: 48px;
     font-weight: bold;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 20px;
     text-transform: uppercase;
     display: inline-block;
     animation: ${slideHorizontal} 4s infinite;
@@ -131,6 +139,9 @@ export const Description = styled.div<{ isDark: boolean }>`
     border-radius: 16px;
     padding: 8px 16px;
     width: fit-content;
+    @media screen and (max-width: 680px) {
+        font-size: 12px;
+    }
 `
 
 export const Title2 = styled.h1`
@@ -153,7 +164,7 @@ export const Subtitle = styled.p`
         text-align: center;
     }
     @media screen and (max-width: 680px) {
-        margin: 0 0 32px;
+        margin: 0 0 26px;
         font-size: 16px;
     }
 `;
@@ -192,6 +203,9 @@ export const ImagesContainer = styled.div`
             display: none;
         }
     }
+    @media screen and (min-width: 680px) and (max-width: 1024px) {
+        height: 340px;
+    }
     @media screen and (max-width: 680px) {
        height: 240px;
         > :first-child {
@@ -203,7 +217,10 @@ export const ImagesContainer = styled.div`
 export const AnimatedWrapper = styled.div`
     display: flex;
     align-items: center;
-    position: relative;
+    
+    @media screen and (min-width: 680px) and (max-width: 1024px) {
+        animation: ${slideHorizontal3} 4s infinite;
+    }
     @media screen and (max-width: 680px) {
         animation: ${slideHorizontal2} 4s infinite;
     }

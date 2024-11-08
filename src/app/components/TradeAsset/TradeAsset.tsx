@@ -36,8 +36,8 @@ export const TradeAsset = () => {
                         </AnimatedContainer>
                         <StaticTitle>ANY ASSET</StaticTitle>
                     </AnimatedWrapper>
+                    <Title2>ONCHAIN</Title2>
                 </Wrapper>
-                <Title2>ONCHAIN</Title2>
                 <Subtitle>
                     Spark is an Ethereum rollup with an integrated order book, enabling truly decentralized and seamless
                     trading.
