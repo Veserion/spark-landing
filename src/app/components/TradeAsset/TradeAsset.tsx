@@ -4,7 +4,6 @@ import {
     TradeAssetContainer,
     ContentWrapper,
     Subtitle,
-    TradeButton,
     ImagesContainer,
     Description,
     Title2,
@@ -13,6 +12,7 @@ import {
     Title,
     StaticTitle
 } from "@/app/components/TradeAsset/TradeAsset.styled";
+import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 
 export const TradeAsset = () => {
     const {theme} = useTheme();
@@ -38,10 +38,7 @@ export const TradeAsset = () => {
                     Spark is an Ethereum rollup with an integrated order book, enabling truly decentralized and seamless
                     trading.
                 </Subtitle>
-                <TradeButton isDark={isDark}>
-                    <Image src={'spark.svg'} alt={''} width={28} height={28}/>
-                    Trade Now
-                </TradeButton>
+                <TradeButton buttonText='Trade Now' />
             </ContentWrapper>
             <ImagesContainer>
                 <Image src={`/images/order-book${!isDark ? '-light' : ''}.png`} alt={''} width={276} height={556}/>

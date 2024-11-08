@@ -76,6 +76,10 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
         align-items: flex-start;
     }
     position: relative;
+
+    :hover {
+        background-color: ${props => props.isDark ? 'rgba(25, 5, 78, 1)' : 'rgba(219, 211, 255, 1)'};
+    }
 `;
 
 const FeatureContent = styled.div`
