@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   z-index: 100;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ isDark: boolean }>`
   //max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -20,6 +20,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${({ isDark }) => (isDark ? 'white' : 'black')};
 `;
 
 export const LeftSection = styled.div`
@@ -29,25 +30,21 @@ export const LeftSection = styled.div`
     gap: 40px;
 `;
 
-export const Logo = styled(Link)`
-    color: ${({isDark}) => (isDark ? 'white' : 'black')};
-`;
-
 export const Nav = styled.nav`
     display: flex;
     align-items: center;
     gap: 10px;
 `;
 
-export const NavLink = styled(Link)<{ isDark: boolean }>`
-    color: ${({isDark}) => (isDark ? 'white' : 'black')};
+
+export const NavLink = styled(Link)`
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s;
     line-height: 20px;
     padding: 6px 12px;
-
+    color: inherit;
     &:hover {
         color: #8A7CFF;
     }

@@ -4,7 +4,6 @@ import {
   HeaderWrapper,
   Container,
   LeftSection,
-  Logo,
   Nav,
   NavLink,
   RightSection,
@@ -13,23 +12,25 @@ import {
 import { ThemeToggle } from './ThemeToggle';
 import Image from "next/image";
 import {useMemo} from "react";
+import Link from 'next/link';
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
-  const isDark = useMemo(() => theme === 'dark', [theme])
+  const isDark = useMemo(() => theme === 'dark', [theme]);
+
   return (
     <HeaderWrapper isDark={isDark}>
-      <Container>
+      <Container isDark={isDark}>
         <LeftSection>
-          <Logo href="/public" isDark={isDark}>
+          <Link href="/public">
             <Image src={`/spark-logotype${!isDark ? '-light' : ''}.svg`} alt="Spark" width={110} height={32}/>
-          </Logo>
+          </Link>
           
           <Nav>
-            <NavLink isDark={isDark} href="/learn">Learn</NavLink>
-            <NavLink isDark={isDark} href="/trade">Trade</NavLink>
-            <NavLink isDark={isDark} href="/build">Build</NavLink>
-            <NavLink isDark={isDark} href="/liquidity">Liquidity</NavLink>
+            <NavLink href="/learn">Learn</NavLink>
+            <NavLink href="/trade">Trade</NavLink>
+            <NavLink href="/build">Build</NavLink>
+            <NavLink href="/liquidity">Liquidity</NavLink>
           </Nav>
         </LeftSection>
 

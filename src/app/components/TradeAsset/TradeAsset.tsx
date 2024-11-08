@@ -3,10 +3,15 @@ import Image from 'next/image'
 import {
     TradeAssetContainer,
     ContentWrapper,
-    Title,
     Subtitle,
     TradeButton,
-    ImagesContainer, Description, Title2
+    ImagesContainer,
+    Description,
+    Title2,
+    AnimatedContainer,
+    AnimatedTitleWrapper,
+    Title,
+    StaticTitle
 } from "@/app/components/TradeAsset/TradeAsset.styled";
 
 export const TradeAsset = () => {
@@ -19,7 +24,15 @@ export const TradeAsset = () => {
                 <Description isDark={isDark}>
                     The Onchain Trading Rollup
                 </Description>
-                <Title>TRADE ANY ASSET</Title>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <AnimatedContainer>
+                        <AnimatedTitleWrapper>
+                            <Title>TRADE</Title>
+                            <Title>LIST</Title>
+                        </AnimatedTitleWrapper>
+                    </AnimatedContainer>
+                    <StaticTitle>ANY ASSET</StaticTitle>
+                </div>
                 <Title2>ONCHAIN</Title2>
                 <Subtitle>
                     Spark is an Ethereum rollup with an integrated order book, enabling truly decentralized and seamless

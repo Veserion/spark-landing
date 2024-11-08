@@ -1,4 +1,49 @@
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
+
+// Обновленная анимация для вертикального движения контейнера
+const slideVertical = keyframes`
+  0%, 25% { transform: translateY(0); }
+  50%, 75% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+`;
+
+// Анимация для горизонтального движения
+const slideHorizontal = keyframes`
+  0%, 25% { transform: translateX(0); }
+  50%, 75% { transform: translateX(-70px); }
+  100% { transform: translateX(0); }
+`;
+
+export const AnimatedContainer = styled.div`
+    overflow: hidden;
+    height: 48px; // Высота одного заголовка
+    display: inline-block;
+`;
+
+export const AnimatedTitleWrapper = styled.div`
+    animation: ${slideVertical} 4s infinite;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const Title = styled.h1`
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 48px;
+`;
+
+
+export const StaticTitle = styled.h1`
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0 0 0 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    animation: ${slideHorizontal} 4s infinite;
+`;
 
 export const TradeAssetContainer = styled.div<{ isDark: boolean }>`
     display: flex;
@@ -37,19 +82,13 @@ export const Description = styled.div<{ isDark: boolean }>`
     width: fit-content;
 `
 
-export const Title = styled.h1`
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
-    text-transform: uppercase;
-`;
-
 export const Title2 = styled.h1`
     font-size: 90px;
     font-weight: bold;
     margin: 0;
     line-height: 103px;
     text-transform: uppercase;
+    font-family: 'Bebas Neue', sans-serif;
 `;
 
 export const Subtitle = styled.p`

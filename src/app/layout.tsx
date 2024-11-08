@@ -1,6 +1,6 @@
 'use client';
 import { ThemeProvider } from 'next-themes';
-import { Syne } from 'next/font/google';
+import { Syne, Jumbo } from 'next/font/google';
 
 const syne = Syne({
   subsets: ['latin'],
