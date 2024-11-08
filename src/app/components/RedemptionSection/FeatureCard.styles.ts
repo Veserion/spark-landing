@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import IconArrowRight from '../icons/IconArrowRight';
+import { IconArrowRight } from '@/shared';
 
 
 export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColor: string, backgroundColorDark: string, borderColor: string, borderColorDark: string }>`

@@ -4,10 +4,7 @@ import { FeatureCard, FeatureCardProps } from './FeatureCard';
 import { SecureTrading } from './SecureTrading';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import IconChartCandle from '../icons/IconChartCandle';
-import IconCoins from '../icons/IconCoins';
-import IconTerminal2 from '../icons/IconTerminal2';
-import IconCheckupList from '../icons/IconCheckupList';
+import { IconChartCandle, IconCoins, IconTerminal2, IconCheckupList  } from '@/shared';
 
 const RedemptionSectionContainer = styled.section`
     display: flex;
