@@ -4,6 +4,10 @@ import { FeatureCard, FeatureCardProps } from './FeatureCard';
 import { SecureTrading } from './SecureTrading';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import IconChartCandle from '../icons/IconChartCandle';
+import IconCoins from '../icons/IconCoins';
+import IconTerminal2 from '../icons/IconTerminal2';
+import IconCheckupList from '../icons/IconCheckupList';
 
 const RedemptionSectionContainer = styled.section`
     display: flex;
@@ -49,7 +53,7 @@ const FeatureCardsContainer = styled.div`
     gap: 24px;
     justify-content: center;
 
-    @media screen and (min-width: 680px) and (max-width: 1034px) {
+    @media screen and (max-width: 680px) {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 1fr);
         justify-content: center;
@@ -65,17 +69,11 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
     overflow: hidden;
     color: ${props => props.isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'};
 
-    @media screen and (max-width: 1280px) {
-        height: 340px;
+    @media screen and (max-width: 1024px) {
+        height: 416px;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-    }
-    @media screen and (min-width: 1024px) and (max-width: 1280px) {
-        height: 460px;
-    }
-    @media screen and (max-width: 1024px) {
-        // width: 416px;
     }
     position: relative;
 `;
@@ -109,7 +107,7 @@ const featureCards: FeatureCardProps[] = [
   {
     title: 'On-Chain trading with NO LIMITS.',
     buttonText: 'Trade Now',
-    iconSrc: '/icons/tabler-icon-chart-candle.svg',
+    icon: IconChartCandle,
     imageSrc: '/images/permissionless-v2.png',
     backgroundColor: 'rgba(255, 247, 242)',
     backgroundColorDark: 'rgba(28, 11, 0)',
@@ -121,7 +119,7 @@ const featureCards: FeatureCardProps[] = [
   {
     title: 'Earn rewards with Spark incentives.',
     buttonText: 'Provide Liquidity',
-    iconSrc: '/icons/tabler-icon-coin.svg',
+    icon: IconCoins,
     imageSrc: '/images/incentives-v2.png',
     backgroundColor: 'rgba(239, 252, 255, 1)',
     backgroundColorDark: 'rgba(0, 22, 26, 1)',
@@ -133,7 +131,7 @@ const featureCards: FeatureCardProps[] = [
   {
     title: 'Develop the future dApps of DeFi.',
     buttonText: 'Build Now',
-    iconSrc: '/icons/tabler-icon-code.svg',
+    icon: IconTerminal2,
     imageSrc: '/images/build-v2.png',
     backgroundColor: 'rgba(244, 255, 236, 1)',
     backgroundColorDark: 'rgba(10, 22, 0, 1)',
@@ -145,7 +143,7 @@ const featureCards: FeatureCardProps[] = [
   {
     title: 'List any token, even meme coins.',
     buttonText: 'List Assets',
-    iconSrc: '/icons/tabler-icon-checkup-list.svg',
+    icon: IconCheckupList,
     imageSrc: '/images/list.png',
     backgroundColor: 'rgba(252, 248, 232, 1)',
     backgroundColorDark: 'rgba(35, 28, 1, 1)',

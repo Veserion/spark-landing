@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Image from "next/image";
 export interface FeatureCardProps {
     title: string;
     buttonText: string;
-    iconSrc: string;
+    icon: React.FC<React.SVGProps<SVGSVGElement>>;
     imageSrc: string;
     backgroundColor: string;
     backgroundColorDark: string;
@@ -19,26 +19,26 @@ export interface FeatureCardProps {
 const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColor: string, backgroundColorDark: string, borderColor: string, borderColorDark: string }>`
     flex: 1;
     min-width: 240px;
-    min-height: 340px;
     border-radius: 16px;
     padding: 16px;
     display: flex;
-    flex-basis: 30%;
     gap: 16px;
     overflow: hidden;
     background-color: ${({ isDark, backgroundColor, backgroundColorDark }) => isDark ? backgroundColorDark : backgroundColor};
     border: 3px solid ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
-
+    :hover {
+        background: ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
+    }
+    transition: background 0.3s ease;
+    
     @media screen and (max-width: 1280px) {
         height: 340px;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
     }
-    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    @media screen and (max-width: 1024px) {
         height: 460px;
-    }
-    @media screen and (max-width: 680px) {
         width: 416px;
     }
 `;
@@ -82,7 +82,7 @@ const FeatureImage = styled.img`
 export const FeatureCard: React.FC<FeatureCardProps> = ({
     title,
     buttonText,
-    iconSrc,
+    icon,
     imageSrc,
     backgroundColor,
     backgroundColorDark,
@@ -108,7 +108,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
                     buttonColor={buttonColor}
                     buttonColorDark={buttonColorDark}
                 >
-                    <Image src={'spark.svg'} alt={''} width={24} height={24} />
+                    {React.createElement(icon)}
                     <span>{buttonText}</span>
                 </ActionButton>
                 <CardTitle>{title}</CardTitle>
