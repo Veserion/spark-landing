@@ -4,10 +4,10 @@ import { FeatureCard, FeatureCardProps } from './FeatureCard';
 import { SecureTrading } from './SecureTrading';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import IconChartCandle from '../icons/IconChartCandle';
-import IconCoins from '../icons/IconCoins';
-import IconTerminal2 from '../icons/IconTerminal2';
-import IconCheckupList from '../icons/IconCheckupList';
+import IconChartCandle from '../../shared/icons/IconChartCandle';
+import IconCoins from '../../shared/icons/IconCoins';
+import IconTerminal2 from '../../shared/icons/IconTerminal2';
+import IconCheckupList from '../../shared/icons/IconCheckupList';
 
 const RedemptionSectionContainer = styled.section`
     display: flex;

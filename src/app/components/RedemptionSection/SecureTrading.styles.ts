@@ -1,33 +1,43 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
-export const SecureTradingContainer = styled.div`
+export const SecureTradingContainer = styled.div<{isDark: boolean}>`
   margin-top: 48px;
   width: 100%;
   border-radius: 20px;
-  background: var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%));
+  background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' : 'var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))'};
   padding: 4px;
+  animation: gradientAnimation 5s infinite alternate;
 
   @media (max-width: 991px) {
     margin-top: 40px;
   }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  background-size: 200% 200%;
 `;
 
-export const TradingContent = styled.div`
+export const TradingContent = styled.div<{isDark: boolean}>`
   border-radius: 16px;
-  background-color: rgba(255, 255, 255, 1);
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 16px;
   flex-wrap: wrap;
   overflow: hidden;
-
+  background-color: ${({isDark}) => isDark ? 'black' : 'white'};
   @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
 
-export const TradingVisual = styled.div`
+export const TradingVisual = styled.div<{isDark: boolean}>`
   flex: 1;
   width: 412px;
   max-width: 412px;
@@ -35,7 +45,7 @@ export const TradingVisual = styled.div`
   max-height: 300px;
   border-radius: 8px;
   padding: 16px;
-  background-color: rgba(246, 246, 246, 1);
+  background-color: ${({isDark}) => isDark ? 'rgba(23, 23, 23, 1)' : 'rgba(246, 246, 246, 1)'};
   overflow: hidden;
   display: flex;
   align-items: flex-start;
@@ -62,12 +72,10 @@ export const TradingInfo = styled.div`
 `;
 
 export const TradingTitle = styled.h2`
-  color: var(--dark-1000, #000);
   font: 700 38px var(--Font-Titles, Syne);
 `;
 
 export const TradingDescription = styled.p`
-  color: var(--dark-1000, #000);
   margin-top: 32px;
   font: 400 24px var(--Font-Body, Syne);
 `;

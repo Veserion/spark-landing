@@ -8,9 +8,9 @@ export const SecureTrading: React.FC = () => {
     const isDark = theme === 'dark';
 
   return (
-    <SecureTradingContainer>
-      <TradingContent>
-        <TradingVisual>
+    <SecureTradingContainer isDark={isDark}>
+      <TradingContent isDark={isDark}>
+        <TradingVisual isDark={isDark}>
           <Image src={`/images/mobile-${isDark ? 'dark' : 'light'}.png`} alt="" width={293} height={600} />
         </TradingVisual>
         <TradingInfo>
