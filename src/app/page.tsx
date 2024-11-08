@@ -37,10 +37,10 @@ export default function HomePage() {
       <Header/>
       <Main>
         <TradeAsset />
-        <TradingSection/>
-        <RedemptionSection/>
+        {/* <TradingSection/> */}
+        {/* <RedemptionSection/> */}
       </Main>
-      <BackedBest />
+      {/* <BackedBest /> */}
     </RootWrapper>
   );
 }
