@@ -1,4 +1,3 @@
-export * from './logo1';
 import { Logo1 } from './logo1';
 import { Logo2 } from './logo2';
 import { Logo3 } from './logo3';

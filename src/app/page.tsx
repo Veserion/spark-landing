@@ -1,9 +1,7 @@
 "use client"
 
 import styled from '@emotion/styled';
-import { Header, TradeAsset, BackedBest } from './components';
-import { TradingSection } from './components/TradingSection';
-import { RedemptionSection } from './components/RedemptionSection/RedemptionSection';
+import { Header, TradeAsset, TradingSection, RedemptionSection, BackedBest, Subscriptions } from './components';
 
 const RootWrapper = styled.div`
     width: 100%;
@@ -41,6 +39,9 @@ export default function HomePage() {
         <RedemptionSection/>
       </Main>
       <BackedBest />
+      <Main>
+        <Subscriptions />
+      </Main>
     </RootWrapper>
   );
 }
