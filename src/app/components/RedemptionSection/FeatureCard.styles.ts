@@ -17,19 +17,31 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
         #btns-content-wrapper {
             >div {
                 transform: translateX(-30px);
-                transition: transform 1s ease;
+                transition: transform 0.5s ease;
                 >svg:first-child {
                     opacity: 0;
-                    transition: opacity ease-out 0.7s;
+                    transition: opacity ease-out 0.5s;
                 }
                 >svg:last-child {
                     opacity: 1;
-                    transition: opacity ease-out 0.7s;
+                    transition: opacity ease-out 0.5s;
                 }
             }
         }
     }
-    transition: background 0.3s ease;
+    transition: background 0.5s ease;
+    #btns-content-wrapper > div {
+        transform: translateX(0);
+        transition: transform 0.5s ease;
+        >svg:first-child {
+            opacity: 1;
+            transition: opacity ease-out 0.5s;
+        }
+        >svg:last-child {
+            opacity: 0;
+            transition: opacity ease-out 0.5s;
+        }
+    }
     
     @media screen and (max-width: 1280px) {
         height: 340px;
