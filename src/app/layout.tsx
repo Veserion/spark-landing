@@ -1,6 +1,6 @@
 'use client';
 import { ThemeProvider } from 'next-themes';
-import { Syne, Jumbo } from 'next/font/google';
+import { Syne } from 'next/font/google';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -32,11 +32,24 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                 transition: background-color 0.3s ease;
                 margin: 0;
                 padding: 0;
+                height: 100vh;
+                width: 100vw;
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                position: relative;
+            }
+
+            * {
+              box-sizing: border-box;
+              padding: 0;
+              margin: 0;
             }
         `}</style>
       </head>
       <body>
-        <ThemeProvider 
+        <ThemeProvider
           attribute="data-theme"
           defaultTheme="dark"
           enableSystem={true}

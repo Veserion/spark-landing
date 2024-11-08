@@ -49,7 +49,6 @@ export const TradeAssetContainer = styled.div<{ isDark: boolean }>`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px;
     margin-top: 100px;
 
     @media screen and (min-width: 680px) and (max-width: 1034px) {
