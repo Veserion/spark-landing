@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconAndroid = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconAndroid = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -29,4 +29,4 @@ const IconAndroid = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement
   </svg>
 ));
 
-export default IconAndroid; 
+IconAndroid.displayName = 'IconAndroid'; 

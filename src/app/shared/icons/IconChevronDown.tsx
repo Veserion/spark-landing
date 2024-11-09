@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconChevronDown = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconChevronDown = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -19,4 +19,4 @@ const IconChevronDown = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGEle
   </svg>
 ));
 
-export default IconChevronDown; 
+IconChevronDown.displayName = 'IconChevronDown'; 

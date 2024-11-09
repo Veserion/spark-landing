@@ -19,4 +19,4 @@ export const IconCoins = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGEl
   </svg>
 ));
 
-export default IconCoins; 
+IconCoins.displayName = 'IconCoins'; 

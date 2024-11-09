@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconCircleCheckFilled = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconCircleCheckFilled = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -17,4 +17,4 @@ const IconCircleCheckFilled = React.forwardRef<SVGSVGElement, React.SVGProps<SVG
   </svg>
 ));
 
-export default IconCircleCheckFilled; 
+IconCircleCheckFilled.displayName = 'IconCircleCheckFilled'; 

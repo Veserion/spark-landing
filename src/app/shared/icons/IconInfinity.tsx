@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconInfinity = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconInfinity = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -19,4 +19,4 @@ const IconInfinity = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElemen
   </svg>
 ));
 
-export default IconInfinity; 
+IconInfinity.displayName = 'IconInfinity'; 

@@ -2,7 +2,6 @@
 import { useTheme } from "next-themes";
 import { useMemo } from "react";
 import Link from "next/link";
-import { Logo } from "@/shared";
 import { socialListFooter } from "@/helpers";
 import { TIconProps } from "@/shared";
 import {

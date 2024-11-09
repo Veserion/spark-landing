@@ -35,4 +35,4 @@ export const IconHashcloack: FC<TIconProps> = ({width = 24, height = 24}) => (
   </svg>
 );
 
-export default IconHashcloack;
+IconHashcloack.displayName = 'IconHashcloack';
