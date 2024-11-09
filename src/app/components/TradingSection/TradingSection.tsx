@@ -131,15 +131,12 @@ const FuelDescription = styled.p`
   }
 `;
 
-const TradingFreedomCard = styled.div<{ isDark?: boolean }>`
+const TradingFreedomCard = styled.div<{isDark: boolean}>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: ${({ isDark }) =>
-    isDark
-      ? "linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%)"
-      : "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"};
+  background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' :  'linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%)'};
   animation: gradientAnimation 3s infinite alternate;
   border-radius: 20px;
   box-sizing: border-box;
@@ -158,7 +155,7 @@ const TradingFreedomCard = styled.div<{ isDark?: boolean }>`
   }
 `;
 
-const CardContent = styled.div<{ isDark?: boolean }>`
+const CardContent = styled.div<{ isDark: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -263,7 +260,7 @@ export const TradingSection: React.FC = () => {
             </FuelDescription>
           </InfoBox>
         </ImageWrapper>
-        <TradingFreedomCard>
+        <TradingFreedomCard isDark={isDark}>
           <CardContent isDark={isDark}>
             <CardHeader>
               <CardTitle>Unlock Your Trading Freedom</CardTitle>

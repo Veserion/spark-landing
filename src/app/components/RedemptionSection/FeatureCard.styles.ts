@@ -54,7 +54,7 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
         align-items: center;
     }
     @media screen and (max-width: 680px) {
-        height: 416px;
+        height: 420px;
     }
 `;
 

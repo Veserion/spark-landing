@@ -40,21 +40,53 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (menuRef.current && 
+          !menuRef.current.contains(event.target as Node) && 
+          !(event.target as Element).closest('.burger-button')) {
         onClose();
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <>
-      <Overlay isOpen={isOpen} />
-      <MenuContainer ref={menuRef} isOpen={isOpen}>
+      <Overlay 
+        className="mobile-menu-overlay" 
+        isOpen={isOpen} 
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }} 
+      />
+      <MenuContainer 
+        ref={menuRef} 
+        isOpen={isOpen} 
+        onClick={(e) => e.stopPropagation()}
+      >
         <SparkMenu isDark={isDark} />
       </MenuContainer>
     </>

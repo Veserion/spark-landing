@@ -110,7 +110,6 @@ export const TradeAssetContainer = styled.div<{ isDark: boolean }>`
 
     @media screen and (max-width: 680px) {
         flex-direction: column;
-        height: 540px;
         align-items: center;
     }
 `;

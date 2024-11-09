@@ -7,6 +7,7 @@ export const TradeButtonContainer = styled.button<{
   backgroundColor?: string;
   borderColor?: string;
 }>`
+<<<<<<< HEAD
   border-radius: 100px;
   background-color: ${({ backgroundColor, isDark }) =>
     backgroundColor && isDark ? backgroundColor : "rgba(255, 255, 255, 1)"};
@@ -27,6 +28,26 @@ export const TradeButtonContainer = styled.button<{
   font-size: ${({ size }) => (size === "large" ? "26px" : "24px")};
   width: ${({ size }) => (size === "large" ? "212px" : "181px")};
   height: ${({ size }) => (size === "large" ? "54px" : "45px")};
+=======
+    border-radius: 100px;
+    background-color: ${({ backgroundColor }) => backgroundColor ?? 'rgba(103, 67, 238, 1)'};
+    border: ${({ borderColor }) => borderColor ? `1px solid ${borderColor}` : 'none'};
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-weight: regular;
+    font-size: 24px;
+    cursor: pointer;
+    color: ${({backgroundColor}) => backgroundColor ? 'unset' : 'white'};
+    position: relative;
+    overflow: hidden;
+    transition: background 0.5s ease;
+    width: fit-content;
+    font-size: ${({ size }) => size === 'large' ? '26px' : '24px'};
+    width: ${({ size }) => size === 'large' ? '212px' : '181px'};
+    height: ${({ size }) => size === 'large' ? '54px' : '45px'};
+>>>>>>> main
 
   #btns-content-wrapper {
     > div {

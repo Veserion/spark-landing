@@ -11,10 +11,12 @@ import {
   Footer,
 } from "./components";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const RootWrapper = styled.div`
   width: 100%;
 `;
+
 const Main = styled.div`
   max-width: 1440px;
   width: 100%;
@@ -32,18 +34,28 @@ const Main = styled.div`
     gap: 80px;
   }
 
-  @media screen and (max-width: 680px) {
-    max-width: 680px;
-    padding-right: 8px;
-    padding-left: 8px;
-    gap: 64px;
-  }
+    @media screen and (max-width: 680px) {
+      max-width: 680px;
+      padding-right: 8px;
+      padding-left: 8px;
+      gap: 64px;
+    }
 `;
 
 export default function HomePage() {
+  const [mounted, setMounted] = useState(false);
   const { setTheme } = useTheme();
-  if (typeof window !== "undefined") {
-    setTheme(localStorage.getItem("theme") || "dark");
+
+  useEffect(() => {
+    setMounted(true);
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, [setTheme]);
+
+  if (!mounted) {
+    return null;
   }
 
   return (

@@ -3,20 +3,25 @@ import {
   StyledMobileMenuButton,
   MobileMenuContent,
   MenuText,
-  MobileMenuIcon
 } from './styles';
 
 interface MobileMenuButtonProps {
   text: string;
-  icon: string;
+  icon: React.ReactNode;
   isDark: boolean;
+  onClick?: () => void;
 }
 
-const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ text, icon, isDark }) => (
-  <StyledMobileMenuButton isDark={isDark}>
+const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ 
+  text, 
+  icon, 
+  isDark,
+  onClick 
+}) => (
+  <StyledMobileMenuButton isDark={isDark} onClick={onClick}>
     <MobileMenuContent>
       <MenuText isDark={isDark}>{text}</MenuText>
-      <MobileMenuIcon src={icon} alt="" isDark={isDark} />
+      {icon}
     </MobileMenuContent>
   </StyledMobileMenuButton>
 );

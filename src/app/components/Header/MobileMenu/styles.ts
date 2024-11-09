@@ -21,12 +21,13 @@ export const Container = styled.nav<ThemeProps>`
   display: flex;
   width: 320px;
   flex-direction: column;
-  overflow: hidden;
   padding: 8px;
   background: ${({ isDark }) => (isDark ? "#1A1A1A" : "#FFFFFF")};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
+  font-family: "Syne", sans-serif;
   * {
     border: unset;
+    font-family: inherit;
   }
 `;
 
@@ -87,7 +88,8 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   white-space: nowrap;
   background: transparent;
   border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
 
   &:hover {
     background: ${({ isDark }) => (isDark ? "rgba(23, 23, 23, 1)" : "#F7F7F7")};
@@ -100,16 +102,6 @@ export const MobileMenuContent = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-`;
-
-export const MobileMenuIcon = styled.img<ThemeProps>`
-  aspect-ratio: 1;
-  object-fit: contain;
-  object-position: center;
-  width: 16px;
-  align-self: stretch;
-  margin: auto 0;
-  filter: ${({ isDark }) => (isDark ? "invert(1)" : "none")};
 `;
 
 export const CallToActionSection = styled.div`

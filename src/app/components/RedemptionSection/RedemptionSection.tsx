@@ -61,6 +61,7 @@ const FeatureCardsContainer = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
     justify-content: center;
+    gap: 16px;
   }
 `;
 
@@ -78,6 +79,9 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
     props.isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)"};
   transition: background 0.5s ease;
 
+    @media screen and (max-width: 680px) {
+      height: 420px;
+    }
   :hover {
     background-color: ${(props) =>
       props.isDark ? "rgba(25, 5, 78, 1)" : "rgba(219, 211, 255, 1)"};
@@ -85,10 +89,10 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
 `;
 
 const FeatureContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
 `;
 
 const FeatureTitle = styled.h3`

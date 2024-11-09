@@ -8,14 +8,14 @@ import {
 } from './styles';
 
 interface CallToActionProps {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   subtitle: string;
 }
 
 const CallToAction: React.FC<CallToActionProps> = ({ icon, title, subtitle }) => (
   <StyledCallToAction>
-    <CallToActionIcon src={icon} alt="" />
+    {icon}
     <CallToActionContent>
       <CallToActionTitle>{title}</CallToActionTitle>
       <CallToActionSubtitle>{subtitle}</CallToActionSubtitle>
