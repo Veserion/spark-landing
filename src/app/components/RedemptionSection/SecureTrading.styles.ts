@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 
-export const SecureTradingContainer = styled.div<{isDark: boolean}>`
+export const SecureTradingContainer = styled.div<{ isDark: boolean }>`
   margin-top: 48px;
   width: 100%;
   border-radius: 20px;
-  background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' : 'var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))'};
+  background: ${({ isDark }) =>
+    isDark
+      ? "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"
+      : "var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))"};
   padding: 4px;
   animation: gradientAnimation 3s infinite alternate;
 
@@ -24,7 +27,7 @@ export const SecureTradingContainer = styled.div<{isDark: boolean}>`
   background-size: 200% 200%;
 `;
 
-export const TradingContent = styled.div<{isDark: boolean}>`
+export const TradingContent = styled.div<{ isDark: boolean }>`
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -32,13 +35,13 @@ export const TradingContent = styled.div<{isDark: boolean}>`
   padding: 16px;
   flex-wrap: wrap;
   overflow: hidden;
-  background-color: ${({isDark}) => isDark ? 'black' : 'white'};
+  background-color: ${({ isDark }) => (isDark ? "black" : "white")};
   @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
 
-export const TradingVisual = styled.div<{isDark: boolean}>`
+export const TradingVisual = styled.div<{ isDark: boolean }>`
   flex: 1;
   width: 412px;
   max-width: 412px;
@@ -46,11 +49,12 @@ export const TradingVisual = styled.div<{isDark: boolean}>`
   max-height: 300px;
   border-radius: 8px;
   padding: 16px;
-  background-color: ${({isDark}) => isDark ? 'rgba(23, 23, 23, 1)' : 'rgba(246, 246, 246, 1)'};
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(23, 23, 23, 1)" : "rgba(246, 246, 246, 1)"};
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  justify-content: center;  
+  justify-content: center;
   overflow: hidden;
 
   @media (max-width: 1280px) {
@@ -108,12 +112,13 @@ export const ButtonIcon = styled(Image)`
   height: 24px;
 `;
 
-export const MobileOptimized = styled.div<{isDark: boolean}>`
+export const MobileOptimized = styled.div<{ isDark: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 32px;
-  border: 1px dashed ${({isDark}) => isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'};
+  border: 1px dashed
+    ${({ isDark }) => (isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)")};
   border-radius: 8px;
 
   @media (max-width: 991px) {

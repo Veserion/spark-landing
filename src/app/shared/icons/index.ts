@@ -6,3 +6,5 @@ export * from "./IconTerminal2";
 export * from "./IconCheckupList";
 export * from "./IconArrowRight";
 export * from "./IconSparkSmallLogo";
+export * from "./common";
+export * from "./type";
