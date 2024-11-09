@@ -27,13 +27,11 @@ const Header = styled.header`
 const Title = styled.h1`
   font-size: 48px;
   font-weight: 700;
-  color: var(--dark-1000, #000);
 `;
 
 const Subtitle = styled.p`
   font-size: 28px;
   font-weight: 500;
-  color: var(--dark-1000, #000);
 `;
 
 const Content = styled.div`
@@ -127,18 +125,17 @@ const FuelLogoImage = styled.img`
 const FuelDescription = styled.p`
   margin-left: 12px;
   font-size: 16px;
-  color: var(--dark-1000, #000);
   @media screen and (max-width: 680px) {
     display: none;
   }
 `;
 
-const TradingFreedomCard = styled.div`
+const TradingFreedomCard = styled.div<{isDark?: boolean}>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%));
+  background: ${({isDark}) => isDark ? 'linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%)' : 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))'};
   animation: gradientAnimation 3s infinite alternate;
   border-radius: 20px;
   box-sizing: border-box;
