@@ -4,13 +4,13 @@ import { StyledMenuButton, MenuIcon, MenuText } from './styles';
 interface MenuButtonProps {
   icon: string;
   text: string;
-  isDark?: boolean;
+  isDark: boolean;
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ({ icon, text, isDark }) => (
   <StyledMenuButton isDark={isDark}>
-    <MenuIcon src={icon} alt="" />
-    <MenuText>{text}</MenuText>
+    <MenuIcon src={icon} alt="" isDark={isDark}/>
+    <MenuText isDark={isDark}>{text}</MenuText>
   </StyledMenuButton>
 );
 

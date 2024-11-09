@@ -9,10 +9,9 @@ export const TradeButtonContainer = styled.button<{
 }>`
   border-radius: 100px;
   background-color: ${({ backgroundColor, isDark }) =>
-    backgroundColor ||
-    (isDark ? "rgba(103, 67, 238, 1)" : "rgba(103, 67, 238, 1)")};
-  border: ${({ borderColor }) =>
-    borderColor ? `1px solid ${borderColor}` : "none"};
+    backgroundColor && isDark ? backgroundColor : "rgba(255, 255, 255, 1)"};
+  border: ${({ borderColor, isDark }) =>
+    borderColor && isDark ? `1px solid ${borderColor}` : "none"};
   display: flex;
   align-items: center;
   gap: 8px;
@@ -28,6 +27,16 @@ export const TradeButtonContainer = styled.button<{
   font-size: ${({ size }) => (size === "large" ? "26px" : "24px")};
   width: ${({ size }) => (size === "large" ? "212px" : "181px")};
   height: ${({ size }) => (size === "large" ? "54px" : "45px")};
+
+  #btns-content-wrapper {
+    > div {
+        > svg:first-child {
+          stroke: ${({ isDark }) => isDark ? "#FFFFFF" : "#000000"};
+					color: ${({ isDark }) => isDark ? "#FFFFFF" : "#000000"};
+					fill: ${({ isDark }) => isDark ? "#FFFFFF" : "#000000"};
+        }
+      }
+    }
 
   @media screen and (max-width: 680px) {
     font-size: ${({ size }) => (size === "large" ? "24px" : "16px")};

@@ -10,6 +10,7 @@ import {
   Subscriptions,
   Footer,
 } from "./components";
+import { useTheme } from "next-themes";
 
 const RootWrapper = styled.div`
   width: 100%;
@@ -38,7 +39,13 @@ const Main = styled.div`
     gap: 64px;
   }
 `;
+
 export default function HomePage() {
+  const { setTheme } = useTheme();
+  if (typeof window !== "undefined") {
+    setTheme(localStorage.getItem("theme") || "dark");
+  }
+
   return (
     <RootWrapper>
       <Header />

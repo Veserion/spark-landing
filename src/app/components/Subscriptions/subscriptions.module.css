@@ -106,5 +106,10 @@
   background: #000000;
 }
 
-.isDark .title {
+.isDark .audit svg path  {
+  fill: #ffffff;
+}
+
+.isDark .audit svg rect  {
+  fill: #000000;
 }

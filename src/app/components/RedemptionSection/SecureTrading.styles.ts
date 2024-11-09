@@ -91,6 +91,10 @@ export const ActionArea = styled.div`
   display: flex;
   margin-top: 32px;
   gap: 16px;
+
+  @media (max-width: 680px) {
+    justify-content: center;
+  }
 `;
 
 export const TradeButton = styled.button`
@@ -120,8 +124,18 @@ export const MobileOptimized = styled.div<{ isDark: boolean }>`
   border: 1px dashed
     ${({ isDark }) => (isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)")};
   border-radius: 8px;
+  box-sizing: border-box;
 
-  @media (max-width: 991px) {
-    padding: 8px 20px;
+  @media (max-width: 680px) {
+    span {
+      display: none;
+    }
+    height: 36px;
+    padding: 8px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;

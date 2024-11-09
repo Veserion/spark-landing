@@ -78,13 +78,6 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
     props.isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)"};
   transition: background 0.5s ease;
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-  position: relative;
-
   :hover {
     background-color: ${(props) =>
       props.isDark ? "rgba(25, 5, 78, 1)" : "rgba(219, 211, 255, 1)"};
@@ -95,6 +88,7 @@ const FeatureContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 16px;
 `;
 
 const FeatureTitle = styled.h3`
@@ -182,34 +176,29 @@ const additionalFeatures = [
 ];
 
 export const RedemptionSection: React.FC = () => {
-  const { theme } = useTheme();
-  const isDark = useMemo(() => theme !== "light", [theme]);
-  return (
-    <RedemptionSectionContainer>
-      <SectionHeader>
-        <MainTitle>THE REDEMPTION IS HERE</MainTitle>
-        <Subtitle>Get Started Now</Subtitle>
-      </SectionHeader>
-      <FeatureCardsContainer>
-        {featureCards.map((card, index) => (
-          <FeatureCard key={index} {...card} />
-        ))}
-        {additionalFeatures.map((feature, index) => (
-          <AdditionalFeature key={index} isDark={isDark}>
-            <FeatureContent>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureDescription>{feature.description}</FeatureDescription>
-            </FeatureContent>
-            <StyledImage
-              src={feature.imageSrc}
-              alt=""
-              width={260}
-              height={260}
-            />
-          </AdditionalFeature>
-        ))}
-      </FeatureCardsContainer>
-      <SecureTrading />
-    </RedemptionSectionContainer>
-  );
+    const { theme } = useTheme();
+    const isDark = useMemo(() => theme !== 'light', [theme]);
+    return (
+        <RedemptionSectionContainer>
+            <SectionHeader>
+                <MainTitle>THE REDEMPTION IS HERE</MainTitle>
+                <Subtitle>Get Started Now</Subtitle>
+            </SectionHeader>
+            <FeatureCardsContainer>
+                {featureCards.map((card, index) => (
+                    <FeatureCard key={index} {...card} />
+                ))}
+                {additionalFeatures.map((feature, index) => (
+                    <AdditionalFeature key={index} isDark={isDark}>
+                        <FeatureContent>
+                            <FeatureTitle>{feature.title}</FeatureTitle>
+                            <FeatureDescription>{feature.description}</FeatureDescription>
+                        </FeatureContent>
+                        <StyledImage src={feature.imageSrc} alt="" width={260} height={260} />
+                    </AdditionalFeature>
+                ))}
+            </FeatureCardsContainer>
+            <SecureTrading />
+        </RedemptionSectionContainer>
+    );
 };

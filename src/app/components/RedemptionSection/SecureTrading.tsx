@@ -1,6 +1,6 @@
 'use client';
 import React, { useMemo } from 'react';
-import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized, MobileIcon } from './SecureTrading.styles';
+import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized } from './SecureTrading.styles';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
@@ -23,7 +23,7 @@ export const SecureTrading: React.FC = () => {
             Trade securely with full control over your assets. No compromises.
           </TradingDescription>
           <ActionArea>
-            <TradeButton buttonText='Trade Now' />
+            <TradeButton buttonText='Trade Now' size='small'/>
             <MobileOptimized isDark={isDark}>
               <IconApple/>
               <IconAndroid/>

@@ -15,6 +15,11 @@ const ToggleContainer = styled.div<{ isActive: boolean, isDark: boolean }>`
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: ${({isDark}) => (isDark ? '#000000' : '#F6F6F6')};
+
+    @media screen and (max-width: 680px) {
+      width: 64px;
+      height: 40px;
+    }
 `;
 
 const ToggleCircle = styled.div<{ isActive: boolean }>`

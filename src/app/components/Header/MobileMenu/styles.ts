@@ -4,35 +4,51 @@ interface ThemeProps {
   isDark: boolean;
 }
 
-export const Container = styled.nav<ThemeProps>`
+export const RootContainer = styled.div<{isDark: boolean}>`
   display: flex;
-  max-width: 320px;
+  width: 100%;
+  height: 100%;
+  background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' : 'var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))'};
+  animation: gradientAnimation 3s infinite alternate;
+  background-size: 200% 200%;
+`;
+
+export const Container = styled.nav<ThemeProps>`
+  margin-top: 4px;
+  display: flex;
+  width: 320px;
   flex-direction: column;
   overflow: hidden;
   padding: 8px;
   background: ${({ isDark }) => isDark ? '#1A1A1A' : '#FFFFFF'};
   color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
+  * {
+    border: unset;
+  }
 `;
+
+
 
 export const MenuSection = styled.div<ThemeProps>`
   display: flex;
   width: 100%;
   flex-direction: column;
   color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
-  font: 400 16px var(--Font-Body, Syne);
+  font-weight: 500;
+  font-size: 16px;
 `;
 
 export const StyledMenuButton = styled.button<ThemeProps>`
   border-radius: 4px;
   display: flex;
-  min-height: 43px;
+  min-height: 48px;
   width: 100%;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
   justify-content: flex-start;
-  padding: 12px;
+  padding: 12px 16px;
   margin-top: 8px;
-  background: ${({ isDark }) => isDark ? '#2A2A2A' : '#F7F7F7'};
+  background: ${({ isDark }) => isDark ? 'rgba(23, 23, 23, 1)' : '#F7F7F7'};
   color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
   transition: background-color 0.2s ease;
 
@@ -68,11 +84,12 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   flex-direction: column;
   color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
   white-space: nowrap;
-  background: ${({ isDark }) => isDark ? '#2A2A2A' : '#F7F7F7'};
+  background: transparent;
+  border-radius: 8px;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background: ${({ isDark }) => isDark ? '#333333' : '#EFEFEF'};
+    background: ${({ isDark }) => isDark ? 'rgba(23, 23, 23, 1)' : '#F7F7F7'};
   }
 `;
 
@@ -81,7 +98,7 @@ export const MobileMenuContent = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
+  padding: 12px 16px;
 `;
 
 export const MobileMenuIcon = styled.img<ThemeProps>`
@@ -107,7 +124,6 @@ export const StyledCallToAction = styled.button`
   width: 100%;
   align-items: center;
   gap: 8px;
-  font-family: var(--Font-Body, Syne);
   background: #6743EE;
   color: #FFFFFF;
   font-weight: 400;
@@ -150,11 +166,11 @@ export const CallToActionSubtitle = styled.div`
 
 export const FooterSection = styled.footer<ThemeProps>`
   display: flex;
-  margin-top: 8px;
+  margin-top: auto;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-top: 16px;
+  padding-top: 8px;
   border-top: 1px solid ${({ isDark }) => isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
 `;
 
