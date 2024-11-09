@@ -1,11 +1,14 @@
-import { Discord } from './Discord';
-import { XComponent } from './XComponent';
-import { Blog } from './Blog';
-import { Git } from './Git';
+import { Discord } from "./Discord";
+import { XComponent } from "./XComponent";
+import { Blog } from "./Blog";
+import { Git } from "./Git";
 
 export const socials = {
   XComponent,
   Discord,
   Blog,
-  Git
+  Git,
 };
+
+export * from "./Audit";
+export * from "./AuditView";

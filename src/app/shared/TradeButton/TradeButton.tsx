@@ -1,31 +1,44 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 import { useTheme } from "next-themes";
-import { TradeButtonContainer, BtnsContentWrapper, IconArrowRightStyled } from './TradeButton.styles';
-import IconSparkSmallLogo from '../icons/IconSparkSmallLogo';
+import {
+  TradeButtonContainer,
+  BtnsContentWrapper,
+  IconArrowRightStyled,
+} from "./TradeButton.styles";
+
 interface TradeButtonProps {
-    buttonText: string;
-    size?: 'large' | 'small';
+  buttonText: string;
+  size?: "large" | "small";
+  icon: React.ReactNode;
+  backgroundDark: string;
+  background: string;
 }
 
 export const TradeButton: React.FC<TradeButtonProps> = ({
-    buttonText,
-    size = 'large',
+  buttonText,
+  size = "large",
+  icon,
+  backgroundDark,
+  background,
 }) => {
-    const { theme } = useTheme();
-    const isDark = useMemo(() => theme === 'dark', [theme]);
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme === "dark", [theme]);
+  console.log("isDark", isDark);
 
-    return (
-        <TradeButtonContainer
-            isDark={isDark}
-            size={size}
-        >
-            <BtnsContentWrapper id='btns-content-wrapper'>
-                <BtnsContentWrapper>
-                    <IconSparkSmallLogo />
-                    <span>{buttonText}</span>
-                    <IconArrowRightStyled />
-                </BtnsContentWrapper>
-            </BtnsContentWrapper>
-        </TradeButtonContainer>
-    );
+  return (
+    <TradeButtonContainer
+      isDark={isDark}
+      size={size}
+      backgroundDark={backgroundDark}
+      background={background}
+    >
+      <BtnsContentWrapper id="btns-content-wrapper">
+        <BtnsContentWrapper>
+          {icon}
+          <span>{buttonText}</span>
+          <IconArrowRightStyled />
+        </BtnsContentWrapper>
+      </BtnsContentWrapper>
+    </TradeButtonContainer>
+  );
 };
