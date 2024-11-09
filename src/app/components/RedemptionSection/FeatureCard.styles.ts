@@ -51,7 +51,8 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
     }
     @media screen and (max-width: 1024px) {
         height: 460px;
-        width: 416px;
+        // width: 416px;
+        align-items: center;
     }
 `;
 
@@ -85,7 +86,7 @@ export const CardTitle = styled.h2`
     font-weight: 700;
 
     @media screen and (max-width: 1024px) {
-        height: 32px;
+        // height: 32px;
     }
 `;
 

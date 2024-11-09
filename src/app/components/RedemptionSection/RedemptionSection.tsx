@@ -70,10 +70,9 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
     transition: background 0.5s ease;
     
     @media screen and (max-width: 1024px) {
-        height: 416px;
         flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
     }
     position: relative;
 
