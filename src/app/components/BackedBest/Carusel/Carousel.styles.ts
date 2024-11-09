@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 
 const moveList = keyframes`
   0% {
@@ -19,7 +19,7 @@ const moveList = keyframes`
   }
 `;
 
-export const WrapperList = styled.div`
+export const WrapperList = styled.div<{ isDark: boolean }>`
   position: relative;
   overflow: hidden;
 
@@ -31,7 +31,10 @@ export const WrapperList = styled.div`
     height: 100%;
     z-index: 2;
     width: 188px;
-    background: linear-gradient(90deg, #000000 0%, rgba(0,0,0, 0) 100%);
+    background: ${({ isDark }) =>
+      isDark
+        ? "linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%)"
+        : "linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%)"};
   }
 
   &::after {
@@ -42,17 +45,22 @@ export const WrapperList = styled.div`
     height: 100%;
     z-index: 2;
     width: 188px;
-    background: linear-gradient(270deg, #000000 0%, rgba(0,0,0, 0) 100%);
+    background: ${({ isDark }) =>
+      isDark
+        ? "linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%)"
+        : "linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%)"};
   }
 
   @media screen and (max-width: 1024px) {
-    &::before, &::after {
+    &::before,
+    &::after {
       width: 138px;
     }
   }
 
   @media screen and (max-width: 680px) {
-    &::before, &::after {
+    &::before,
+    &::after {
       width: 98px;
     }
   }
@@ -69,7 +77,7 @@ export const List = styled.div`
   animation: ${moveList} 20s cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
 
   @media screen and (max-width: 1280px) {
-    animation: none;
+    // animation: none;
     transform: translateX(87px);
   }
 
@@ -80,4 +88,4 @@ export const List = styled.div`
   @media screen and (max-width: 680px) {
     transform: translateX(20px);
   }
-`; 
+`;

@@ -17,7 +17,7 @@ import {
 export const Subscriptions: React.FC = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);
-console.log('socialList', socialList)
+
   return (
     <Container>
       <AuditBlock isDark={isDark}>
