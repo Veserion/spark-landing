@@ -1,5 +1,5 @@
-'use client';
-import { useTheme } from 'next-themes';
+"use client";
+import { useTheme } from "next-themes";
 import {
   HeaderWrapper,
   Container,
@@ -31,7 +31,7 @@ export const Header = () => {
           <Link href="/public" style={{display: 'flex', alignItems: 'center', color: 'inherit'}}>
             <SparkLogotype width="110" height="33" />
           </Link>
-          
+
           <Nav>
             <NavLink href="/learn">Learn</NavLink>
             <NavLink href="/trade">Trade</NavLink>
@@ -59,4 +59,4 @@ export const Header = () => {
       </Container>
     </HeaderWrapper>
   );
-}; 
+};
