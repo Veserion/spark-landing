@@ -10,12 +10,13 @@ import {
   CallToActionSection,
   FooterSection,
   FooterLogo,
-  FooterIcon
+  FooterIcon,
+  RootContainer
 } from './styles';
 import { useTheme } from 'next-themes';
 
 interface SparkMenuProps {
-  isDark?: boolean;
+  isDark: boolean;
 }
 
 interface MenuItem {
@@ -57,6 +58,7 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
   return (
+    <RootContainer isDark={isDark}>
     <Container isDark={isDark}>
       <MenuSection isDark={isDark}>
         {menuItems.map((item, index) => (
@@ -65,9 +67,6 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
         {mobileMenuItems.map((item, index) => (
           <MobileMenuButton key={index} text={item.text} icon={item.icon} isDark={isDark} />
         ))}
-        <div style={{ padding: '12px' }}>
-          <ThemeToggle />
-        </div>
       </MenuSection>
       <CallToActionSection>
         <CallToAction
@@ -82,12 +81,10 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/07c7c98615be0d34bb342a151eba79129b2e6dfc7981c9aacfcf55498e119cbf?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e"
           alt="Spark logo"
         />
-        <FooterIcon
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/32dc525176f621bcc0866a101fe7e6b4d7bf625eb42324956e076d23e0b7688b?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e"
-          alt="User avatar"
-        />
+        <ThemeToggle />
       </FooterSection>
     </Container>
+    </RootContainer>
   );
 };
 

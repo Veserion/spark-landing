@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import styled from '@emotion/styled';
 import SparkMenu from './SparkMenu';
+import { useTheme } from 'next-themes';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -34,6 +35,8 @@ const MenuContainer = styled.div<{ isOpen: boolean }>`
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const menuRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme !== 'light', [theme]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -52,7 +55,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     <>
       <Overlay isOpen={isOpen} />
       <MenuContainer ref={menuRef} isOpen={isOpen}>
-        <SparkMenu />
+        <SparkMenu isDark={isDark} />
       </MenuContainer>
     </>
   );

@@ -10,6 +10,7 @@ import {
   Subscriptions,
   Footer,
 } from "./components";
+import { useTheme } from "next-themes";
 
 const RootWrapper = styled.div`
   width: 100%;
@@ -24,21 +25,27 @@ const Main = styled.div`
   flex-direction: column;
   gap: 120px;
 
-  @media screen and (max-width: 1280px) {
-    max-width: 1280px;
-    padding-right: 48px;
-    padding-left: 48px;
-    gap: 80px;
+    @media screen and (max-width: 1280px) {
+      max-width: 1280px;
+      padding-right: 48px;
+      padding-left: 48px;
+      gap: 80px;
+    }
+
+    @media screen and (max-width: 680px) {
+      max-width: 680px;
+      padding-right: 8px;
+      padding-left: 8px;
+      gap: 64px;
+    }
+`
+
+export default function HomePage() {
+  const { theme, setTheme } = useTheme();
+  if(typeof window !== 'undefined') {
+    setTheme(localStorage.getItem('theme') || 'dark');
   }
 
-  @media screen and (max-width: 680px) {
-    max-width: 680px;
-    padding-right: 8px;
-    padding-left: 8px;
-    gap: 64px;
-  }
-`;
-export default function HomePage() {
   return (
     <RootWrapper>
       <Header />

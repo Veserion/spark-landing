@@ -98,7 +98,7 @@ export const TradeNowButton = styled(Link)`
   }
 `;
 
-export const BurgerButton = styled.button`
+export const BurgerButton = styled.button<{isDark: boolean}>`
   display: none;
   background: none;
   border: none;
@@ -106,9 +106,15 @@ export const BurgerButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  border-radius: 8px;
+  height: 36px;
+  width: 36px;
+  border: 1px solid ${({isDark}) => isDark ? '#FFFFFF' : '#1C012A'};
+  background: ${({isDark}) => isDark ? 'rgba(23, 23, 23, 1)' : '#FFFFFF'};
   @media screen and (max-width: 680px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     order: 2;
   }
 `; 

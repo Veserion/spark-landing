@@ -9,14 +9,14 @@ import {
 interface MobileMenuButtonProps {
   text: string;
   icon: string;
-  isDark?: boolean;
+  isDark: boolean;
 }
 
 const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ text, icon, isDark }) => (
   <StyledMobileMenuButton isDark={isDark}>
     <MobileMenuContent>
-      <MenuText>{text}</MenuText>
-      <MobileMenuIcon src={icon} alt="" />
+      <MenuText isDark={isDark}>{text}</MenuText>
+      <MobileMenuIcon src={icon} alt="" isDark={isDark} />
     </MobileMenuContent>
   </StyledMobileMenuButton>
 );

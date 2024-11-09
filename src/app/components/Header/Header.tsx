@@ -16,11 +16,12 @@ import Link from 'next/link';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 import MobileMenu from './MobileMenu';
 import SparkLogotype from '@/app/shared/icons/SparkLogotype';
+import IconMenu2 from "@/app/shared/icons/IconMenu2";
 
 export const Header = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -45,13 +46,8 @@ export const Header = () => {
             <ThemeToggle/>
           </div>
           <TradeButton buttonText="Trade Now" size='small'/>
-          <BurgerButton onClick={toggleMenu}>
-            <Image 
-              src="/new-icons/burger-menu.svg" 
-              alt="Menu" 
-              width={36} 
-              height={36}
-            />
+          <BurgerButton onClick={toggleMenu} isDark={isDark}>
+            <IconMenu2 />
           </BurgerButton>
         </RightSection>
 
