@@ -1,6 +1,6 @@
 'use client';
 import React, { useMemo } from 'react';
-import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized, MobileIcon } from './SecureTrading.styles';
+import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized } from './SecureTrading.styles';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';

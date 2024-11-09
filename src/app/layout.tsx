@@ -1,6 +1,7 @@
 'use client';
 import { ThemeProvider, useTheme } from 'next-themes';
 import { Syne } from 'next/font/google';
+import { useEffect } from 'react';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -8,12 +9,6 @@ const syne = Syne({
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const { setTheme } = useTheme();
-
-  if (typeof window !== 'undefined') {
-    setTheme(localStorage.getItem('theme') || 'dark');
-  }
-
   return (
     <html lang="en" className={syne.className}>
       <head>

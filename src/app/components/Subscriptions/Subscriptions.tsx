@@ -1,26 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./subscriptions.module.css";
-import { socials, Audit, AuditView, TradeButton } from "@/shared";
+import { Audit, AuditView, TradeButton } from "@/shared";
+import { socialList } from "@/helpers";
 import Link from "next/link";
-
-type SocialItem = {
-  title: string;
-  icon: React.FC;
-};
+import { useTheme } from "next-themes";
+import { TIconProps } from "@/shared";
 
 export const Subscriptions: React.FC = () => {
-  const socialTitles: string[] = [
-    "Stay Connected",
-    "Any requests?",
-    "Read our Blog",
-    "Start Building",
-  ];
-  const socialKeys = Object.keys(socials) as (keyof typeof socials)[];
-
-  const socialList: SocialItem[] = socialTitles.map((title, index) => ({
-    title: title,
-    icon: socials[socialKeys[index]],
-  }));
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme === "dark", [theme]);
 
   return (
     <section className={styles.container}>
@@ -41,12 +29,12 @@ export const Subscriptions: React.FC = () => {
         </div>
       </div>
       <div className={styles.list}>
-        {socialList.map(({ title, icon }) => {
-          const SocialComponent = icon;
+        {socialList.map(({ title, icon }, index) => {
+          const SocialComponent: React.FC<TIconProps> = icon;
           return (
             <Link href={"#"} key={title} className={styles.item}>
               <div className={styles.iconWrap}>
-                <SocialComponent />
+                <SocialComponent isDark={index === 2 ? isDark : undefined} />
               </div>
               <p className={styles.socialTitle}>{title}</p>
             </Link>
