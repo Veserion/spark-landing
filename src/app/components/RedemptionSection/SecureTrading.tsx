@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useMemo } from 'react';
 import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized, MobileIcon } from './SecureTrading.styles';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -6,7 +7,7 @@ import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 
 export const SecureTrading: React.FC = () => {
     const {theme} = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = useMemo(() => theme !== 'light', [theme]);
 
   return (
     <SecureTradingContainer isDark={isDark}>

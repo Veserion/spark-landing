@@ -1,10 +1,15 @@
+'use client';
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 import FeatureItem from './FeatureItem';
 import Button from './Button';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { ButtonWithIcon } from '@/app/shared/ButtonWithIcon/ButtonWithIcon';
+import IconBrandGithubFilled from '@/app/shared/icons/IconBrandGithubFilled';
+import IconHashcloack from '@/app/shared/icons/IconHashcloack';
+import IconFuel from '@/app/shared/icons/IconFuel';
 
 const Section = styled.section`
   display: flex;
@@ -86,12 +91,12 @@ const MainImage = styled(Image)`
   }
 `;
 
-const InfoBox = styled.div`
+const InfoBox = styled.div<{isDark?: boolean}>`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: ${({isDark}) => isDark ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
   border: 1px solid rgba(219, 211, 255, 1);
   border-radius: 8px;
   position: absolute;
@@ -218,9 +223,13 @@ const features = [
   { text: "Precise risk management" }
 ];
 
+const WrappedIconHashcloack = styled(IconHashcloack)`
+  color: white;
+`;
+
 export const TradingSection: React.FC = () => {
     const {theme} = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = useMemo(() => theme !== 'light', [theme]);
   return (
     <Section>
       <Header>
@@ -235,9 +244,9 @@ export const TradingSection: React.FC = () => {
           <ImageContainer>
             <MainImage loading="lazy" src={'/images/trading-freedom.png'} alt="Trading platform interface" width={0} height={0} sizes="100vw"            />
           </ImageContainer>
-          <InfoBox>
+          <InfoBox isDark={isDark}>
             <FuelLogo>
-              <FuelLogoImage loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/31bca0a3d7e2bb4c6893e02bb2db0b586caa39d9699142d40112b3d9fb5a70fa?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e" alt="Fuel logo" />
+              <IconFuel />
             </FuelLogo>
             <FuelDescription>
               Fuel's cutting-edge execution layer transforms Ethereum rollups, enabling unparalleled scalability, speed, and innovation
@@ -258,8 +267,8 @@ export const TradingSection: React.FC = () => {
               ))}
             </FeatureList>
             <ButtonContainer>
-              <Button primary icon="https://cdn.builder.io/api/v1/image/assets/TEMP/1eff5225ce4b95e5f7191a2e72de91e9e867922f891e2fb325abd5c2d469aae8?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e" text="View Code" />
-              <Button icon="https://cdn.builder.io/api/v1/image/assets/TEMP/8c0320253a0df316302f86ae95e9a474c87037b4791d8cf438ae865ffac6cc7e?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e" text="Audit Report" />
+              <ButtonWithIcon LeftIcon={IconBrandGithubFilled} buttonText="View code" />
+              <ButtonWithIcon LeftIcon={WrappedIconHashcloack} buttonText="Audit Report" backgroundColor='unset' borderColor={isDark ? 'white' : 'black'} />
             </ButtonContainer>
           </CardContent>
         </TradingFreedomCard>

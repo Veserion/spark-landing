@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 import { FeatureCard, FeatureCardProps } from './FeatureCard';
 import { SecureTrading } from './SecureTrading';
@@ -170,7 +171,7 @@ const additionalFeatures = [
 
 export const RedemptionSection: React.FC = () => {
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = useMemo(() => theme !== 'light', [theme]);
     return (
         <RedemptionSectionContainer>
             <SectionHeader>

@@ -1,3 +1,4 @@
+'use client';
 import {useTheme} from 'next-themes';
 import Image from 'next/image'
 import {
@@ -15,11 +16,12 @@ import {
     AnimatedWrapper
 } from "@/app/components/TradeAsset/TradeAsset.styled";
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
+import { useMemo } from 'react';
 
 export const TradeAsset = () => {
     const {theme} = useTheme();
-    const isDark = theme === 'dark';
-
+    const isDark = useMemo(() => theme !== 'light', [theme]);
+    
     return (
         <TradeAssetContainer isDark={isDark}>
             <ContentWrapper>
@@ -45,8 +47,8 @@ export const TradeAsset = () => {
                 <TradeButton buttonText='Trade Now' />
             </ContentWrapper>
             <ImagesContainer>
-                <Image src={`/images/order-book${!isDark ? '-light' : ''}.png`} alt={''} width={276} height={556}/>
-                <Image src={`/images/order-creation${!isDark ? '-light' : ''}.png`} alt={''} width={276} height={556}/>
+                <Image src={`/images/order-book${isDark ? '' : '-light'}.png`} alt={''} width={276} height={556}/>
+                <Image src={`/images/order-creation${isDark ? '' : '-light'}.png`} alt={''} width={276} height={556}/>
             </ImagesContainer>
         </TradeAssetContainer>
     );

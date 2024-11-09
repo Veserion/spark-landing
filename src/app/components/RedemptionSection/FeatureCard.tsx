@@ -1,3 +1,4 @@
+'use client';
 import React, { useMemo } from 'react';
 import { useTheme } from "next-themes";
 import { ActionButton, BtnsContentWrapper, CardContent, CardTitle, FeatureCardContainer, FeatureImage, IconArrowRightStyled } from './FeatureCard.styles';
@@ -29,7 +30,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
     buttonColorDark
 }) => {
     const { theme } = useTheme();
-    const isDark = useMemo(() => theme === 'dark', [theme]);
+    const isDark = useMemo(() => theme !== 'light', [theme]);
 
     return (
         <FeatureCardContainer
