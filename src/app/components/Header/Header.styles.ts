@@ -21,13 +21,20 @@ export const Container = styled.div<{ isDark: boolean }>`
   justify-content: space-between;
   align-items: center;
   color: ${({ isDark }) => (isDark ? 'white' : 'black')};
+  @media screen and (max-width: 680px) {
+    padding: 0 8px;
+  }
 `;
 
-export const LeftSection = styled.div`
+export const LeftSection = styled.div<{size: 'large' | 'small'}>`
     display: flex;
     align-items: center;
     height: 32px;
     gap: 40px;
+
+    @media screen and (max-width: 680px) {
+        gap: 20px;
+    }
 `;
 
 export const Nav = styled.nav`

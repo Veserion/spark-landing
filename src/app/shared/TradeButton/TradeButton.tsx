@@ -4,10 +4,12 @@ import { TradeButtonContainer, BtnsContentWrapper, IconArrowRightStyled } from '
 import IconSparkSmallLogo from '../icons/IconSparkSmallLogo';
 interface TradeButtonProps {
     buttonText: string;
+    size?: 'large' | 'small';
 }
 
 export const TradeButton: React.FC<TradeButtonProps> = ({
     buttonText,
+    size = 'large',
 }) => {
     const { theme } = useTheme();
     const isDark = useMemo(() => theme === 'dark', [theme]);
@@ -15,6 +17,7 @@ export const TradeButton: React.FC<TradeButtonProps> = ({
     return (
         <TradeButtonContainer
             isDark={isDark}
+            size={size}
         >
             <BtnsContentWrapper id='btns-content-wrapper'>
                 <BtnsContentWrapper>

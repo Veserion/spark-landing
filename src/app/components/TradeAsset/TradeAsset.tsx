@@ -10,7 +10,9 @@ import {
     AnimatedContainer,
     AnimatedTitleWrapper,
     Title,
-    StaticTitle
+    StaticTitle,
+    Wrapper,
+    AnimatedWrapper
 } from "@/app/components/TradeAsset/TradeAsset.styled";
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 
@@ -24,16 +26,18 @@ export const TradeAsset = () => {
                 <Description isDark={isDark}>
                     The Onchain Trading Rollup
                 </Description>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <AnimatedContainer>
-                        <AnimatedTitleWrapper>
-                            <Title>TRADE</Title>
-                            <Title>LIST</Title>
-                        </AnimatedTitleWrapper>
-                    </AnimatedContainer>
-                    <StaticTitle>ANY ASSET</StaticTitle>
-                </div>
-                <Title2>ONCHAIN</Title2>
+                <Wrapper>
+                    <AnimatedWrapper>
+                        <AnimatedContainer>
+                            <AnimatedTitleWrapper>
+                                <Title>TRADE</Title>
+                                <Title>LIST</Title>
+                            </AnimatedTitleWrapper>
+                        </AnimatedContainer>
+                        <StaticTitle>ANY ASSET</StaticTitle>
+                    </AnimatedWrapper>
+                    <Title2>ONCHAIN</Title2>
+                </Wrapper>
                 <Subtitle>
                     Spark is an Ethereum rollup with an integrated order book, enabling truly decentralized and seamless
                     trading.
