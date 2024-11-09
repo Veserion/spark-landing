@@ -1,7 +1,6 @@
-'use client';
-import { ThemeProvider, useTheme } from 'next-themes';
 import { Syne } from 'next/font/google';
-import { useEffect } from 'react';
+import './globals.css';
+import { Providers } from './providers';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -10,54 +9,11 @@ const syne = Syne({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={syne.className}>
-      <head>
-        <style jsx global>{`
-            :root {
-                --background-color: #fff;
-                --text-color: #000;
-                --light: #FFFFFF;
-                --light-a: #FFFFFFE6;
-                --light-500: rgba(247, 247, 247, 1);
-                overflow: hidden;
-            }
-
-            [data-theme='dark'] {
-                --background-color: #000;
-                --text-color: #fff;
-                --gray-text: rgba(177, 177, 177, 1);
-            }
-
-            body {
-                background-color: var(--background-color);
-                color: var(--text-color);
-                transition: background-color 0.3s ease;
-                margin: 0;
-                padding: 0;
-                height: 100vh;
-                width: 100vw;
-                overflow-x: hidden;
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-                position: relative;
-            }
-
-            * {
-              box-sizing: border-box;
-              padding: 0;
-              margin: 0;
-            }
-        `}</style>
-      </head>
+    <html lang="en" className={syne.className} suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="data-theme"
-          defaultTheme="dark"
-          enableSystem={true}
-        >
+        <Providers>
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

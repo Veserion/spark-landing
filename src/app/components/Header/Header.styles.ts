@@ -7,7 +7,6 @@ export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   left: 0;
   right: 0;
   height: 72px;
-  // background: ${({isDark}) => (isDark ? 'black' : 'white')};;
   backdrop-filter: blur(10px);
   z-index: 100;
 `;
@@ -20,7 +19,6 @@ export const Container = styled.div<{ isDark: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // color: ${({ isDark }) => (isDark ? 'white' : 'black')};
   @media screen and (max-width: 680px) {
     padding: 0 8px;
   }
@@ -109,8 +107,8 @@ export const BurgerButton = styled.button<{isDark: boolean}>`
   border-radius: 8px;
   height: 36px;
   width: 36px;
-  border: 1px solid ${({isDark}) => isDark ? '#FFFFFF' : '#1C012A'};
-  background: ${({isDark}) => isDark ? 'rgba(23, 23, 23, 1)' : '#FFFFFF'};
+  border: 1px solid ${({isDark}) => !isDark ? '#1C012A' : '#FFFFFF'};
+  background: ${({isDark}) => !isDark ? '#FFFFFF': 'rgba(23, 23, 23, 1)'};
   @media screen and (max-width: 680px) {
     display: flex;
     align-items: center;

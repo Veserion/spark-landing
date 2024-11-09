@@ -10,7 +10,6 @@ import {
   BurgerButton
 } from './Header.styles';
 import { ThemeToggle } from './ThemeToggle';
-import Image from "next/image";
 import {useMemo, useState} from "react";
 import Link from 'next/link';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';

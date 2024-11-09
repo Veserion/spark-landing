@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { useTheme } from 'next-themes';
@@ -36,17 +37,31 @@ const ToggleCircle = styled.div<{ isActive: boolean }>`
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 `;
 
-
 export const ThemeToggle: React.FC = () => {
-const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
 
   return (
-    <ToggleContainer onClick={() => setTheme(theme !== 'light' ? 'light' : 'dark')} isActive={theme !== 'light'} isDark={theme !== 'light'}>
+    <ToggleContainer onClick={toggleTheme} isActive={theme !== 'light'} isDark={theme !== 'light'}>
       <ToggleCircle isActive={theme !== 'light'}>
-      <DarkModeSwitch
-        checked={theme !== 'light'}
-        size={24}
-        onChange={() => setTheme(theme !== 'light' ? 'light' : 'dark')}
+        <DarkModeSwitch
+          checked={theme !== 'light'}
+          size={24}
+          onChange={toggleTheme}
         />
       </ToggleCircle>
     </ToggleContainer>
