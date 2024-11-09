@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import Link from 'next/link';
+import styled from "@emotion/styled";
+import Link from "next/link";
 
 export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   position: fixed;
@@ -24,51 +24,50 @@ export const Container = styled.div<{ isDark: boolean }>`
   }
 `;
 
-export const LeftSection = styled.div<{size: 'large' | 'small'}>`
-    display: flex;
-    align-items: center;
-    height: 32px;
-    gap: 40px;
+export const LeftSection = styled.div<{ size: "large" | "small" }>`
+  display: flex;
+  align-items: center;
+  height: 32px;
+  gap: 40px;
 
-    @media screen and (max-width: 680px) {
-        gap: 20px;
-    }
+  @media screen and (max-width: 680px) {
+    gap: 20px;
+  }
 `;
 
 export const Nav = styled.nav`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-    @media screen and (max-width: 680px) {
-        display: none;
-    }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media screen and (max-width: 680px) {
+    display: none;
+  }
 `;
 
-
 export const NavLink = styled(Link)`
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s;
-    line-height: 20px;
-    padding: 6px 12px;
-    color: inherit;
-    &:hover {
-        color: #8A7CFF;
-    }
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+  line-height: 20px;
+  padding: 6px 12px;
+  color: inherit;
+  &:hover {
+    color: #8a7cff;
+  }
 `;
 
 export const RightSection = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-    @media screen and (max-width: 680px) {
-        .theme-toggle {
-            display: none;
-        }
+  @media screen and (max-width: 680px) {
+    .theme-toggle {
+      display: none;
     }
+  }
 `;
 
 export const ThemeToggle = styled.label`
@@ -80,7 +79,7 @@ export const ThemeToggle = styled.label`
 `;
 
 export const TradeNowButton = styled(Link)`
-  background: #8A7CFF;
+  background: #8a7cff;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -92,11 +91,11 @@ export const TradeNowButton = styled(Link)`
   justify-content: center;
 
   &:hover {
-    background: #7A6AFF;
+    background: #7a6aff;
   }
 `;
 
-export const BurgerButton = styled.button<{isDark: boolean}>`
+export const BurgerButton = styled.button<{ isDark: boolean }>`
   display: none;
   background: none;
   border: none;
@@ -107,13 +106,13 @@ export const BurgerButton = styled.button<{isDark: boolean}>`
   border-radius: 8px;
   height: 36px;
   width: 36px;
-  border: 1px solid ${({isDark}) => !isDark ? '#1C012A' : '#FFFFFF'};
-  background: ${({isDark}) => !isDark ? '#FFFFFF': 'rgba(23, 23, 23, 1)'};
-  
+  border: 1px solid ${({ isDark }) => (!isDark ? "#1C012A" : "#FFFFFF")};
+  background: ${({ isDark }) => (!isDark ? "#FFFFFF" : "rgba(23, 23, 23, 1)")};
+
   @media screen and (max-width: 680px) {
     display: flex;
     align-items: center;
     justify-content: center;
     order: 2;
   }
-`; 
+`;

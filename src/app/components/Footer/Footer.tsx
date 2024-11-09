@@ -15,6 +15,7 @@ import {
   SocialItem,
   Texts
 } from "./Footer.styles";
+import SparkLogotype from "@/app/shared/icons/SparkLogotype";
 
 export const Footer = () => {
   const { theme } = useTheme();
@@ -24,8 +25,8 @@ export const Footer = () => {
     <FooterContainer isDark={isDark}>
       <Wrapper isDark={isDark}>
         <Info>
-          <Link href="/public">
-            <Logo isDark={isDark} />
+          <Link href="/public" style={{display: 'flex', alignItems: 'center', color: 'inherit'}}>
+            <SparkLogotype width="110" height="33" />
           </Link>
           <List>
             <ListItem href="/public" isDark={isDark}>

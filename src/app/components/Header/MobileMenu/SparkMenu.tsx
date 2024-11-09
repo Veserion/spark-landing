@@ -10,14 +10,12 @@ import {
   CallToActionSection,
   FooterSection,
   FooterLogo,
-  FooterIcon,
   RootContainer,
 } from "./styles";
 import { useTheme } from "next-themes";
 import SubMenu from "./SubMenu";
 import styled from "@emotion/styled";
 import IconSpark from "@/app/shared/icons/IconSpark";
-import IconChartCandle from "@/app/shared/icons/IconChartCandle";
 import IconTransitionTop from "@/app/shared/icons/IconTransitionTop";
 import { IconCoins } from "@/app/shared";
 import IconArticle from "@/app/shared/icons/IconArticle";
