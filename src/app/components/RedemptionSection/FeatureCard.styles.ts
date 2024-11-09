@@ -51,7 +51,8 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
     }
     @media screen and (max-width: 1024px) {
         height: 460px;
-        width: 416px;
+        // width: 416px;
+        align-items: center;
     }
 `;
 
@@ -70,7 +71,8 @@ export const ActionButton = styled.button<{ isDark: boolean, buttonColor: string
     gap: 8px;
     justify-content: center;
     padding: 8px 18px;
-    font: 400 24px var(--Font-Body, Syne);
+    font-size: 24px;
+    font-weight: 400;
     border: none;
     cursor: pointer;
     width: fit-content;
@@ -80,11 +82,11 @@ export const ActionButton = styled.button<{ isDark: boolean, buttonColor: string
 `;
 
 export const CardTitle = styled.h2`
-    font: 700 38px var(--Font-Titles, Syne);
     font-size: 38px;
+    font-weight: 700;
 
     @media screen and (max-width: 1024px) {
-        height: 32px;
+        // height: 32px;
     }
 `;
 

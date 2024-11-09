@@ -77,12 +77,14 @@ export const TradingInfo = styled.div`
 `;
 
 export const TradingTitle = styled.h2`
-  font: 700 38px var(--Font-Titles, Syne);
+  font-size: 38px;
+  font-weight: 700;
 `;
 
 export const TradingDescription = styled.p`
   margin-top: 32px;
-  font: 400 24px var(--Font-Body, Syne);
+  font-size: 24px;
+  font-weight: 400;
 `;
 
 export const ActionArea = styled.div`
@@ -99,7 +101,8 @@ export const TradeButton = styled.button`
   gap: 10px;
   color: var(--light, #fff);
   padding: 8px 16px;
-  font: 400 24px var(--Font-Body, Syne);
+  font-size: 24px;
+  font-weight: 400;
   border: none;
   cursor: pointer;
 `;
@@ -109,20 +112,16 @@ export const ButtonIcon = styled(Image)`
   height: 24px;
 `;
 
-export const MobileOptimized = styled.div`
+export const MobileOptimized = styled.div<{ isDark: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 32px;
-  border: 1px dashed rgba(0, 0, 0, 1);
+  border: 1px dashed
+    ${({ isDark }) => (isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)")};
   border-radius: 8px;
 
   @media (max-width: 991px) {
     padding: 8px 20px;
   }
-`;
-
-export const MobileIcon = styled(Image)`
-  width: 24px;
-  height: 24px;
 `;

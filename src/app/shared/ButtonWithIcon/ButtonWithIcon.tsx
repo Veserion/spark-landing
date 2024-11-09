@@ -1,16 +1,22 @@
 'use client';
 import React, { useMemo } from 'react';
 import { useTheme } from "next-themes";
-import { TradeButtonContainer, BtnsContentWrapper, IconArrowRightStyled } from './TradeButton.styles';
-import IconSparkSmallLogo from '../icons/IconSparkSmallLogo';
+import { TradeButtonContainer, BtnsContentWrapper, IconArrowRightStyled } from './ButtonWithIcon.styles';
+
 interface TradeButtonProps {
     buttonText: string;
     size?: 'large' | 'small';
+    LeftIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    backgroundColor?: string;
+    borderColor?: string;
 }
 
-export const TradeButton: React.FC<TradeButtonProps> = ({
+export const ButtonWithIcon: React.FC<TradeButtonProps> = ({
     buttonText,
     size = 'large',
+    LeftIcon,
+    backgroundColor,
+    borderColor,
 }) => {
     const { theme } = useTheme();
     const isDark = useMemo(() => theme !== 'light', [theme]);
@@ -19,10 +25,12 @@ export const TradeButton: React.FC<TradeButtonProps> = ({
         <TradeButtonContainer
             isDark={isDark}
             size={size}
+            backgroundColor={backgroundColor}
+            borderColor={borderColor}
         >
             <BtnsContentWrapper id='btns-content-wrapper'>
                 <BtnsContentWrapper>
-                    <IconSparkSmallLogo />
+                    {LeftIcon && <LeftIcon />}
                     <span>{buttonText}</span>
                     <IconArrowRightStyled />
                 </BtnsContentWrapper>

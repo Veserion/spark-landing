@@ -1,5 +1,5 @@
 'use client';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider, useTheme } from 'next-themes';
 import { Syne } from 'next/font/google';
 
 const syne = Syne({
@@ -8,6 +8,8 @@ const syne = Syne({
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  const { setTheme } = useTheme();
+  setTheme(localStorage.getItem('theme') || 'dark');
   return (
     <html lang="en" className={syne.className}>
       <head>
