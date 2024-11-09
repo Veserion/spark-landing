@@ -1,11 +1,19 @@
-.container {
+import styled from '@emotion/styled';
+import Link from 'next/link';
+
+export const Container = styled.section`
   display: flex;
   justify-content: space-between;
   column-gap: 48px;
   margin-bottom: 64px;
-}
 
-.audit {
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+    row-gap: 32px;
+  }
+`;
+
+export const AuditBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,28 +23,33 @@
   width: 344px;
   min-width: 344px;
   height: 320px;
-}
 
-.title {
+  @media screen and (max-width: 680px) {
+    width: 100%;
+    min-width: auto;
+  }
+`;
+
+export const Title = styled.p`
   margin-top: 26px;
   font-weight: 400;
   font-size: 24px;
-}
+`;
 
-.buttonWrap {
+export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-}
+`;
 
-.list {
+export const List = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 16px;
   width: 100%;
   max-width: 952px;
-}
+`;
 
-.item {
+export const Item = styled(Link)`
   position: relative;
   border-radius: 8px;
   padding: 8px;
@@ -47,26 +60,26 @@
   align-items: center;
   column-gap: 12px;
   text-decoration: none;
-}
 
-.item::before {
-  content: "";
-  position: absolute;
-  height: 52px;
-  width: 52px;
-  top: 8px;
-  left: 8px;
-  background: #000000;
-  border-radius: 8px;
-  transition: width 0.3s ease;
-  z-index: 1;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    height: 52px;
+    width: 52px;
+    top: 8px;
+    left: 8px;
+    background: #000000;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+    z-index: 1;
+  }
 
-.item:hover::before {
-  width: 98%;
-}
+  &:hover::before {
+    width: 98%;
+  }
+`;
 
-.iconWrap {
+export const IconWrapper = styled.div`
   border-radius: 4px;
   padding: 8px;
   width: 52px;
@@ -77,23 +90,11 @@
   background: #000000;
   position: relative;
   z-index: 2;
-}
+`;
 
-.socialTitle {
+export const SocialTitle = styled.p`
   font-weight: 400;
   font-size: 24px;
   position: relative;
   z-index: 2;
-}
-
-@media screen and (max-width: 680px) {
-  .container {
-    flex-direction: column;
-    row-gap: 32px;
-  }
-
-  .audit {
-    width: 100%;
-    min-width: none;
-  }
-}
+`; 
