@@ -36,12 +36,12 @@ export const ThemeToggle: React.FC = () => {
 const { theme, setTheme } = useTheme();
 
   return (
-    <ToggleContainer onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} isActive={theme === 'dark'} isDark={theme === 'dark'}>
-      <ToggleCircle isActive={theme === 'dark'}>
+    <ToggleContainer onClick={() => setTheme(theme !== 'light' ? 'light' : 'dark')} isActive={theme !== 'light'} isDark={theme !== 'light'}>
+      <ToggleCircle isActive={theme !== 'light'}>
       <DarkModeSwitch
-        checked={theme === 'dark'}
+        checked={theme !== 'light'}
         size={24}
-        onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onChange={() => setTheme(theme !== 'light' ? 'light' : 'dark')}
         />
       </ToggleCircle>
     </ToggleContainer>

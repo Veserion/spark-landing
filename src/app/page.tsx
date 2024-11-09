@@ -16,16 +16,18 @@ const Main = styled.div`
     flex-direction: column;
     gap: 120px;
 
-    @media screen and (max-width: 1024px) {
-      max-width: 1024px;
-      padding-right: 64px;
-      padding-left: 64px;
+    @media screen and (max-width: 1280px) {
+      max-width: 1280px;
+      padding-right: 48px;
+      padding-left: 48px;
+      gap: 80px;
     }
 
     @media screen and (max-width: 680px) {
       max-width: 680px;
       padding-right: 8px;
       padding-left: 8px;
+      gap: 64px;
     }
 `
 export default function HomePage() {

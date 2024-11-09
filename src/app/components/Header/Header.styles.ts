@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   left: 0;
   right: 0;
   height: 72px;
-  background: ${({isDark}) => (isDark ? 'black' : 'white')};;
+  // background: ${({isDark}) => (isDark ? 'black' : 'white')};;
   backdrop-filter: blur(10px);
   z-index: 100;
 `;
@@ -20,7 +20,7 @@ export const Container = styled.div<{ isDark: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: ${({ isDark }) => (isDark ? 'white' : 'black')};
+  // color: ${({ isDark }) => (isDark ? 'white' : 'black')};
   @media screen and (max-width: 680px) {
     padding: 0 8px;
   }
@@ -41,6 +41,10 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     gap: 10px;
+    
+    @media screen and (max-width: 680px) {
+        display: none;
+    }
 `;
 
 
@@ -61,6 +65,12 @@ export const RightSection = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+
+    @media screen and (max-width: 680px) {
+        .theme-toggle {
+            display: none;
+        }
+    }
 `;
 
 export const ThemeToggle = styled.label`
@@ -85,5 +95,20 @@ export const TradeNowButton = styled(Link)`
 
   &:hover {
     background: #7A6AFF;
+  }
+`;
+
+export const BurgerButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media screen and (max-width: 680px) {
+    display: block;
+    order: 2;
   }
 `; 

@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 import { FeatureCard, FeatureCardProps } from './FeatureCard';
 import { SecureTrading } from './SecureTrading';
@@ -28,17 +29,18 @@ const RedemptionSectionContainer = styled.section`
 `;
 
 const SectionHeader = styled.header`
-    color: var(--dark-1000, #000);
     text-align: center;
     margin-bottom: 64px;
 `;
 
 const MainTitle = styled.h1`
-    font: 700 48px var(--Font-Titles, Syne);
+    font-size: 48px;
+    font-weight: 700;
 `;
 
 const Subtitle = styled.p`
-    font: 500 28px var(--Font-Body, Syne);
+    font-size: 28px;
+    font-weight: 500;
     margin-top: 8px;
 `;
 
@@ -65,12 +67,12 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
     display: flex;
     overflow: hidden;
     color: ${props => props.isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'};
-
+    transition: background 0.5s ease;
+    
     @media screen and (max-width: 1024px) {
-        height: 416px;
         flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
     }
     position: relative;
 
@@ -86,8 +88,8 @@ const FeatureContent = styled.div`
 `;
 
 const FeatureTitle = styled.h3`
-    font: 700 38px var(--Font-Titles, Syne);
     font-size: 38px;
+    font-weight: 700;
     margin: 0;
 
     @media screen and (max-width: 1024px) {
@@ -96,7 +98,8 @@ const FeatureTitle = styled.h3`
 `;
 
 const FeatureDescription = styled.p`
-    font: 400 24px var(--Font-Body, Syne);
+    font-size: 24px;
+    font-weight: 400;
 `;
 
 const StyledImage = styled(Image)`
@@ -170,7 +173,7 @@ const additionalFeatures = [
 
 export const RedemptionSection: React.FC = () => {
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = useMemo(() => theme !== 'light', [theme]);
     return (
         <RedemptionSectionContainer>
             <SectionHeader>

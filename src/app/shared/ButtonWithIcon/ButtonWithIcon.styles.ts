@@ -1,16 +1,22 @@
 import styled from '@emotion/styled';
 import IconArrowRight from '../icons/IconArrowRight';
 
-export const TradeButtonContainer = styled.button<{ isDark: boolean, size: 'large' | 'small' }>`
+export const TradeButtonContainer = styled.button<{ 
+    isDark: boolean, 
+    size: 'large' | 'small',
+    backgroundColor?: string,
+    borderColor?: string 
+}>`
     border-radius: 100px;
-    background-color: ${({ isDark }) => isDark ? 'rgba(103, 67, 238, 1)' : 'rgba(103, 67, 238, 1)'};
+    background-color: ${({ backgroundColor, isDark }) => 
+        backgroundColor || (isDark ? 'rgba(103, 67, 238, 1)' : 'rgba(103, 67, 238, 1)')};
+    border: ${({ borderColor }) => borderColor ? `1px solid ${borderColor}` : 'none'};
     display: flex;
     align-items: center;
     gap: 8px;
     justify-content: center;
     font-weight: regular;
     font-size: 24px;
-    border: none;
     cursor: pointer;
     color: white;
     position: relative;
