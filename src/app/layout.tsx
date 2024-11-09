@@ -9,7 +9,11 @@ const syne = Syne({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const { setTheme } = useTheme();
-  setTheme(localStorage.getItem('theme') || 'dark');
+
+  if (typeof window !== 'undefined') {
+    setTheme(localStorage.getItem('theme') || 'dark');
+  }
+
   return (
     <html lang="en" className={syne.className}>
       <head>

@@ -23,7 +23,7 @@ export const SecureTrading: React.FC = () => {
             Trade securely with full control over your assets. No compromises.
           </TradingDescription>
           <ActionArea>
-            <TradeButton buttonText='Trade Now' />
+            <TradeButton buttonText='Trade Now' size='small'/>
             <MobileOptimized isDark={isDark}>
               <IconApple/>
               <IconAndroid/>

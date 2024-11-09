@@ -164,7 +164,7 @@ const CardContent = styled.div<{ isDark?: boolean }>`
   height: calc(100% - 8px);
   width: calc(100% - 8px);
   gap: 24px;
-  background-color: ${({isDark}) => isDark ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)'};
+  background-color: ${({isDark}) => isDark ? 'rgba(23, 23, 23, 1)' : 'rgba(255, 255, 255, 1)'};
   border-radius: 16px;
   @media screen and (max-width: 680px) {
     padding: 16px;

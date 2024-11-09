@@ -85,6 +85,7 @@ const FeatureContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 16px;
 `;
 
 const FeatureTitle = styled.h3`
