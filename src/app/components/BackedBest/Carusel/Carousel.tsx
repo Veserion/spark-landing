@@ -1,24 +1,24 @@
 import React from "react";
-import styles from "./carousel.module.css";
+import { WrapperList, List } from "./Carousel.styles";
 import { logoList } from "@/shared";
 
 export const Carousel: React.FC = () => {
   const logoKeys = Object.keys(logoList) as (keyof typeof logoList)[];
 
   return (
-    <section className={styles.container}>
-      <div className={styles.wrapperList}>
-        <div className={styles.list}>
+    <section>
+      <WrapperList>
+        <List>
           {logoKeys.map((key) => {
             const LogoComponent = logoList[key];
             return (
-              <div key={key} className={styles.item}>
+              <div key={key}>
                 <LogoComponent />
               </div>
             );
           })}
-        </div>
-      </div>
+        </List>
+      </WrapperList>
     </section>
   );
 };

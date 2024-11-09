@@ -1,5 +1,4 @@
 export * from "./backedBest";
-export * from "./subscriptions";
 export * from "./IconChartCandle";
 export * from "./IconCoins";
 export * from "./IconTerminal2";
@@ -8,3 +7,5 @@ export * from "./IconArrowRight";
 export * from "./IconSparkSmallLogo";
 export * from "./common";
 export * from "./type";
+export * from './IconShieldHalfFilled';
+export * from './IconHashcloack';

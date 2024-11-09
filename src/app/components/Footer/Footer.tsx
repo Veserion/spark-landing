@@ -1,54 +1,62 @@
 "use client";
 import { useTheme } from "next-themes";
-import styles from "./footer.module.css";
 import { useMemo } from "react";
 import Link from "next/link";
 import { Logo } from "@/shared";
 import { socialListFooter } from "@/helpers";
 import { TIconProps } from "@/shared";
+import {
+  FooterContainer,
+  Wrapper,
+  Info,
+  List,
+  ListItem,
+  Social,
+  SocialItem,
+  Texts
+} from "./Footer.styles";
 
 export const Footer = () => {
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme === "dark", [theme]);
+  const isDark = useMemo(() => theme !== "light", [theme]);
 
   return (
-    <footer className={`${styles.container} ${isDark ? styles.isDark : ""}`}>
-      <div className={styles.wrapper}>
-        <div className={styles.info}>
+    <FooterContainer isDark={isDark}>
+      <Wrapper isDark={isDark}>
+        <Info>
           <Link href="/public">
-            <Logo />
+            <Logo isDark={isDark} />
           </Link>
-          <div className={styles.list}>
-            <Link href="/public" className={styles.item}>
+          <List>
+            <ListItem href="/public" isDark={isDark}>
               Docs
-            </Link>
-            <Link href="/public" className={styles.item}>
+            </ListItem>
+            <ListItem href="/public" isDark={isDark}>
               Support
-            </Link>
-            <Link href="/public" className={styles.item}>
+            </ListItem>
+            <ListItem href="/public" isDark={isDark}>
               Careers
-            </Link>
-          </div>
-          <div className={styles.social}>
-            {socialListFooter.map(({ icon, title }, index) => {
+            </ListItem>
+          </List>
+          <Social>
+            {socialListFooter.map(({ icon, title }) => {
               const SocialComponent: React.FC<TIconProps> = icon;
               return (
-                <Link href={"#"} key={title} className={styles.socialItem}>
+                <SocialItem href="#" key={title} isDark={isDark}>
                   <SocialComponent
-                    className={styles.icon}
-                    color={`${index !== 2 && "1C012A"}`}
-                    isDark={index === 2 ? isDark : undefined}
+                    color={"#1C012A"}
+                    isDark={isDark}
                   />
-                </Link>
+                </SocialItem>
               );
             })}
-          </div>
-        </div>
-        <div className={styles.texts}>
+          </Social>
+        </Info>
+        <Texts>
           <p>© 2024 - Composability Labs</p>
           <p>Terms of Service</p>
-        </div>
-      </div>
-    </footer>
+        </Texts>
+      </Wrapper>
+    </FooterContainer>
   );
 };

@@ -5,6 +5,7 @@ export const Blog: FC<TIconProps> = ({ isDark }) => {
   console.log("Blog-isDark", isDark);
   return isDark ? (
     <svg
+      id="DARK"
       width="36"
       height="36"
       viewBox="0 0 36 36"
@@ -38,6 +39,7 @@ export const Blog: FC<TIconProps> = ({ isDark }) => {
     </svg>
   ) : (
     <svg
+      id="LIGHT"
       width="36"
       height="36"
       viewBox="0 0 36 36"
