@@ -1,5 +1,5 @@
-'use client';
-import { useTheme } from 'next-themes';
+"use client";
+import { useTheme } from "next-themes";
 import {
   HeaderWrapper,
   Container,
@@ -7,26 +7,31 @@ import {
   Nav,
   NavLink,
   RightSection,
-  TradeNowButton
-} from './Header.styles';
-import { ThemeToggle } from './ThemeToggle';
+  TradeNowButton,
+} from "./Header.styles";
+import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
-import {useMemo} from "react";
-import Link from 'next/link';
-import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
+import { useMemo } from "react";
+import Link from "next/link";
+import { TradeButton, IconSparkSmallLogo } from "@/shared";
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
-  const isDark = useMemo(() => theme === 'dark', [theme]);
+  const isDark = useMemo(() => theme === "dark", [theme]);
 
   return (
     <HeaderWrapper isDark={isDark}>
       <Container isDark={isDark}>
         <LeftSection>
           <Link href="/public">
-            <Image src={`/spark-logotype${!isDark ? '-light' : ''}.svg`} alt="Spark" width={110} height={32}/>
+            <Image
+              src={`/spark-logotype${!isDark ? "-light" : ""}.svg`}
+              alt="Spark"
+              width={110}
+              height={32}
+            />
           </Link>
-          
+
           <Nav>
             <NavLink href="/learn">Learn</NavLink>
             <NavLink href="/trade">Trade</NavLink>
@@ -36,10 +41,16 @@ export const Header = () => {
         </LeftSection>
 
         <RightSection>
-          <ThemeToggle/>
-          <TradeButton buttonText="Trade Now" size='small'/>
+          <ThemeToggle />
+          <TradeButton
+            buttonText="Trade Now"
+            size="small"
+            icon={<IconSparkSmallLogo />}
+            backgroundDark="rgba(103, 67, 238, 1)"
+            background="rgba(103, 67, 238, 1)"
+          />
         </RightSection>
       </Container>
     </HeaderWrapper>
   );
-}; 
+};

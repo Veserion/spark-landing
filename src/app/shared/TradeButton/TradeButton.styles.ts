@@ -1,72 +1,78 @@
-import styled from '@emotion/styled';
-import IconArrowRight from '../icons/IconArrowRight';
+import styled from "@emotion/styled";
+import IconArrowRight from "../icons/IconArrowRight";
 
-export const TradeButtonContainer = styled.button<{ isDark: boolean, size: 'large' | 'small' }>`
-    border-radius: 100px;
-    background-color: ${({ isDark }) => isDark ? 'rgba(103, 67, 238, 1)' : 'rgba(103, 67, 238, 1)'};
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-    font: 400 24px var(--Font-Body, Syne);
-    border: none;
-    cursor: pointer;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.5s ease;
-    width: fit-content;
-    font-size: ${({ size }) => size === 'large' ? '26px' : '24px'};
-    width: ${({ size }) => size === 'large' ? '212px' : '181px'};
-    height: ${({ size }) => size === 'large' ? '54px' : '45px'};
+export const TradeButtonContainer = styled.button<{
+  isDark: boolean;
+  size: "large" | "small";
+  backgroundDark: string;
+  background: string;
+}>`
+  border-radius: 100px;
+  background-color: ${({ isDark, backgroundDark, background }) =>
+    isDark ? backgroundDark : background};
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font: 400 24px var(--Font-Body, Syne);
+  border: none;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease;
+  width: fit-content;
+  font-size: ${({ size }) => (size === "large" ? "26px" : "24px")};
+  width: ${({ size }) => (size === "large" ? "212px" : "181px")};
+  height: ${({ size }) => (size === "large" ? "54px" : "45px")};
 
-    @media screen and (max-width: 680px) {
-        font-size: ${({ size }) => size === 'large' ? '24px' : '16px'};
-        width: ${({ size }) => size === 'large' ? '181px' : '108px'};
-        height: ${({ size }) => size === 'large' ? '45px' : '35px'};
-    }
-    :hover {
-        #btns-content-wrapper {
-            >div {
-                transform: translateX(-30px);
-                transition: transform 0.5s ease;
-                >svg:first-child {
-                    opacity: 0;
-                    transition: opacity ease-out 0.5s;
-                }
-                >svg:last-child {
-                    opacity: 1;
-                    transition: opacity ease-out 0.5s;
-                }
-            }
-        }
-    }
-
-    #btns-content-wrapper > div {
-        transform: translateX(0);
+  @media screen and (max-width: 680px) {
+    font-size: ${({ size }) => (size === "large" ? "24px" : "16px")};
+    width: ${({ size }) => (size === "large" ? "181px" : "108px")};
+    height: ${({ size }) => (size === "large" ? "45px" : "35px")};
+  }
+  :hover {
+    #btns-content-wrapper {
+      > div {
+        transform: translateX(-30px);
         transition: transform 0.5s ease;
-        >svg:first-child {
-            opacity: 1;
-            transition: opacity ease-out 0.5s;
+        > svg:first-child {
+          opacity: 0;
+          transition: opacity ease-out 0.5s;
         }
-        >svg:last-child {
-            opacity: 0;
-            transition: opacity ease-out 0.5s;
+        > svg:last-child {
+          opacity: 1;
+          transition: opacity ease-out 0.5s;
         }
+      }
     }
+  }
+
+  #btns-content-wrapper > div {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+    > svg:first-child {
+      opacity: 1;
+      transition: opacity ease-out 0.5s;
+    }
+    > svg:last-child {
+      opacity: 0;
+      transition: opacity ease-out 0.5s;
+    }
+  }
 `;
 
 export const BtnsContentWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: inherit;
 `;
 
 export const IconArrowRightStyled = styled(IconArrowRight)`
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    right: -30px;
-    opacity: 0;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: -30px;
+  opacity: 0;
 `;
