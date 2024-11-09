@@ -109,6 +109,7 @@ export const BurgerButton = styled.button<{isDark: boolean}>`
   width: 36px;
   border: 1px solid ${({isDark}) => !isDark ? '#1C012A' : '#FFFFFF'};
   background: ${({isDark}) => !isDark ? '#FFFFFF': 'rgba(23, 23, 23, 1)'};
+  
   @media screen and (max-width: 680px) {
     display: flex;
     align-items: center;

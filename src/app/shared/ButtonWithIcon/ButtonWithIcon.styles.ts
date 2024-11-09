@@ -8,7 +8,7 @@ export const TradeButtonContainer = styled.button<{
     borderColor?: string 
 }>`
     border-radius: 100px;
-    background-color: ${({ backgroundColor}) => backgroundColor};
+    background-color: ${({ backgroundColor }) => backgroundColor ?? 'rgba(103, 67, 238, 1)'};
     border: ${({ borderColor }) => borderColor ? `1px solid ${borderColor}` : 'none'};
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@ export const TradeButtonContainer = styled.button<{
     font-weight: regular;
     font-size: 24px;
     cursor: pointer;
-    color: white;
+    color: ${({backgroundColor}) => backgroundColor ? 'unset' : 'white'};
     position: relative;
     overflow: hidden;
     transition: background 0.5s ease;

@@ -56,6 +56,7 @@ const FeatureCardsContainer = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
     justify-content: center;
+    gap: 16px;
   }
 `;
 
@@ -76,6 +77,9 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
     }
     position: relative;
 
+    @media screen and (max-width: 680px) {
+      height: 420px;
+    }
   :hover {
     background-color: ${(props) =>
       props.isDark ? "rgba(25, 5, 78, 1)" : "rgba(219, 211, 255, 1)"};
@@ -83,7 +87,6 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
 `;
 
 const FeatureContent = styled.div`
-<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     justify-content: center;

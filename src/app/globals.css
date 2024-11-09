@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap');
+
 :root {
     --background-color: #fff;
     --text-color: #000;
@@ -25,10 +27,16 @@ body {
     flex-direction: column;
     min-height: 100vh;
     position: relative;
+    font-family: 'Syne', sans-serif;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-} 
+  font-family: inherit;
+}
+
+.syne {
+  font-family: 'Syne', sans-serif;
+}

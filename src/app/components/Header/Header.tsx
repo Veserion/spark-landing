@@ -20,9 +20,12 @@ import IconMenu2 from "@/app/shared/icons/IconMenu2";
 export const Header = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const handleBurgerClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsMenuOpen(prevState => !prevState);
+  };
 
   return (
     <HeaderWrapper isDark={isDark}>
@@ -45,12 +48,19 @@ export const Header = () => {
             <ThemeToggle/>
           </div>
           <TradeButton buttonText="Trade Now" size='small'/>
-          <BurgerButton onClick={toggleMenu} isDark={isDark}>
+          <BurgerButton 
+            className="burger-button"
+            onClick={handleBurgerClick} 
+            isDark={isDark}
+          >
             <IconMenu2 />
           </BurgerButton>
         </RightSection>
 
-        <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+        <MobileMenu 
+          isOpen={isMenuOpen} 
+          onClose={() => setIsMenuOpen(false)} 
+        />
       </Container>
     </HeaderWrapper>
   );

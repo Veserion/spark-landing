@@ -1,5 +1,5 @@
 'use client';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import MenuButton from './MenuButton';
 import MobileMenuButton from './MobileMenuButton';
 import CallToAction from './CallToAction';
@@ -14,27 +14,44 @@ import {
   RootContainer
 } from './styles';
 import { useTheme } from 'next-themes';
+import SubMenu from './SubMenu';
+import styled from '@emotion/styled';
+import IconSpark from '@/app/shared/icons/IconSpark';
+import IconChartCandle from '@/app/shared/icons/IconChartCandle';
+import IconTransitionTop from '@/app/shared/icons/IconTransitionTop';
+import { IconCoins } from '@/app/shared';
+import IconArticle from '@/app/shared/icons/IconArticle';
+import IconInfinity from '@/app/shared/icons/IconInfinity';
+import IconRouteSquare from '@/app/shared/icons/IconRouteSquare';
+import IconBook2 from '@/app/shared/icons/IconBook2';
+import IconBrandGithubFilled from '@/app/shared/icons/IconBrandGithubFilled';
+import IconFireHydrant from '@/app/shared/icons/IconFireHydrant';
 
 interface SparkMenuProps {
   isDark: boolean;
 }
 
 interface MenuItem {
-  icon: string;
+  icon?: React.ReactNode;
   text: string;
+  submenu?: Array<{
+    icon: React.ReactNode;
+    text: string;
+    badge?: string;
+  }>;
 }
 
 const menuItems: MenuItem[] = [
   { 
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/a8bf21616b804709c334e2dfbe036a25c165fd38c24f77b414af72553f4b9092?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e', 
+    icon: <IconSpark />, 
     text: 'What is Spark?' 
   },
   { 
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/8576cb0e753b45b93ad06e37db018265e4b12cfd8d86c859e521dfdfaa0ed980?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e', 
+    icon: <IconTransitionTop />, 
     text: 'Limit Trading' 
   },
   { 
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/dc2cf341e6ab837066122c5d3d3418ad53e0f22f295dcd2f9a654298ed5322f4?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e', 
+    icon: <IconCoins />,
     text: 'Provide Liquidity' 
   },
 ];
@@ -42,21 +59,72 @@ const menuItems: MenuItem[] = [
 const mobileMenuItems: MenuItem[] = [
   { 
     text: 'Learn', 
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/30ad8e81b9391286a81c4bd53ac2431c5ea605dfae62c8cdc10a0c3063612b4a?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e' 
+    submenu: [
+      { 
+        icon: <IconSpark />, 
+        text: 'What is Spark?' 
+      },
+      { 
+        icon: <IconTransitionTop />,
+        text: 'Trading 101' 
+      },
+      { 
+        icon: <IconArticle/>,
+        text: 'Blog' 
+      }
+    ]
   },
   { 
     text: 'Trade', 
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/30ad8e81b9391286a81c4bd53ac2431c5ea605dfae62c8cdc10a0c3063612b4a?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e' 
+    submenu: [
+      { 
+        icon: <IconTransitionTop />,
+        text: 'Limit' 
+      },
+      { 
+        icon: <IconInfinity />,
+        text: 'Perpetuals',
+        badge: 'soon'
+      },
+      { 
+        icon: <IconRouteSquare />,
+        text: 'Swap',
+        badge: 'soon'
+      }
+    ]
   },
   { 
     text: 'Build', 
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/30ad8e81b9391286a81c4bd53ac2431c5ea605dfae62c8cdc10a0c3063612b4a?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e' 
-  },
+    submenu: [
+      { 
+        icon: <IconBook2 />,
+        text: 'Docs' 
+      },
+      { 
+        icon: <IconBrandGithubFilled/>,
+        text: 'Github' 
+      },
+      { 
+        icon: <IconFireHydrant />,
+        text: 'Faucet' 
+      }
+    ]
+  }
 ];
+
+const MenuItemContainer = styled.div`
+  position: relative;
+`;
 
 const SparkMenu: React.FC<SparkMenuProps> = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+
+  const handleMenuClick = (menuName: string) => {
+    setActiveSubmenu(activeSubmenu === menuName ? null : menuName);
+  };
+
   return (
     <RootContainer isDark={isDark}>
     <Container isDark={isDark}>
@@ -65,12 +133,26 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
           <MenuButton key={index} icon={item.icon} text={item.text} isDark={isDark} />
         ))}
         {mobileMenuItems.map((item, index) => (
-          <MobileMenuButton key={index} text={item.text} icon={item.icon} isDark={isDark} />
+          <MenuItemContainer key={index}>
+            <MobileMenuButton 
+              text={item.text} 
+              icon={item.icon} 
+              isDark={isDark}
+              onClick={() => handleMenuClick(item.text)}
+            />
+            {item.submenu && (
+              <SubMenu 
+                isDark={isDark} 
+                isOpen={activeSubmenu === item.text}
+                items={item.submenu}
+              />
+            )}
+          </MenuItemContainer>
         ))}
       </MenuSection>
       <CallToActionSection>
         <CallToAction
-          icon="https://cdn.builder.io/api/v1/image/assets/TEMP/5927fc4171e1c4b7e8f4a66e166298171acf7b20954d9259aa6469c6a0f500ec?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e"
+          icon={<IconSpark width={36} height={36}/>}
           title="Spark is Mobile Optimized"
           subtitle="Start trading now"
         />
