@@ -42,7 +42,10 @@ const Main = styled.div`
 
 export default function HomePage() {
   const { theme, setTheme } = useTheme();
-setTheme(localStorage.getItem('theme') || 'dark');
+  if(typeof window !== 'undefined') {
+    setTheme(localStorage.getItem('theme') || 'dark');
+  }
+
   return (
     <RootWrapper>
       <Header />
