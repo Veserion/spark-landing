@@ -1,4 +1,4 @@
-import { socials } from "@/shared";
+import { socialsSub, socialsFooter } from "@/shared";
 
 type SocialItem = {
   title?: string;
@@ -11,16 +11,14 @@ const socialTitles: string[] = [
   "Read our Blog",
   "Start Building",
 ];
-const socialKeys = Object.keys(socials) as (keyof typeof socials)[];
-
-const socialFooter = socialKeys;
-socialFooter.splice(2, 1);
+const socialKeysSub = Object.keys(socialsSub) as (keyof typeof socialsSub)[];
+const socialKeysFooter = Object.keys(socialsFooter) as (keyof typeof socialsFooter)[];
 
 export const socialList: SocialItem[] = socialTitles.map((title, index) => ({
   title: title,
-  icon: socials[socialKeys[index]],
+  icon: socialsSub[socialKeysSub[index]],
 }));
 
-export const socialListFooter: SocialItem[] = socialFooter.map((key) => ({
-  icon: socials[key],
+export const socialListFooter: SocialItem[] = socialKeysFooter.map((key) => ({
+  icon: socialsFooter[key],
 }));

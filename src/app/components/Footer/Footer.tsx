@@ -44,7 +44,7 @@ export const Footer = () => {
               return (
                 <SocialItem href="#" key={title} isDark={isDark}>
                   <SocialComponent
-                    color={isDark ? "#ffffff" : "#1C012A"}
+                    color={"#1C012A"}
                     isDark={isDark}
                   />
                 </SocialItem>

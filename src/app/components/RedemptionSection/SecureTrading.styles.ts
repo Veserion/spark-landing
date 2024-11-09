@@ -116,12 +116,13 @@ export const ButtonIcon = styled(Image)`
   height: 24px;
 `;
 
-export const MobileOptimized = styled.div<{isDark: boolean}>`
+export const MobileOptimized = styled.div<{ isDark: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 32px;
-  border: 1px dashed ${({isDark}) => isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'};
+  border: 1px dashed
+    ${({ isDark }) => (isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)")};
   border-radius: 8px;
   box-sizing: border-box;
 

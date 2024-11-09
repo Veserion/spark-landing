@@ -7,3 +7,5 @@ export * from "./IconArrowRight";
 export * from "./IconSparkSmallLogo";
 export * from "./common";
 export * from "./type";
+export * from './IconShieldHalfFilled';
+export * from './IconHashcloack';

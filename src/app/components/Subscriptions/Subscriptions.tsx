@@ -1,12 +1,8 @@
 "use client";
 import React, { useMemo } from "react";
+import { IconHashcloack, IconShieldHalfFilled, ButtonWithIcon, TIconProps } from "@/shared";
 import { socialList } from "@/helpers";
-import Link from "next/link";
 import { useTheme } from "next-themes";
-import { TIconProps } from "@/shared";
-import { ButtonWithIcon } from "@/app/shared/ButtonWithIcon/ButtonWithIcon";
-import IconHashcloack from "@/app/shared/icons/IconHashcloack";
-import IconShieldHalfFilled from "@/app/shared/icons/IconShieldHalfFilled";
 import {
   Container,
   AuditBlock,
@@ -21,10 +17,10 @@ import {
 export const Subscriptions: React.FC = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);
-
+console.log('socialList', socialList)
   return (
     <Container>
-      <AuditBlock>
+      <AuditBlock isDark={isDark}>
         <div>
           <IconHashcloack width={60} height={60} />
           <Title>
@@ -43,11 +39,11 @@ export const Subscriptions: React.FC = () => {
         {socialList.map(({ title, icon }, index) => {
           const SocialComponent: React.FC<TIconProps> = icon;
           return (
-            <Item href="#" key={title} as={Link}>
-              <IconWrapper>
-                <SocialComponent isDark={index === 2 ? isDark : undefined} />
+            <Item href="#" key={title} isDark={isDark}>
+              <IconWrapper isDark={isDark} id={`icon${index}`}>
+                <SocialComponent isDark={index === 2 ? isDark : undefined} color={isDark ? "#ffffff" : "#1C012A"} />
               </IconWrapper>
-              <SocialTitle>{title}</SocialTitle>
+              <SocialTitle isDark={isDark}>{title}</SocialTitle>
             </Item>
           );
         })}

@@ -1,15 +1,15 @@
-'use client';
+"use client";
 /** @jsxImportSource @emotion/react */
-import React, { useMemo } from 'react';
-import styled from '@emotion/styled';
-import FeatureItem from './FeatureItem';
-import Button from './Button';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import { ButtonWithIcon } from '@/app/shared/ButtonWithIcon/ButtonWithIcon';
-import IconBrandGithubFilled from '@/app/shared/icons/IconBrandGithubFilled';
-import IconHashcloack from '@/app/shared/icons/IconHashcloack';
-import IconFuel from '@/app/shared/icons/IconFuel';
+import React, { useMemo } from "react";
+import styled from "@emotion/styled";
+import FeatureItem from "./FeatureItem";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import { ButtonWithIcon } from "@/app/shared/ButtonWithIcon/ButtonWithIcon";
+import IconBrandGithubFilled from "@/app/shared/icons/IconBrandGithubFilled";
+import IconHashcloack from "@/app/shared/icons/IconHashcloack";
+import IconFuel from "@/app/shared/icons/IconFuel";
+import { TIconProps } from "@/app/shared";
 
 const Section = styled.section`
   display: flex;
@@ -21,7 +21,7 @@ const Section = styled.section`
 const Header = styled.header`
   text-align: center;
   margin-bottom: 40px;
-  gap: 8px
+  gap: 8px;
 `;
 
 const Title = styled.h1`
@@ -89,12 +89,13 @@ const MainImage = styled(Image)`
   }
 `;
 
-const InfoBox = styled.div<{isDark?: boolean}>`
+const InfoBox = styled.div<{ isDark?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: ${({isDark}) => isDark ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"};
   border: 1px solid rgba(219, 211, 255, 1);
   border-radius: 8px;
   position: absolute;
@@ -217,36 +218,45 @@ const features = [
   { text: "Permissionless trading" },
   { text: "Superior price discovery" },
   { text: "Maximized capital efficiency" },
-  { text: "Precise risk management" }
+  { text: "Precise risk management" },
 ];
 
-const WrappedIconHashcloack = styled(IconHashcloack)`
+const WrappedIconHashcloack = styled(IconHashcloack)<TIconProps>`
   color: white;
 `;
 
 export const TradingSection: React.FC = () => {
-    const {theme} = useTheme();
-    const isDark = useMemo(() => theme !== 'light', [theme]);
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme !== "light", [theme]);
   return (
     <Section>
       <Header>
         <Title>ONCHAIN TRADING IS THE ENDGAME</Title>
         <Subtitle>
-          Centralised trading has held crypto back for too long.<br />
+          Centralised trading has held crypto back for too long.
+          <br />
           Onchain trading gives individuals full control of their assets.
         </Subtitle>
       </Header>
       <Content>
         <ImageWrapper>
           <ImageContainer>
-            <MainImage loading="lazy" src={'/images/trading-freedom.png'} alt="Trading platform interface" width={0} height={0} sizes="100vw"            />
+            <MainImage
+              loading="lazy"
+              src={"/images/trading-freedom.png"}
+              alt="Trading platform interface"
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
           </ImageContainer>
           <InfoBox isDark={isDark}>
             <FuelLogo>
               <IconFuel />
             </FuelLogo>
             <FuelDescription>
-              Fuel's cutting-edge execution layer transforms Ethereum rollups, enabling unparalleled scalability, speed, and innovation
+              Fuel's cutting-edge execution layer transforms Ethereum rollups,
+              enabling unparalleled scalability, speed, and innovation
             </FuelDescription>
           </InfoBox>
         </ImageWrapper>
@@ -255,7 +265,9 @@ export const TradingSection: React.FC = () => {
             <CardHeader>
               <CardTitle>Unlock Your Trading Freedom</CardTitle>
             </CardHeader>
-              <CardSubtitle>Built for professional traders and institutions:</CardSubtitle>
+            <CardSubtitle>
+              Built for professional traders and institutions:
+            </CardSubtitle>
             <FeatureList>
               {features.map((feature, index) => (
                 <li key={index}>
@@ -264,8 +276,16 @@ export const TradingSection: React.FC = () => {
               ))}
             </FeatureList>
             <ButtonContainer>
-              <ButtonWithIcon LeftIcon={IconBrandGithubFilled} buttonText="View code" />
-              <ButtonWithIcon LeftIcon={WrappedIconHashcloack} buttonText="Audit Report" backgroundColor='unset' borderColor={isDark ? 'white' : 'black'} />
+              <ButtonWithIcon
+                LeftIcon={IconBrandGithubFilled}
+                buttonText="View code"
+              />
+              <ButtonWithIcon
+                LeftIcon={WrappedIconHashcloack}
+                buttonText="Audit Report"
+                backgroundColor="unset"
+                borderColor={isDark ? "white" : "black"}
+              />
             </ButtonContainer>
           </CardContent>
         </TradingFreedomCard>

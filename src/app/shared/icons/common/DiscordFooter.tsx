@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { type TIconProps } from "../type";
 
-export const Discord: FC<TIconProps> = ({
+export const DiscordFooter: FC<TIconProps> = ({
   className,
   width = 36,
   height = 36,
@@ -9,7 +9,7 @@ export const Discord: FC<TIconProps> = ({
 }) => {
   return (
     <svg
-      id={'DiscordLight'}
+      id={"DiscordFooter"}
       className={className}
       width={width}
       height={height}

@@ -1,14 +1,17 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 interface ThemeProps {
   isDark: boolean;
 }
 
-export const RootContainer = styled.div<{isDark: boolean}>`
+export const RootContainer = styled.div<{ isDark: boolean }>`
   display: flex;
   width: 100%;
   height: 100%;
-  background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' : 'var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))'};
+  background: ${({ isDark }) =>
+    isDark
+      ? "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"
+      : "var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))"};
   animation: gradientAnimation 3s infinite alternate;
   background-size: 200% 200%;
 `;
@@ -19,22 +22,20 @@ export const Container = styled.nav<ThemeProps>`
   width: 320px;
   flex-direction: column;
   padding: 8px;
-  background: ${({ isDark }) => isDark ? '#1A1A1A' : '#FFFFFF'};
-  color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
-  font-family: 'Syne', sans-serif;
+  background: ${({ isDark }) => (isDark ? "#1A1A1A" : "#FFFFFF")};
+  color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
+  font-family: "Syne", sans-serif;
   * {
     border: unset;
     font-family: inherit;
   }
 `;
 
-
-
 export const MenuSection = styled.div<ThemeProps>`
   display: flex;
   width: 100%;
   flex-direction: column;
-  color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
+  color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   font-weight: 500;
   font-size: 16px;
 `;
@@ -49,12 +50,12 @@ export const StyledMenuButton = styled.button<ThemeProps>`
   justify-content: flex-start;
   padding: 12px 16px;
   margin-top: 8px;
-  background: ${({ isDark }) => isDark ? 'rgba(23, 23, 23, 1)' : '#F7F7F7'};
-  color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
+  background: ${({ isDark }) => (isDark ? "rgba(23, 23, 23, 1)" : "#F7F7F7")};
+  color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
 
   &:hover {
-    background: ${({ isDark }) => isDark ? '#333333' : '#EFEFEF'};
+    background: ${({ isDark }) => (isDark ? "#333333" : "#EFEFEF")};
   }
 
   &:first-of-type {
@@ -69,13 +70,13 @@ export const MenuIcon = styled.img<ThemeProps>`
   width: 18px;
   align-self: stretch;
   margin: auto 0;
-  filter: ${({ isDark }) => isDark ? 'invert(1)' : 'none'};
+  filter: ${({ isDark }) => (isDark ? "invert(1)" : "none")};
 `;
 
 export const MenuText = styled.span<ThemeProps>`
   align-self: stretch;
   margin: auto 0;
-  color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
+  color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
 `;
 
 export const StyledMobileMenuButton = styled.button<ThemeProps>`
@@ -83,7 +84,7 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   margin-top: 8px;
   width: 100%;
   flex-direction: column;
-  color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
+  color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   white-space: nowrap;
   background: transparent;
   border-radius: 8px;
@@ -91,7 +92,7 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   cursor: pointer;
 
   &:hover {
-    background: ${({ isDark }) => isDark ? 'rgba(23, 23, 23, 1)' : '#F7F7F7'};
+    background: ${({ isDark }) => (isDark ? "rgba(23, 23, 23, 1)" : "#F7F7F7")};
   }
 `;
 
@@ -102,7 +103,6 @@ export const MobileMenuContent = styled.div`
   justify-content: space-between;
   padding: 12px 16px;
 `;
-
 
 export const CallToActionSection = styled.div`
   display: flex;
@@ -117,14 +117,14 @@ export const StyledCallToAction = styled.button`
   width: 100%;
   align-items: center;
   gap: 8px;
-  background: #6743EE;
-  color: #FFFFFF;
+  background: #6743ee;
+  color: #ffffff;
   font-weight: 400;
   padding: 12px;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background: #5A3BD4;
+    background: #5a3bd4;
   }
 `;
 
@@ -147,13 +147,13 @@ export const CallToActionContent = styled.div`
 
 export const CallToActionTitle = styled.div`
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
 export const CallToActionSubtitle = styled.div`
   font-size: 12px;
   margin-top: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 0.8;
 `;
 
@@ -164,7 +164,9 @@ export const FooterSection = styled.footer<ThemeProps>`
   align-items: center;
   justify-content: space-between;
   padding-top: 8px;
-  border-top: 1px solid ${({ isDark }) => isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
+  border-top: 1px solid
+    ${({ isDark }) =>
+      isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"};
 `;
 
 export const FooterLogo = styled.img<ThemeProps>`
@@ -172,7 +174,7 @@ export const FooterLogo = styled.img<ThemeProps>`
   object-fit: contain;
   object-position: center;
   width: 192px;
-  filter: ${({ isDark }) => isDark ? 'invert(1)' : 'none'};
+  filter: ${({ isDark }) => (isDark ? "invert(1)" : "none")};
 `;
 
 export const FooterIcon = styled.img`

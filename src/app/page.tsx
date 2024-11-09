@@ -27,12 +27,12 @@ const Main = styled.div`
   flex-direction: column;
   gap: 120px;
 
-    @media screen and (max-width: 1280px) {
-      max-width: 1280px;
-      padding-right: 48px;
-      padding-left: 48px;
-      gap: 80px;
-    }
+  @media screen and (max-width: 1280px) {
+    max-width: 1280px;
+    padding-right: 48px;
+    padding-left: 48px;
+    gap: 80px;
+  }
 
     @media screen and (max-width: 680px) {
       max-width: 680px;

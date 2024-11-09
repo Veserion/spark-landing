@@ -1,11 +1,16 @@
-'use client';
-import React, { useMemo } from 'react';
-import styled from '@emotion/styled';
-import { FeatureCard, FeatureCardProps } from './FeatureCard';
-import { SecureTrading } from './SecureTrading';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { IconChartCandle, IconCoins, IconTerminal2, IconCheckupList  } from '@/shared';
+"use client";
+import React, { useMemo } from "react";
+import styled from "@emotion/styled";
+import { FeatureCard, FeatureCardProps } from "./FeatureCard";
+import { SecureTrading } from "./SecureTrading";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import {
+  IconChartCandle,
+  IconCoins,
+  IconTerminal2,
+  IconCheckupList,
+} from "@/shared";
 
 const RedemptionSectionContainer = styled.section`
   display: flex;
@@ -29,19 +34,19 @@ const RedemptionSectionContainer = styled.section`
 `;
 
 const SectionHeader = styled.header`
-    text-align: center;
-    margin-bottom: 64px;
+  text-align: center;
+  margin-bottom: 64px;
 `;
 
 const MainTitle = styled.h1`
-    font-size: 48px;
-    font-weight: 700;
+  font-size: 48px;
+  font-weight: 700;
 `;
 
 const Subtitle = styled.p`
-    font-size: 28px;
-    font-weight: 500;
-    margin-top: 8px;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 8px;
 `;
 
 const FeatureCardsContainer = styled.div`
@@ -61,21 +66,18 @@ const FeatureCardsContainer = styled.div`
 `;
 
 const AdditionalFeature = styled.div<{ isDark: boolean }>`
-    border-radius: 16px;
-    background-color: ${props => props.isDark ? 'rgba(20, 1, 30, 1)' : 'rgba(236, 231, 255, 1)'};
-    border: 4px solid ${props => props.isDark ? 'rgba(25, 5, 78, 1)' : 'rgba(219, 211, 255, 1)'};
-    padding: 16px;
-    display: flex;
-    overflow: hidden;
-    color: ${props => props.isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 1)'};
-    transition: background 0.5s ease;
-    
-    @media screen and (max-width: 1024px) {
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
-    position: relative;
+  border-radius: 16px;
+  background-color: ${(props) =>
+    props.isDark ? "rgba(20, 1, 30, 1)" : "rgba(236, 231, 255, 1)"};
+  border: 4px solid
+    ${(props) =>
+      props.isDark ? "rgba(25, 5, 78, 1)" : "rgba(219, 211, 255, 1)"};
+  padding: 16px;
+  display: flex;
+  overflow: hidden;
+  color: ${(props) =>
+    props.isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)"};
+  transition: background 0.5s ease;
 
     @media screen and (max-width: 680px) {
       height: 420px;
@@ -94,9 +96,9 @@ const FeatureContent = styled.div`
 `;
 
 const FeatureTitle = styled.h3`
-    font-size: 38px;
-    font-weight: 700;
-    margin: 0;
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0;
 
   @media screen and (max-width: 1024px) {
     font-size: 32px;
@@ -104,8 +106,8 @@ const FeatureTitle = styled.h3`
 `;
 
 const FeatureDescription = styled.p`
-    font-size: 24px;
-    font-weight: 400;
+  font-size: 24px;
+  font-weight: 400;
 `;
 
 const StyledImage = styled(Image)`
