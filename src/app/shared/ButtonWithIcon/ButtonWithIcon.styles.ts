@@ -1,83 +1,85 @@
-import styled from '@emotion/styled';
-import IconArrowRight from '../icons/IconArrowRight';
+import styled from "@emotion/styled";
+import IconArrowRight from "../icons/IconArrowRight";
 
-export const TradeButtonContainer = styled.button<{ 
-    isDark: boolean, 
-    size: 'large' | 'small',
-    backgroundColor?: string,
-    borderColor?: string 
+export const TradeButtonContainer = styled.button<{
+  isDark: boolean;
+  size: "large" | "small";
+  backgroundColor?: string;
+  borderColor?: string;
 }>`
-    border-radius: 100px;
-    background-color: ${({ backgroundColor, isDark }) => 
-        backgroundColor || (isDark ? 'rgba(103, 67, 238, 1)' : 'rgba(103, 67, 238, 1)')};
-    border: ${({ borderColor }) => borderColor ? `1px solid ${borderColor}` : 'none'};
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-    font-weight: regular;
-    font-size: 24px;
-    cursor: pointer;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.5s ease;
-    width: fit-content;
-    font-size: ${({ size }) => size === 'large' ? '26px' : '24px'};
-    width: ${({ size }) => size === 'large' ? '212px' : '181px'};
-    height: ${({ size }) => size === 'large' ? '54px' : '45px'};
+  border-radius: 100px;
+  background-color: ${({ backgroundColor, isDark }) =>
+    backgroundColor ||
+    (isDark ? "rgba(103, 67, 238, 1)" : "rgba(103, 67, 238, 1)")};
+  border: ${({ borderColor }) =>
+    borderColor ? `1px solid ${borderColor}` : "none"};
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-weight: regular;
+  font-size: 24px;
+  cursor: pointer;
+  color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease;
+  width: fit-content;
+  font-size: ${({ size }) => (size === "large" ? "26px" : "24px")};
+  width: ${({ size }) => (size === "large" ? "212px" : "181px")};
+  height: ${({ size }) => (size === "large" ? "54px" : "45px")};
 
-    @media screen and (max-width: 680px) {
-        font-size: ${({ size }) => size === 'large' ? '24px' : '16px'};
-        width: ${({ size }) => size === 'large' ? '181px' : '108px'};
-        height: ${({ size }) => size === 'large' ? '45px' : '35px'};
+  @media screen and (max-width: 680px) {
+    font-size: ${({ size }) => (size === "large" ? "24px" : "16px")};
+    width: ${({ size }) => (size === "large" ? "181px" : "108px")};
+    height: ${({ size }) => (size === "large" ? "45px" : "35px")};
 
-        svg {
-            display: ${({ size }) => size === 'small' ? 'none' : 'unset'};;
-        }
+    svg {
+      display: ${({ size }) => (size === "small" ? "none" : "unset")};
     }
-    :hover {
-        #btns-content-wrapper {
-            >div {
-                transform: translateX(-30px);
-                transition: transform 0.5s ease;
-                >svg:first-child {
-                    opacity: 0;
-                    transition: opacity ease-out 0.5s;
-                }
-                >svg:last-child {
-                    opacity: 1;
-                    transition: opacity ease-out 0.5s;
-                }
-            }
-        }
-    }
-
-    #btns-content-wrapper > div {
-        transform: translateX(0);
+  }
+  :hover {
+    #btns-content-wrapper {
+      > div {
+        transform: translateX(-30px);
         transition: transform 0.5s ease;
-        >svg:first-child {
-            opacity: 1;
-            transition: opacity ease-out 0.5s;
+        > svg:first-child {
+          opacity: 0;
+          transition: opacity ease-out 0.5s;
         }
-        >svg:last-child {
-            opacity: 0;
-            transition: opacity ease-out 0.5s;
+        > svg:last-child {
+          opacity: 1;
+          transition: opacity ease-out 0.5s;
         }
+      }
     }
+  }
+
+  #btns-content-wrapper > div {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+    > svg:first-child {
+      opacity: 1;
+      transition: opacity ease-out 0.5s;
+    }
+    > svg:last-child {
+      opacity: 0;
+      transition: opacity ease-out 0.5s;
+    }
+  }
 `;
 
 export const BtnsContentWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: inherit;
 `;
 
 export const IconArrowRightStyled = styled(IconArrowRight)`
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    right: -30px;
-    opacity: 0;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: -30px;
+  opacity: 0;
 `;

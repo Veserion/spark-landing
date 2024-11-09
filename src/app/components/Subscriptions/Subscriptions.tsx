@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import styles from "./subscriptions.module.css";
-import { Audit, AuditView, TradeButton } from "@/shared";
+import { Audit, AuditView, ButtonWithIcon } from "@/shared";
 import { socialList } from "@/helpers";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -11,7 +11,7 @@ export const Subscriptions: React.FC = () => {
   const isDark = useMemo(() => theme === "dark", [theme]);
 
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} ${isDark ? styles.isDark : ""}`}>
       <div className={styles.audit}>
         <div className={styles.block}>
           <Audit />
@@ -20,11 +20,11 @@ export const Subscriptions: React.FC = () => {
           </p>
         </div>
         <div className={styles.buttonWrap}>
-          <TradeButton
+          <ButtonWithIcon
             buttonText="View Audit"
-            icon={<AuditView />}
-            backgroundDark="#171717"
-            background="#FFFFFF"
+            LeftIcon={AuditView}
+            backgroundColor="#171717"
+            borderColor="#FFFFFF"
           />
         </div>
       </div>

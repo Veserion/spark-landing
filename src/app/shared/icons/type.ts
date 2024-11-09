@@ -1,4 +1,4 @@
-export type TIconProps = {
+export type TIconProps = React.SVGProps<SVGSVGElement> & {
   className?: string;
   width?: number;
   height?: number;
