@@ -1,46 +1,57 @@
+"use client";
 import React, { useMemo } from "react";
-import styles from "./subscriptions.module.css";
-import { Audit, AuditView, TradeButton } from "@/shared";
 import { socialList } from "@/helpers";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { TIconProps } from "@/shared";
+import { ButtonWithIcon } from "@/app/shared/ButtonWithIcon/ButtonWithIcon";
+import IconHashcloack from "@/app/shared/icons/IconHashcloack";
+import IconShieldHalfFilled from "@/app/shared/icons/IconShieldHalfFilled";
+import {
+  Container,
+  AuditBlock,
+  Title,
+  ButtonWrapper,
+  List,
+  Item,
+  IconWrapper,
+  SocialTitle
+} from "./Subscriptions.styles";
 
 export const Subscriptions: React.FC = () => {
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme === "dark", [theme]);
+  const isDark = useMemo(() => theme !== "light", [theme]);
 
   return (
-    <section className={styles.container}>
-      <div className={styles.audit}>
-        <div className={styles.block}>
-          <Audit />
-          <p className={styles.title}>
+    <Container>
+      <AuditBlock>
+        <div>
+          <IconHashcloack width={60} height={60} />
+          <Title>
             Fully audited by privacy first HashCloak lab
-          </p>
+          </Title>
         </div>
-        <div className={styles.buttonWrap}>
-          <TradeButton
+        <ButtonWrapper>
+          <ButtonWithIcon
             buttonText="View Audit"
-            icon={<AuditView />}
-            backgroundDark="#171717"
-            background="#FFFFFF"
+            LeftIcon={IconShieldHalfFilled}
+            backgroundColor={isDark ? "#171717" : "#FFFFFF"}
           />
-        </div>
-      </div>
-      <div className={styles.list}>
+        </ButtonWrapper>
+      </AuditBlock>
+      <List>
         {socialList.map(({ title, icon }, index) => {
           const SocialComponent: React.FC<TIconProps> = icon;
           return (
-            <Link href={"#"} key={title} className={styles.item}>
-              <div className={styles.iconWrap}>
+            <Item href="#" key={title} as={Link}>
+              <IconWrapper>
                 <SocialComponent isDark={index === 2 ? isDark : undefined} />
-              </div>
-              <p className={styles.socialTitle}>{title}</p>
-            </Link>
+              </IconWrapper>
+              <SocialTitle>{title}</SocialTitle>
+            </Item>
           );
         })}
-      </div>
-    </section>
+      </List>
+    </Container>
   );
 };
