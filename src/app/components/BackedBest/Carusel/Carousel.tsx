@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './carousel.module.css';
-import { logoList } from '@/shared';
+import React from "react";
+import styles from "./carousel.module.css";
+import { logoList } from "@/shared";
 
 export const Carousel: React.FC = () => {
   const logoKeys = Object.keys(logoList) as (keyof typeof logoList)[];

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { type TIconProps } from "./type";
+import { type TIconProps } from "../type";
 
 export const Audit: FC<TIconProps> = ({
   className,
