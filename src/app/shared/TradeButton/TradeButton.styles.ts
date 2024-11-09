@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
 import IconArrowRight from '../icons/IconArrowRight';
 
-export const TradeButtonContainer = styled.button<{ isDark: boolean }>`
+export const TradeButtonContainer = styled.button<{ isDark: boolean, size: 'large' | 'small' }>`
     border-radius: 100px;
     background-color: ${({ isDark }) => isDark ? 'rgba(103, 67, 238, 1)' : 'rgba(103, 67, 238, 1)'};
     display: flex;
     align-items: center;
     gap: 8px;
     justify-content: center;
-    padding: 8px 18px;
     font: 400 24px var(--Font-Body, Syne);
     border: none;
     cursor: pointer;
@@ -17,7 +16,15 @@ export const TradeButtonContainer = styled.button<{ isDark: boolean }>`
     overflow: hidden;
     transition: background 0.5s ease;
     width: fit-content;
-    
+    font-size: ${({ size }) => size === 'large' ? '26px' : '24px'};
+    width: ${({ size }) => size === 'large' ? '212px' : '181px'};
+    height: ${({ size }) => size === 'large' ? '54px' : '45px'};
+
+    @media screen and (max-width: 680px) {
+        font-size: ${({ size }) => size === 'large' ? '24px' : '16px'};
+        width: ${({ size }) => size === 'large' ? '181px' : '108px'};
+        height: ${({ size }) => size === 'large' ? '45px' : '35px'};
+    }
     :hover {
         #btns-content-wrapper {
             >div {

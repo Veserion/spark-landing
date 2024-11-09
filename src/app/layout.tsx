@@ -9,7 +9,7 @@ const syne = Syne({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" suppressHydrationWarning className={syne.className}>
+    <html lang="en" className={syne.className}>
       <head>
         <style jsx global>{`
             :root {

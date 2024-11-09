@@ -13,6 +13,7 @@ import { ThemeToggle } from './ThemeToggle';
 import Image from "next/image";
 import {useMemo} from "react";
 import Link from 'next/link';
+import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -36,9 +37,7 @@ export const Header = () => {
 
         <RightSection>
           <ThemeToggle/>
-          <TradeNowButton href="/trade">
-            Trade Now
-          </TradeNowButton>
+          <TradeButton buttonText="Trade Now" size='small'/>
         </RightSection>
       </Container>
     </HeaderWrapper>
