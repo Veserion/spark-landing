@@ -53,7 +53,31 @@ export const NavItem = styled.div`
   cursor: pointer;
 `;
 
-export const NavLink = styled.button<{ isActive?: boolean }>`
+export const NavButton = styled.button<{ isActive?: boolean }>`
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+  line-height: 20px;
+  padding: 6px 12px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  
+  &:hover {
+    color: #8a7cff;
+  }
+  
+  ${({ isActive }) => isActive && `
+    color: #8a7cff;
+  `}
+`;
+
+export const NavLink = styled(Link)<{ isActive?: boolean }>`
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -126,6 +150,8 @@ export const BurgerButton = styled.button<{ isDark: boolean }>`
   width: 36px;
   border: 1px solid ${({ isDark }) => (!isDark ? "#1C012A" : "#FFFFFF")};
   background: ${({ isDark }) => (!isDark ? "#FFFFFF" : "rgba(23, 23, 23, 1)")};
+  position: relative;
+  z-index: 1001;
 
   @media screen and (max-width: 680px) {
     display: flex;

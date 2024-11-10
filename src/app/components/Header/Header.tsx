@@ -8,7 +8,8 @@ import {
   NavLink,
   RightSection,
   BurgerButton,
-  NavItem
+  NavItem,
+  NavButton
 } from './Header.styles';
 import { ThemeToggle } from './ThemeToggle';
 import {useMemo, useState} from "react";
@@ -89,9 +90,8 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
-  const handleBurgerClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsMenuOpen(prevState => !prevState);
+  const handleBurgerClick = () => {
+    setIsMenuOpen(prev => !prev);
   };
 
   const handleMouseEnter = (menuName: string) => {
@@ -117,12 +117,12 @@ export const Header = () => {
                 onMouseEnter={() => handleMouseEnter(key)}
                 onMouseLeave={handleMouseLeave}
               >
-                <NavLink 
+                <NavButton 
                   isActive={activeSubmenu === key}
                   onClick={() => handleMouseEnter(key)}
                 >
                   {label}
-                </NavLink>
+                </NavButton>
                 <DesktopSubmenu
                   isDark={isDark}
                   isOpen={activeSubmenu === key}
@@ -130,7 +130,7 @@ export const Header = () => {
                 />
               </NavItem>
             ))}
-            <NavLink as={Link} href="/liquidity">Liquidity</NavLink>
+            <NavLink href="/liquidity">Liquidity</NavLink>
           </Nav>
         </LeftSection>
 
@@ -143,6 +143,7 @@ export const Header = () => {
             className="burger-button"
             onClick={handleBurgerClick} 
             isDark={isDark}
+            type="button"
           >
             <IconMenu2 />
           </BurgerButton>
