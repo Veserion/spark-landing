@@ -1,21 +1,26 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-const moveList = keyframes`
+const moveList = (
+  transform: number,
+  mainTransform: string,
+  calculate: number
+) => keyframes`
   0% {
-    transform: translateX(187px);
+    transform: translateX(${mainTransform}px);
   }
   25% {
-    transform: translateX(-100%);
+    transform: translateX(-${transform + calculate}px);
   }
   50% {
-    transform: translateX(-100%);
+    transform: translateX(-${transform + calculate}px);
   }
   75% {
-    transform: translateX(187px);
+    transform: translateX(${mainTransform}px);
   }
   100% {
-    transform: translateX(187px);
+    transform: translateX(${mainTransform}px);
+  }
   }
 `;
 
@@ -66,7 +71,7 @@ export const WrapperList = styled.div<{ isDark: boolean }>`
   }
 `;
 
-export const List = styled.div`
+export const List = styled.div<{ transform: number }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -74,18 +79,31 @@ export const List = styled.div`
   width: calc(100% + 24px);
   max-width: 3198px;
   z-index: 1;
-  animation: ${moveList} 20s cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
+  animation: ${(props) => moveList(props.transform, "187", 200)} 20s
+    cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
+
+  @media screen and (max-width: 1620px) {
+    animation: ${(props) => moveList(props.transform, "120", 120)} 20s
+      cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
+  }
+
+  @media screen and (max-width: 1440px) {
+    animation: ${(props) => moveList(props.transform, "87", 100)} 20s
+      cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
+  }
 
   @media screen and (max-width: 1280px) {
-    // animation: none;
-    transform: translateX(87px);
+    animation: ${(props) => moveList(props.transform, "67", 100)} 20s
+      cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 
   @media screen and (max-width: 1024px) {
-    transform: translateX(57px);
+    animation: ${(props) => moveList(props.transform, "57", 70)} 20s
+      cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 
   @media screen and (max-width: 680px) {
-    transform: translateX(20px);
+    animation: ${(props) => moveList(props.transform, "20", 40)} 20s
+      cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 `;
