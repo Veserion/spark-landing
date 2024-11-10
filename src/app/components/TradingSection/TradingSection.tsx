@@ -6,10 +6,10 @@ import FeatureItem from "./FeatureItem";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { ButtonWithIcon } from "@/app/shared/ButtonWithIcon/ButtonWithIcon";
-import IconBrandGithubFilled from "@/app/shared/icons/IconBrandGithubFilled";
-import IconHashcloack from "@/app/shared/icons/IconHashcloack";
-import IconFuel from "@/app/shared/icons/IconFuel";
-import { TIconProps } from "@/app/shared";
+import {IconBrandGithubFilled} from "@/app/shared/icons/IconBrandGithubFilled";
+import {IconHashcloack} from "@/app/shared/icons/IconHashcloack";
+import { IconFuel } from "@/app/shared/icons/IconFuel";
+import { TIconProps } from "@/app/shared/";
 
 const Section = styled.section`
   display: flex;

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { IconArrowRight } from '../icons';
+import {IconArrowRight} from "@/shared";
 
 export const TradeButtonContainer = styled.button<{ isDark: boolean, size: 'large' | 'small' }>`
     border-radius: 100px;
