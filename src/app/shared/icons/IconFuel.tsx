@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconFuel = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconFuel = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "182"}
     height={props.height || "58"}
@@ -30,4 +30,4 @@ const IconFuel = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
   </svg>
 ));
 
-export default IconFuel; 
+IconFuel.displayName = 'IconFuel'; 

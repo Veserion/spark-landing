@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconArticle = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconArticle = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -19,4 +19,4 @@ const IconArticle = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement
   </svg>
 ));
 
-export default IconArticle; 
+IconArticle.displayName = 'IconArticle'; 

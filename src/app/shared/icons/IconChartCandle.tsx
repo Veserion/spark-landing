@@ -19,4 +19,4 @@ export const IconChartCandle = React.forwardRef<SVGSVGElement, React.SVGProps<SV
   </svg>
 ));
 
-export default IconChartCandle; 
+IconChartCandle.displayName = 'IconChartCandle'; 

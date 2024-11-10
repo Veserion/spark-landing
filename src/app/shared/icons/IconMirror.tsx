@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconMirror = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconMirror = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -21,4 +21,4 @@ const IconMirror = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>
   </svg>
 ));
 
-export default IconMirror; 
+IconMirror.displayName = 'IconMirror'; 

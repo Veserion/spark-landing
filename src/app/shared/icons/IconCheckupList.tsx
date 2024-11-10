@@ -20,4 +20,4 @@ export const IconCheckupList = React.forwardRef<SVGSVGElement, React.SVGProps<SV
   </svg>
 ));
 
-export default IconCheckupList; 
+IconCheckupList.displayName = 'IconCheckupList'; 

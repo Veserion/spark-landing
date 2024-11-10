@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyledCallToAction,
-  CallToActionIcon,
   CallToActionContent,
   CallToActionTitle,
   CallToActionSubtitle

@@ -6,7 +6,7 @@ import {
   BtnsContentWrapper,
   IconArrowRightStyled,
 } from "./TradeButton.styles";
-import IconSparkSmallLogo from "../icons/IconSparkSmallLogo";
+import {IconSparkSmallLogo} from "../icons/IconSparkSmallLogo";
 interface TradeButtonProps {
   buttonText: string;
   size?: "large" | "small";

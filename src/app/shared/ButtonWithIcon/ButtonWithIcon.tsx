@@ -6,12 +6,11 @@ import {
   BtnsContentWrapper,
   IconArrowRightStyled,
 } from "./ButtonWithIcon.styles";
-import { TIconProps } from "../icons";
 
 interface ButtonWithIconProps {
   buttonText: string;
   size?: "large" | "small";
-  LeftIcon?: React.FC<TIconProps>;
+  LeftIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
   backgroundColor?: string;
   borderColor?: string;
 }

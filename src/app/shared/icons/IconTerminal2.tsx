@@ -20,4 +20,4 @@ export const IconTerminal2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGS
   </svg>
 ));
 
-export default IconTerminal2; 
+IconTerminal2.displayName = 'IconTerminal2'; 

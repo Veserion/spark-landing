@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconBrightness2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconBrightness2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -27,4 +27,4 @@ const IconBrightness2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGEle
   </svg>
 ));
 
-export default IconBrightness2; 
+IconBrightness2.displayName = 'IconBrightness2'; 
