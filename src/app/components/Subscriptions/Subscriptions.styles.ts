@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/shared";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
@@ -50,6 +51,34 @@ export const List = styled.div`
   max-width: 952px;
 `;
 
+export const IconArrow = styled.div<{ isDark: boolean }>`
+  position: absolute;
+  height: 52px;
+  width: 52px;
+  top: 8px;
+  left: 8px;
+  background: ${({ isDark }) => (isDark ? "#000000" : "#ffffff")};
+  border-radius: 8px;
+  transition: width 0.3s ease;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 14px;
+
+  @media screen and (max-width: 680px) {
+    height: 39px;
+    width: 39px;
+    top: 3px;
+    left: 4px;
+  }
+`;
+
+export const MainIcon = styled.div<{ isDark: boolean }>`
+  position: relative;
+  z-index: 2;
+`;
+
 export const Item = styled(Link)<{ isDark: boolean }>`
   position: relative;
   border-radius: 8px;
@@ -62,39 +91,10 @@ export const Item = styled(Link)<{ isDark: boolean }>`
   column-gap: 12px;
   text-decoration: none;
 
-  &::before {
-    content: "";
-    position: absolute;
-    height: 52px;
-    width: 52px;
-    top: 8px;
-    left: 8px;
-    background: ${({ isDark }) => (isDark ? "#000000" : "#ffffff")};
-    border-radius: 8px;
-    transition: width 0.3s ease;
-    z-index: 1;
+  @media screen and (max-width: 680px) {
+    height: 44px;
+    padding: 4px;
   }
-
-  &:hover::before {
-    width: 98%;
-  }
-
-  // &:nth-child(1) svg * {
-  //   stroke: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  //   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  // }
-
-  // &:nth-child(2) svg * {
-  //   stroke: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  //   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  //   // fill: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  // }
-
-  // &:nth-child(4) svg * {
-  //   stroke: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  //   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  //   fill: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-  // }
 `;
 
 export const IconWrapper = styled.div<{ isDark: boolean }>`
@@ -108,6 +108,17 @@ export const IconWrapper = styled.div<{ isDark: boolean }>`
   background: ${({ isDark }) => (isDark ? "#000000" : "#ffffff")};
   position: relative;
   z-index: 2;
+
+  @media screen and (max-width: 680px) {
+    height: 39px;
+    width: 39px;
+    padding: 4px;
+
+    svg:last-child {
+      transform: scale(0.7); /* Уменьшает размер в 2 раза */
+      transform-origin: center;
+    }
+  }
 `;
 
 export const SocialTitle = styled.p<{ isDark: boolean }>`

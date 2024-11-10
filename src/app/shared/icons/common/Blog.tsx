@@ -2,7 +2,6 @@ import { FC } from "react";
 import { type TIconProps } from "../type";
 
 export const Blog: FC<TIconProps> = ({ isDark }) => {
-  console.log("Blog-isDark", isDark);
   return isDark ? (
     <svg
       id="DARK"

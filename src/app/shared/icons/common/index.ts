@@ -22,3 +22,4 @@ export const socialsFooter = {
 };
 
 export * from "./logo";
+export * from "./Arrow";
