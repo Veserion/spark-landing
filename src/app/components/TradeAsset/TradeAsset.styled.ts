@@ -145,10 +145,10 @@ export const Description = styled.div<{ isDark: boolean }>`
 
 export const Title2 = styled.h1`
     font-size: 90px;
-    font-weight: bold;
     margin: 0;
-    text-transform: uppercase;
-    font-family: 'Bebas Neue', sans-serif;
+    // text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
 
     @media screen and (max-width: 680px) {
         font-size: 32px;

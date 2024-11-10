@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   left: 0;
   right: 0;
   height: 72px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
   z-index: 100;
 `;
 
@@ -45,7 +45,15 @@ export const Nav = styled.nav`
   }
 `;
 
-export const NavLink = styled(Link)`
+export const NavItem = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+`;
+
+export const NavLink = styled.button<{ isActive?: boolean }>`
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -53,9 +61,20 @@ export const NavLink = styled(Link)`
   line-height: 20px;
   padding: 6px 12px;
   color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  
   &:hover {
     color: #8a7cff;
   }
+  
+  ${({ isActive }) => isActive && `
+    color: #8a7cff;
+  `}
 `;
 
 export const RightSection = styled.div`

@@ -7,24 +7,99 @@ import {
   Nav,
   NavLink,
   RightSection,
-  BurgerButton
+  BurgerButton,
+  NavItem
 } from './Header.styles';
 import { ThemeToggle } from './ThemeToggle';
 import {useMemo, useState} from "react";
 import Link from 'next/link';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 import MobileMenu from './MobileMenu';
-import { SparkLogotype } from '@/app/shared/icons';
-import { IconMenu2 } from "@/app/shared/icons";
+import DesktopSubmenu from './DesktopSubmenu';
+import { SparkLogotype, IconSpark, IconTransitionTop, IconArticle, IconInfinity, IconRouteSquare, IconBook2, IconBrandGithubFilled, IconFireHydrant, IconMenu2 } from '@/app/shared/icons';
+
+const navItems = {
+  learn: {
+    label: 'Learn',
+    items: [
+      {
+        icon: <IconSpark />,
+        text: 'What is Spark?',
+        href: '/learn/what-is-spark'
+      },
+      {
+        icon: <IconTransitionTop />,
+        text: 'Trading 101',
+        href: '/learn/trading-101'
+      },
+      {
+        icon: <IconArticle />,
+        text: 'Blog',
+        href: '/blog'
+      }
+    ]
+  },
+  trade: {
+    label: 'Trade',
+    items: [
+      {
+        icon: <IconTransitionTop />,
+        text: 'Limit',
+        href: '/trade/limit'
+      },
+      {
+        icon: <IconInfinity />,
+        text: 'Perpetuals',
+        href: '/trade/perpetuals',
+        badge: 'soon'
+      },
+      {
+        icon: <IconRouteSquare />,
+        text: 'Swap',
+        href: '/trade/swap',
+        badge: 'soon'
+      }
+    ]
+  },
+  build: {
+    label: 'Build',
+    items: [
+      {
+        icon: <IconBook2 />,
+        text: 'Docs',
+        href: '/docs'
+      },
+      {
+        icon: <IconBrandGithubFilled />,
+        text: 'Github',
+        href: '/github'
+      },
+      {
+        icon: <IconFireHydrant />,
+        text: 'Faucet',
+        href: '/faucet'
+      }
+    ]
+  }
+};
 
 export const Header = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   const handleBurgerClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsMenuOpen(prevState => !prevState);
+  };
+
+  const handleMouseEnter = (menuName: string) => {
+    setActiveSubmenu(menuName);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveSubmenu(null);
   };
 
   return (
@@ -36,10 +111,26 @@ export const Header = () => {
           </Link>
 
           <Nav>
-            <NavLink href="/learn">Learn</NavLink>
-            <NavLink href="/trade">Trade</NavLink>
-            <NavLink href="/build">Build</NavLink>
-            <NavLink href="/liquidity">Liquidity</NavLink>
+            {Object.entries(navItems).map(([key, { label, items }]) => (
+              <NavItem 
+                key={key}
+                onMouseEnter={() => handleMouseEnter(key)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <NavLink 
+                  isActive={activeSubmenu === key}
+                  onClick={() => handleMouseEnter(key)}
+                >
+                  {label}
+                </NavLink>
+                <DesktopSubmenu
+                  isDark={isDark}
+                  isOpen={activeSubmenu === key}
+                  items={items}
+                />
+              </NavItem>
+            ))}
+            <NavLink as={Link} href="/liquidity">Liquidity</NavLink>
           </Nav>
         </LeftSection>
 
