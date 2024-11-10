@@ -6,8 +6,8 @@ import FeatureItem from "./FeatureItem";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { ButtonWithIcon } from "@/app/shared/ButtonWithIcon/ButtonWithIcon";
-import {IconBrandGithubFilled} from "@/app/shared/icons/IconBrandGithubFilled";
-import {IconHashcloack} from "@/app/shared/icons/IconHashcloack";
+import { IconBrandGithubFilled } from "@/app/shared/icons/IconBrandGithubFilled";
+import { IconHashcloack } from "@/app/shared/icons/IconHashcloack";
 import { IconFuel } from "@/app/shared/icons/IconFuel";
 
 const Section = styled.section`
@@ -36,16 +36,18 @@ const Subtitle = styled.p`
 const Content = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  @media screen and (min-width: 1024px) {
+  justify-content: space-between;
+  column-gap: 32px;
+  @media screen and (max-width: 1280px) {
+    column-gap: 32px;
+  }
+  @media screen and (max-width: 1024px) {
     display: flex;
     flex-direction: row;
+    row-gap: 48px;
   }
   @media screen and (max-width: 680px) {
-    gap: 24px;
+    row-gap: 32px;
   }
 `;
 
@@ -54,11 +56,11 @@ const ImageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
+  max-width: 688px;
   height: fit-content;
   position: relative;
   @media screen and (max-width: 1024px) {
-    width: 100%;
     max-width: unset;
     max-height: 576px;
     overflow: hidden;
@@ -74,16 +76,14 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 688px;
 `;
 
 const MainImage = styled(Image)`
   width: 100%;
   height: auto;
   object-fit: contain;
-  style={{ width: '100%', height: 'auto' }}
   @media screen and (max-width: 1024px) {
-    width: 100%;
     max-width: unset;
   }
 `;
@@ -98,6 +98,7 @@ const InfoBox = styled.div<{ isDark?: boolean }>`
   border: 1px solid rgba(219, 211, 255, 1);
   border-radius: 8px;
   position: absolute;
+  backdrop-filter: blur(30px);
   bottom: 0;
   @media screen and (max-width: 680px) {
     width: 100%;
@@ -116,7 +117,6 @@ const FuelLogo = styled.div`
   }
 `;
 
-
 const FuelDescription = styled.p`
   margin-left: 12px;
   font-size: 16px;
@@ -125,16 +125,21 @@ const FuelDescription = styled.p`
   }
 `;
 
-const TradingFreedomCard = styled.div<{isDark: boolean}>`
+const TradingFreedomCard = styled.div<{ isDark: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: ${({isDark}) => isDark ? 'var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))' :  'linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%)'};
+  flex-grow: 1;
+  height: auto;
+  background: ${({ isDark }) =>
+    isDark
+      ? "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"
+      : "linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%)"};
   animation: gradientAnimation 3s infinite alternate;
   border-radius: 20px;
-  box-sizing: border-box;
-  width: 50%;
+  width: 100%;
+  max-width: 624px;
   @keyframes gradientAnimation {
     0% {
       background-position: 0% 50%;
@@ -144,9 +149,6 @@ const TradingFreedomCard = styled.div<{isDark: boolean}>`
     }
   }
   background-size: 200% 200%;
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-  }
 `;
 
 const CardContent = styled.div<{ isDark: boolean }>`
@@ -156,10 +158,11 @@ const CardContent = styled.div<{ isDark: boolean }>`
   padding: 32px;
   margin: 4px;
   box-sizing: border-box;
-  height: calc(100% - 8px);
+  height: 100%;
   width: calc(100% - 8px);
   gap: 24px;
-  background-color: ${({isDark}) => isDark ? 'rgba(23, 23, 23, 1)' : 'rgba(255, 255, 255, 1)'};
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(23, 23, 23, 1)" : "rgba(255, 255, 255, 1)"};
   border-radius: 16px;
   @media screen and (max-width: 680px) {
     padding: 16px;
@@ -174,6 +177,7 @@ const CardHeader = styled.div`
 const CardTitle = styled.h2`
   font-size: 54px;
   font-weight: 700;
+  text-align: start;
   @media screen and (max-width: 680px) {
     font-size: 32px;
   }
@@ -242,9 +246,8 @@ export const TradingSection: React.FC = () => {
               loading="lazy"
               src={"/images/trading-freedom.png"}
               alt="Trading platform interface"
-              width={0}
-              height={0}
-              sizes="100vw"
+              width={688}
+              height={576}
             />
           </ImageContainer>
           <InfoBox isDark={isDark}>
@@ -252,8 +255,8 @@ export const TradingSection: React.FC = () => {
               <IconFuel />
             </FuelLogo>
             <FuelDescription>
-              Fuel&apos;s cutting-edge execution layer transforms Ethereum rollups,
-              enabling unparalleled scalability, speed, and innovation
+              Fuel&apos;s cutting-edge execution layer transforms Ethereum
+              rollups, enabling unparalleled scalability, speed, and innovation
             </FuelDescription>
           </InfoBox>
         </ImageWrapper>
