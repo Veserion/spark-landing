@@ -13,9 +13,9 @@ import {
   Social,
   SocialItem,
   Texts,
-  SocialItemWrapper
+  SocialItemWrapper,
 } from "./Footer.styles";
-import {SparkLogotype} from "@/app/shared/icons/SparkLogotype";
+import { SparkLogotype } from "@/app/shared/icons/SparkLogotype";
 
 export const Footer = () => {
   const { theme } = useTheme();
@@ -27,7 +27,10 @@ export const Footer = () => {
     <FooterContainer isDark={isDark}>
       <Wrapper isDark={isDark}>
         <Info>
-          <Link href="/public" style={{display: 'flex', alignItems: 'center', color: 'inherit'}}>
+          <Link
+            href="/public"
+            style={{ display: "flex", alignItems: "center", color: "inherit" }}
+          >
             <SparkLogotype width="110" height="33" />
           </Link>
           <List>
@@ -52,11 +55,23 @@ export const Footer = () => {
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <SocialItem isDark={isDark} isHovered={hoveredIndex === index}>
+                  <SocialItem
+                    isDark={isDark}
+                    isHovered={hoveredIndex === index}
+                  >
                     <SocialComponent
-                      isHovered={index === 2 && !isDark ? false : hoveredIndex === index}
-                      // color={index === 2 ? (isDark ? "#1C012A" : "#FFFFFF") : (hoveredIndex === index ? "#FFFFFF" : "#1C012A")}
-                      color={index === 2 ? "#1C012A" : (hoveredIndex === index ? (isDark ? "#FFFFFF" : "#1C012A") : "#1C012A")}
+                      isHovered={
+                        index === 2 && !isDark ? false : hoveredIndex === index
+                      }
+                      color={
+                        index === 2
+                          ? "#1C012A"
+                          : hoveredIndex === index
+                          ? isDark
+                            ? "#FFFFFF"
+                            : "#1C012A"
+                          : "#1C012A"
+                      }
                       isDark={isDark}
                     />
                   </SocialItem>

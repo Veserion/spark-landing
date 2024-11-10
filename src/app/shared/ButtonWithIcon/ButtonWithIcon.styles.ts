@@ -9,38 +9,42 @@ export const TradeButtonContainer = styled.button<{
   width?: string;
 }>`
   border-radius: 100px;
-  background-color: ${({backgroundColor}) => backgroundColor ?? 'rgba(103, 67, 238, 1)'};
-  border: ${({borderColor}) => borderColor ? `1px solid ${borderColor}` : 'none'};
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ?? "rgba(103, 67, 238, 1)"};
+  border: ${({ borderColor }) =>
+    borderColor ? `1px solid ${borderColor}` : "none"};
   display: flex;
   align-items: center;
   gap: 8px;
   justify-content: center;
   cursor: pointer;
-  color: ${({backgroundColor}) => backgroundColor ? 'unset' : 'white'};
+  color: ${({ backgroundColor }) => (backgroundColor ? "unset" : "white")};
   position: relative;
   overflow: hidden;
   transition: background 0.5s ease;
-  font-size: ${({size}) => size === 'large' ? '26px' : '24px'};
-  width: ${({size, width}) => size === 'large' ? width ?? '212px' : '181px'};
-  height: ${({size}) => size === 'large' ? '54px' : '45px'};
+  font-size: ${({ size }) => (size === "large" ? "26px" : "24px")};
+  width: ${({ size, width }) =>
+    size === "large" ? width ?? "212px" : "181px"};
+  height: ${({ size }) => (size === "large" ? "61px" : "45px")};
 
   #btns-content-wrapper {
     > div {
       > svg:first-child {
-        stroke: ${({isDark}) => isDark ? "#FFFFFF" : "#000000"};
-        color: ${({isDark, backgroundColor}) => !backgroundColor ? 'white' : isDark ? "#FFFFFF" : "#000000"};
-        fill: ${({isDark}) => isDark ? "#FFFFFF" : "#000000"};
+        stroke: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
+        color: ${({ isDark, backgroundColor }) =>
+          !backgroundColor ? "white" : isDark ? "#FFFFFF" : "#000000"};
+        fill: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
       }
     }
   }
 
   @media screen and (max-width: 680px) {
-    font-size: ${({size}) => (size === "large" ? "24px" : "16px")};
-    width: ${({size}) => (size === "large" ? "181px" : "108px")};
-    height: ${({size}) => (size === "large" ? "45px" : "35px")};
+    font-size: ${({ size }) => (size === "large" ? "24px" : "16px")};
+    width: ${({ size }) => (size === "large" ? "181px" : "108px")};
+    height: ${({ size }) => (size === "large" ? "45px" : "35px")};
 
     svg {
-      display: ${({size}) => (size === "small" ? "none" : "unset")};
+      display: ${({ size }) => (size === "small" ? "none" : "unset")};
     }
   }
 

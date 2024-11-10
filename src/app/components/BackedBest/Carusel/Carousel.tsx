@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { WrapperList, List } from "./Carousel.styles";
 import { logoList } from "@/shared";
 import { useTheme } from "next-themes";
@@ -6,7 +12,7 @@ import { useTheme } from "next-themes";
 export const Carousel: React.FC = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);
-  
+
   const logoKeys = Object.keys(logoList) as (keyof typeof logoList)[];
 
   const listRef = useRef<HTMLDivElement | null>(null);

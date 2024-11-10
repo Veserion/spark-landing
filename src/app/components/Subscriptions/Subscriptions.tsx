@@ -1,6 +1,12 @@
 "use client";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { IconHashcloack, IconShieldHalfFilled, ButtonWithIcon, TIconProps, Arrow } from "@/shared";
+import {
+  IconHashcloack,
+  IconShieldHalfFilled,
+  ButtonWithIcon,
+  TIconProps,
+  Arrow,
+} from "@/shared";
 import { socialList } from "@/helpers";
 import { useTheme } from "next-themes";
 import {
@@ -13,7 +19,7 @@ import {
   IconWrapper,
   SocialTitle,
   IconArrow,
-  MainIcon
+  MainIcon,
 } from "./Subscriptions.styles";
 
 export const Subscriptions: React.FC = () => {
@@ -38,9 +44,7 @@ export const Subscriptions: React.FC = () => {
       <AuditBlock isDark={isDark}>
         <div>
           <IconHashcloack width={60} height={60} />
-          <Title>
-            Fully audited by privacy first HashCloak lab
-          </Title>
+          <Title>Fully audited by privacy first HashCloak lab</Title>
         </div>
         <ButtonWrapper>
           <ButtonWithIcon
@@ -63,13 +67,19 @@ export const Subscriptions: React.FC = () => {
             >
               <IconArrow
                 isDark={isDark}
-                style={{ width: hoveredIndex === index ? '98%' : (isMobile ? '39px' : '52px')}}
+                style={{
+                  width:
+                    hoveredIndex === index ? "98%" : isMobile ? "39px" : "52px",
+                }}
               >
                 <Arrow color={isDark ? "#ffffff" : "#1C012A"} />
               </IconArrow>
               <IconWrapper isDark={isDark} id={`icon${index}`}>
                 <MainIcon isDark={isDark}>
-                  <SocialComponent isDark={index === 2 ? isDark : undefined} color={isDark ? "#ffffff" : "#1C012A"} />
+                  <SocialComponent
+                    isDark={index === 2 ? isDark : undefined}
+                    color={isDark ? "#ffffff" : "#1C012A"}
+                  />
                 </MainIcon>
               </IconWrapper>
               <SocialTitle isDark={isDark}>{title}</SocialTitle>
