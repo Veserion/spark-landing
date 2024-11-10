@@ -16,7 +16,7 @@ const SubMenuContainer = styled.div<{ isDark: boolean, isOpen: boolean }>`
   top: 100%;
   left: 0;
   width: 100%;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 0.9)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 1)'};
   transform-origin: top;
   transform: scaleY(${({ isOpen }) => (isOpen ? '1' : '0')});
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')});
