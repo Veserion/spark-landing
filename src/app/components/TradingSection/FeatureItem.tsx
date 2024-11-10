@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import styled from '@emotion/styled';
-import IconCircleCheckFilled from '@/app/shared/icons/IconCircleCheckFilled';
+import {IconCircleCheckFilled} from '@/app/shared/icons/IconCircleCheckFilled';
 
 interface FeatureItemProps {
   text: string;

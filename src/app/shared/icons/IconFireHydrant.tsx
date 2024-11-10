@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconFireHydrant = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconFireHydrant = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -19,4 +19,4 @@ const IconFireHydrant = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGEle
   </svg>
 ));
 
-export default IconFireHydrant; 
+IconFireHydrant.displayName = 'IconFireHydrant'; 

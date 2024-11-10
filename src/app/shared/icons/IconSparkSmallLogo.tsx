@@ -1,16 +1,19 @@
-import React, { FC } from "react";
+import React from 'react';
 
-export const IconSparkSmallLogo: FC<{
+interface IconSparkSmallLogoProps {
   width?: string;
   height?: string;
   color?: string;
-}> = ({ width = "28", height = "28", color = "#FFFFFF" }) => (
+}
+
+export const IconSparkSmallLogo = React.forwardRef<SVGSVGElement, IconSparkSmallLogoProps>((props, ref) => (
   <svg
-    width={width}
-    height={height}
+    width={props.width || "28"}
+    height={props.height || "28"}
     viewBox="0 0 28 28"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    ref={ref}
   >
     <mask
       id="mask0_3747_49"
@@ -21,7 +24,7 @@ export const IconSparkSmallLogo: FC<{
       width="28"
       height="28"
     >
-      <path d="M28 0H0V28H28V0Z" fill={color} />
+      <path d="M28 0H0V28H28V0Z" fill={props.color || "#FFFFFF"} />
     </mask>
     <g mask="url(#mask0_3747_49)">
       <path
@@ -30,6 +33,6 @@ export const IconSparkSmallLogo: FC<{
       />
     </g>
   </svg>
-);
+));
 
-export default IconSparkSmallLogo;
+IconSparkSmallLogo.displayName = 'IconSparkSmallLogo';

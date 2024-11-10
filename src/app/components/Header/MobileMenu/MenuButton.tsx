@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledMenuButton, MenuIcon, MenuText } from './styles';
+import { StyledMenuButton, MenuText } from './styles';
 
 interface MenuButtonProps {
   icon: React.ReactNode;

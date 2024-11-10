@@ -20,4 +20,4 @@ export const IconArrowRight = React.forwardRef<SVGSVGElement, React.SVGProps<SVG
   </svg>
 ));
 
-export default IconArrowRight; 
+IconArrowRight.displayName = 'IconArrowRight'; 

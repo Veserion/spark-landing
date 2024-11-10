@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconMenu2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconMenu2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -19,4 +19,4 @@ const IconMenu2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>
   </svg>
 ));
 
-export default IconMenu2; 
+IconMenu2.displayName = 'IconMenu2'; 

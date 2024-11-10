@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconDiscord = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconDiscord = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -26,4 +26,4 @@ const IconDiscord = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement
   </svg>
 ));
 
-export default IconDiscord; 
+IconDiscord.displayName = 'IconDiscord'; 

@@ -6,10 +6,9 @@ import FeatureItem from "./FeatureItem";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { ButtonWithIcon } from "@/app/shared/ButtonWithIcon/ButtonWithIcon";
-import IconBrandGithubFilled from "@/app/shared/icons/IconBrandGithubFilled";
-import IconHashcloack from "@/app/shared/icons/IconHashcloack";
-import IconFuel from "@/app/shared/icons/IconFuel";
-import { TIconProps } from "@/app/shared";
+import {IconBrandGithubFilled} from "@/app/shared/icons/IconBrandGithubFilled";
+import {IconHashcloack} from "@/app/shared/icons/IconHashcloack";
+import { IconFuel } from "@/app/shared/icons/IconFuel";
 
 const Section = styled.section`
   display: flex;
@@ -117,11 +116,6 @@ const FuelLogo = styled.div`
   }
 `;
 
-const FuelLogoImage = styled.img`
-  width: 169px;
-  height: auto;
-  object-fit: contain;
-`;
 
 const FuelDescription = styled.p`
   margin-left: 12px;
@@ -221,10 +215,6 @@ const features = [
   { text: "Precise risk management" },
 ];
 
-const WrappedIconHashcloack = styled(IconHashcloack)<TIconProps>`
-  color: white;
-`;
-
 export const TradingSection: React.FC = () => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);
@@ -255,7 +245,7 @@ export const TradingSection: React.FC = () => {
               <IconFuel />
             </FuelLogo>
             <FuelDescription>
-              Fuel's cutting-edge execution layer transforms Ethereum rollups,
+              Fuel&apos;s cutting-edge execution layer transforms Ethereum rollups,
               enabling unparalleled scalability, speed, and innovation
             </FuelDescription>
           </InfoBox>
@@ -281,7 +271,7 @@ export const TradingSection: React.FC = () => {
                 buttonText="View code"
               />
               <ButtonWithIcon
-                LeftIcon={WrappedIconHashcloack}
+                LeftIcon={IconHashcloack}
                 buttonText="Audit Report"
                 backgroundColor="unset"
                 borderColor={isDark ? "white" : "black"}
