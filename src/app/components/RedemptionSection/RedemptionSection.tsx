@@ -80,7 +80,9 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
   transition: background 0.5s ease;
 
     @media screen and (max-width: 680px) {
-      height: 420px;
+    flex-direction: column;
+    align-items: center;
+    height: 420px;
     }
   :hover {
     background-color: ${(props) =>

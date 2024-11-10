@@ -201,10 +201,17 @@ const ButtonContainer = styled.div`
   gap: 16px;
   margin-top: 40px;
   width: 100%;
+  > button {
+    width: 50%;
+  }
+
   @media screen and (max-width: 680px) {
     flex-direction: column;
     font-size: 16px;
     margin-top: 8px;
+    > button {
+      width: 100%;
+    }
   }
 `;
 
@@ -269,12 +276,14 @@ export const TradingSection: React.FC = () => {
               <ButtonWithIcon
                 LeftIcon={IconBrandGithubFilled}
                 buttonText="View code"
+                size="large"
               />
               <ButtonWithIcon
                 LeftIcon={IconHashcloack}
                 buttonText="Audit Report"
                 backgroundColor="unset"
                 borderColor={isDark ? "white" : "black"}
+                size="large"
               />
             </ButtonContainer>
           </CardContent>

@@ -100,7 +100,6 @@ export const BurgerButton = styled.button<{ isDark: boolean }>`
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;

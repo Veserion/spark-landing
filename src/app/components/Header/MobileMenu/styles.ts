@@ -184,3 +184,7 @@ export const FooterIcon = styled.img`
   width: 64px;
   border-radius: 40px;
 `;
+
+export const Social = styled.div`
+  display: flex;
+`;

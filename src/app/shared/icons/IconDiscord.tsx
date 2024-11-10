@@ -26,4 +26,4 @@ export const IconDiscord = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVG
   </svg>
 ));
 
-IconDiscord.displayName = 'IconDiscord'; 
+IconDiscord.displayName = 'IconDiscord';

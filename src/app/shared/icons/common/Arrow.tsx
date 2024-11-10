@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { type TIconProps } from "../type";
 
-export const Arrow: FC<TIconProps> = ({ isDark, color }) => {
+export const Arrow: FC<TIconProps> = ({ color }) => {
   return (
     <svg
       width="20"

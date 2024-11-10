@@ -6,6 +6,7 @@ export const TradeButtonContainer = styled.button<{
   size: "large" | "small";
   backgroundColor?: string;
   borderColor?: string;
+  width?: string;
 }>`
   border-radius: 100px;
   background-color: ${({backgroundColor}) => backgroundColor ?? 'rgba(103, 67, 238, 1)'};
@@ -20,14 +21,14 @@ export const TradeButtonContainer = styled.button<{
   overflow: hidden;
   transition: background 0.5s ease;
   font-size: ${({size}) => size === 'large' ? '26px' : '24px'};
-  width: ${({size}) => size === 'large' ? '212px' : '181px'};
+  width: ${({size, width}) => size === 'large' ? width ?? '212px' : '181px'};
   height: ${({size}) => size === 'large' ? '54px' : '45px'};
 
   #btns-content-wrapper {
     > div {
       > svg:first-child {
         stroke: ${({isDark}) => isDark ? "#FFFFFF" : "#000000"};
-        color: ${({isDark}) => isDark ? "#FFFFFF" : "#000000"};
+        color: ${({isDark, backgroundColor}) => !backgroundColor ? 'white' : isDark ? "#FFFFFF" : "#000000"};
         fill: ${({isDark}) => isDark ? "#FFFFFF" : "#000000"};
       }
     }
@@ -83,6 +84,7 @@ export const BtnsContentWrapper = styled.div`
   align-items: center;
   gap: 8px;
   background-color: inherit;
+  color: inherit;
 `;
 
 export const IconArrowRightStyled = styled(IconArrowRight)`

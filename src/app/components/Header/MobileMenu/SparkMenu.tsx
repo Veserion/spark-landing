@@ -9,13 +9,13 @@ import {
   MenuSection,
   CallToActionSection,
   FooterSection,
-  FooterLogo,
   RootContainer,
+  Social
 } from "./styles";
 import { useTheme } from "next-themes";
 import SubMenu from "./SubMenu";
 import styled from "@emotion/styled";
-import { IconSpark } from "@/app/shared/icons";
+import { IconSpark, TIconProps } from "@/app/shared/icons";
 import { IconTransitionTop } from "@/app/shared/icons";
 import { IconCoins } from "@/app/shared/icons";
 import { IconArticle } from "@/app/shared/icons";
@@ -24,6 +24,8 @@ import { IconRouteSquare } from "@/app/shared/icons";
 import { IconBook2 } from "@/app/shared/icons";
 import { IconBrandGithubFilled } from "@/app/shared/icons";
 import { IconFireHydrant } from "@/app/shared/icons";
+import { SocialItem, SocialItemWrapper } from "../../Footer/Footer.styles";
+import { socialListFooter } from "@/app/helpers";
 
 interface SparkMenuProps {
   isDark: boolean;
@@ -123,6 +125,8 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
     setActiveSubmenu(activeSubmenu === menuName ? null : menuName);
   };
 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <RootContainer isDark={isDark}>
       <Container isDark={isDark}>
@@ -160,12 +164,29 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
             subtitle="Start trading now"
           />
         </CallToActionSection>
-        <FooterSection isDark={isDark}>
-          <FooterLogo
-            isDark={isDark}
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/07c7c98615be0d34bb342a151eba79129b2e6dfc7981c9aacfcf55498e119cbf?placeholderIfAbsent=true&apiKey=d71fd82e899c4d0ead14fb5fda16d23e"
-            alt="Spark logo"
-          />
+        <FooterSection isDark={false}>
+          <Social>
+            {socialListFooter.map(({ icon, title }, index) => {
+              const SocialComponent: React.FC<TIconProps> = icon;
+              return (
+                <SocialItemWrapper
+                  href="#"
+                  key={title}
+                  isDark={isDark}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <SocialItem isDark={isDark} isHovered={hoveredIndex === index}>
+                    <SocialComponent
+                      isHovered={index === 2 && !isDark ? false : hoveredIndex === index}
+                      color={index === 2 ? "#1C012A" : (hoveredIndex === index ? (isDark ? "#FFFFFF" : "#1C012A") : "#1C012A")}
+                      isDark={isDark}
+                    />
+                  </SocialItem>
+                </SocialItemWrapper>
+              );
+            })}
+          </Social>
           <ThemeToggle />
         </FooterSection>
       </Container>

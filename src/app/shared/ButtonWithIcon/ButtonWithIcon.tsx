@@ -13,6 +13,7 @@ interface ButtonWithIconProps {
   LeftIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
   backgroundColor?: string;
   borderColor?: string;
+  width?: string;
 }
 
 export const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
@@ -21,6 +22,7 @@ export const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
   LeftIcon,
   backgroundColor,
   borderColor,
+  width,
 }) => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);
@@ -31,6 +33,7 @@ export const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
       size={size}
       backgroundColor={backgroundColor}
       borderColor={borderColor}
+      width={width}
     >
       <BtnsContentWrapper id="btns-content-wrapper">
         <BtnsContentWrapper>

@@ -1,4 +1,3 @@
-import { Arrow } from "@/app/shared";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
