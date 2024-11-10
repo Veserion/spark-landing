@@ -9,29 +9,15 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
-const Overlay = styled.div<{ isOpen: boolean }>`
+const Background = styled.div<{ isOpen: boolean, isDark: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, ${({ isOpen }) => (isOpen ? '0.5' : '0')});
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  transition: all 0.3s ease;
-  z-index: 998;
-  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
-`;
-
-const Background = styled.div<{ isOpen: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.6);
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transition: opacity 0.3s ease;
+  background: ${({ isDark }) => isDark ? 'rgba(180, 180, 180, 0.7)' : 'rgba(70, 70, 70, 0.7)'};
+  opacity: ${({ isOpen }) => (isOpen ? 0.7 : 0)};
+  transition: opacity 0.6s ease;
   z-index: 999;
   pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
   cursor: pointer;
@@ -44,7 +30,7 @@ const MenuContainer = styled.div<{ isOpen: boolean }>`
   bottom: 0;
   height: calc(100vh - 72px);
   transform: translateY(${({ isOpen }) => (isOpen ? '0' : '100%')});
-  transition: transform 0.3s ease;
+  transition: transform 0.6s ease;
   z-index: 1000;
   overflow-y: auto;
   will-change: transform;
@@ -106,13 +92,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
   const menuContent = (
     <>
-      <Overlay 
-        className="mobile-menu-overlay" 
-        isOpen={isOpen} 
-        onClick={onClose}
-      />
       <Background 
         isOpen={isOpen} 
+        isDark={isDark}
         onClick={onClose}
       />
       <MenuContainer 
