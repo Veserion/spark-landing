@@ -48,14 +48,33 @@ export const List = styled.div`
 `;
 
 export const ListItem = styled(Link)<{ isDark: boolean }>`
+  width: 70px;
   font-weight: 400;
   font-size: 16px;
   color: ${({ isDark }) => (isDark ? "#ffffff" : "#171717")};
   text-decoration: none;
+  position: relative;
+  text-align: center;
 
   &:nth-of-type(2) {
-    margin-left: 40px;
-    margin-right: 30px;
+    margin: 0 16px;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: ${({ isDark }) => (isDark ? "#ffffff" : "#171717")};
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
   }
 `;
 
@@ -64,16 +83,44 @@ export const Social = styled.div`
   column-gap: 20px;
 `;
 
-export const SocialItem = styled(Link)<{ isDark: boolean }>`
+export const SocialItem = styled.div<{ isDark: boolean; isHovered: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   width: 40px;
+  min-width: 40px;
   height: 40px;
-  background: ${({ isDark }) => (isDark ? "#ffffff" : "transparent")};
+  min-height: 40px;
+  background: ${({ isDark, isHovered }) =>
+    isHovered
+      ? isDark
+        ? "#000000"
+        : "#FFFFFF"
+      : isDark
+      ? "#FFFFFF"
+      : "transparent"};
 `;
 
+export const SocialItemWrapper = styled(Link)<{ isDark: boolean }>`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-size: 100%;
+  padding: 8px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transition: 0.3s ease;
+    background: ${({ isDark }) =>
+      isDark
+        ? "linear-gradient(135deg, #6b0d97 0%, #000 33%, rgba(107, 13, 151, 0.96) 66%, #000 100%)"
+        : "linear-gradient(135deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%)"};
+  }
+`;
 export const Texts = styled.div`
   display: flex;
   justify-content: space-between;
@@ -85,4 +132,4 @@ export const Texts = styled.div`
     row-gap: 16px;
     align-items: center;
   }
-`; 
+`;

@@ -4,4 +4,5 @@ export type TIconProps = React.SVGProps<SVGSVGElement> & {
   height?: number;
   color?: string;
   isDark?: boolean;
+  isHovered?: boolean;
 };
