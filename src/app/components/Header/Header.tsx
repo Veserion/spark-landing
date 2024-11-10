@@ -130,7 +130,7 @@ export const Header = () => {
                 />
               </NavItem>
             ))}
-            <NavLink as={Link}>Liquidity</NavLink>
+            <NavLink as={Link} href="/liquidity">Liquidity</NavLink>
           </Nav>
         </LeftSection>
 

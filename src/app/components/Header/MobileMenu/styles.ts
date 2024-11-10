@@ -7,7 +7,7 @@ interface ThemeProps {
 export const RootContainer = styled.div<{ isDark: boolean }>`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   background: ${({ isDark }) =>
     isDark
       ? "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"
@@ -19,10 +19,11 @@ export const RootContainer = styled.div<{ isDark: boolean }>`
 export const Container = styled.nav<ThemeProps>`
   margin-top: 4px;
   display: flex;
-  width: 320px;
+  width: 100%;
+  height: fit-content;
   flex-direction: column;
   padding: 8px;
-  background: ${({ isDark }) => (isDark ? "#1A1A1A" : "#FFFFFF")};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 1)' : 'rgba(255, 255, 255, 0.9)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   font-family: "Syne", sans-serif;
   * {
@@ -43,14 +44,14 @@ export const MenuSection = styled.div<ThemeProps>`
 export const StyledMenuButton = styled.button<ThemeProps>`
   border-radius: 4px;
   display: flex;
-  min-height: 48px;
+  height: 43px;
   width: 100%;
   align-items: center;
   gap: 12px;
   justify-content: flex-start;
   padding: 12px 16px;
   margin-top: 8px;
-  background: ${({ isDark }) => (isDark ? "rgba(23, 23, 23, 1)" : "#F7F7F7")};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
 
@@ -77,6 +78,9 @@ export const MenuText = styled.span<ThemeProps>`
   align-self: stretch;
   margin: auto 0;
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
+  margin: 0;
+  height: 19px;
+  font-size: 16px;
 `;
 
 export const StyledMobileMenuButton = styled.button<ThemeProps>`
@@ -90,9 +94,9 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   border-radius: 8px;
   transition: all 0.2s ease;
   cursor: pointer;
-
+  align-items: center;
   &:hover {
-    background: ${({ isDark }) => (isDark ? "rgba(23, 23, 23, 1)" : "#F7F7F7")};
+    background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
   }
 `;
 

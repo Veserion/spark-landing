@@ -16,7 +16,7 @@ const SubMenuContainer = styled.div<{ isDark: boolean, isOpen: boolean }>`
   top: 100%;
   left: 0;
   width: 100%;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 0.9)'};
   transform-origin: top;
   transform: scaleY(${({ isOpen }) => (isOpen ? '1' : '0')});
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')});
@@ -33,55 +33,51 @@ const MenuWrapper = styled.div`
   padding: 8px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 `;
 
-const Badge = styled.span`
-  background: #2D1576;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 12px;
+const Badge = styled.span<{isDark: boolean}>`
+  background: ${({isDark}) => isDark ? 'rgba(20, 1, 30, 1)' : 'rgba(246, 246, 246, 1)'};
+  width: 34px;
+  height: 18px;
+  padding: 2px 4px 2px 4px;
+  gap: 10px;
+  border-radius: 2px;
+  opacity: 0px;
   font-size: 12px;
-  font-weight: 500;
-  margin-left: auto;
+  font-weight: 400; 
+  color: rgba(177, 177, 177, 1);
 `;
 
 const SubMenuItem = styled.button<{isDark: boolean}>`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 16px;
+  padding: 12px;
   width: 100%;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.9)' : 'rgba(247, 247, 247, 1)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.2s ease;
-
-  &:hover {
-    background: ${({ isDark }) => isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)'};
-  }
+  color: inherit;
+  box-sizing: border-box;
 `;
 
-const IconWrapper = styled.div<{isDark: boolean}>`
+const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 24px;
   height: 24px;
-
-  img {
-    width: 18px;
-    height: 18px;
-    filter: ${({ isDark }) => isDark ? 'invert(1)' : 'none'};
-  }
 `;
 
-const MenuText = styled.span<{isDark: boolean}>`
-  color: ${({ isDark }) => isDark ? '#FFFFFF' : '#1C012A'};
+const MenuText = styled.span`
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: left;
+  height: 19px;
+  margin: 0;
 `;
 
 const SubMenu: React.FC<SubMenuProps> = ({ isDark, isOpen, items }) => {
@@ -94,11 +90,11 @@ const SubMenu: React.FC<SubMenuProps> = ({ isDark, isOpen, items }) => {
       <MenuWrapper>
         {items.map((item, index) => (
           <SubMenuItem key={index} isDark={isDark}>
-            <IconWrapper isDark={isDark}>
+            <IconWrapper>
               {item.icon}
             </IconWrapper>
-            <MenuText isDark={isDark}>{item.text}</MenuText>
-            {item.badge && <Badge>{item.badge}</Badge>}
+            <MenuText>{item.text}</MenuText>
+            {item.badge && <Badge isDark={isDark}>{item.badge}</Badge>}
           </SubMenuItem>
         ))}
       </MenuWrapper>

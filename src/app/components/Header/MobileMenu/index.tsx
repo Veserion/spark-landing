@@ -10,7 +10,7 @@ interface MobileMenuProps {
 
 const Overlay = styled.div<{ isOpen: boolean }>`
   position: fixed;
-  top: 72px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -23,14 +23,17 @@ const Overlay = styled.div<{ isOpen: boolean }>`
 
 const MenuContainer = styled.div<{ isOpen: boolean }>`
   position: fixed;
-  top: 72px;
+  top: 0;
+  left: 0;
   right: 0;
-  max-height: min(100vh - 72px, 700px);
+  bottom: 0;
+  height: 100vh;
   background: white;
-  transform: translateX(${({ isOpen }) => (isOpen ? '0' : '100%')});
+  transform: translateY(${({ isOpen }) => (isOpen ? '0' : '100%')});
   transition: transform 0.3s ease;
   z-index: 99;
   overflow-y: auto;
+  padding-top: 72px;
 `;
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
@@ -93,4 +96,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default MobileMenu; 
+export default MobileMenu;

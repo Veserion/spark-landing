@@ -43,15 +43,15 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
-    icon: <IconSpark />,
+    icon: <IconSpark width={18} height={18}/>,
     text: "What is Spark?",
   },
   {
-    icon: <IconTransitionTop />,
+    icon: <IconTransitionTop width={18} height={18}/>,
     text: "Limit Trading",
   },
   {
-    icon: <IconCoins />,
+    icon: <IconCoins width={18} height={18}/>,
     text: "Provide Liquidity",
   },
 ];
@@ -61,15 +61,15 @@ const mobileMenuItems: MenuItem[] = [
     text: "Learn",
     submenu: [
       {
-        icon: <IconSpark />,
+        icon: <IconSpark width={18} height={18}/>,
         text: "What is Spark?",
       },
       {
-        icon: <IconTransitionTop />,
+        icon: <IconTransitionTop width={18} height={18}/>,
         text: "Trading 101",
       },
       {
-        icon: <IconArticle />,
+        icon: <IconArticle width={18} height={18}/>,
         text: "Blog",
       },
     ],
@@ -78,16 +78,16 @@ const mobileMenuItems: MenuItem[] = [
     text: "Trade",
     submenu: [
       {
-        icon: <IconTransitionTop />,
+        icon: <IconTransitionTop width={18} height={18}/>,
         text: "Limit",
       },
       {
-        icon: <IconInfinity />,
+        icon: <IconInfinity width={18} height={18}/>,
         text: "Perpetuals",
         badge: "soon",
       },
       {
-        icon: <IconRouteSquare />,
+        icon: <IconRouteSquare width={18} height={18}/>,
         text: "Swap",
         badge: "soon",
       },
@@ -97,15 +97,15 @@ const mobileMenuItems: MenuItem[] = [
     text: "Build",
     submenu: [
       {
-        icon: <IconBook2 />,
+        icon: <IconBook2 width={18} height={18}/>,
         text: "Docs",
       },
       {
-        icon: <IconBrandGithubFilled />,
+        icon: <IconBrandGithubFilled width={18} height={18}/>,
         text: "Github",
       },
       {
-        icon: <IconFireHydrant />,
+        icon: <IconFireHydrant width={18} height={18}/>,
         text: "Faucet",
       },
     ],
