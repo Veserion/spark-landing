@@ -1,10 +1,9 @@
-import React, { FC } from "react";
-import { TIconProps } from "./type";
+import React from "react";
 
-export const IconHashcloack: FC<TIconProps> = ({width = 24, height = 24}) => (
+export const IconHashcloack = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props) => (
   <svg
-    width={width}
-    height={height}
+    width={props.width || "24"}
+    height={props.height || "24"}
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +32,6 @@ export const IconHashcloack: FC<TIconProps> = ({width = 24, height = 24}) => (
       </clipPath>
     </defs>
   </svg>
-);
+));
 
 IconHashcloack.displayName = 'IconHashcloack';

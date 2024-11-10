@@ -4,8 +4,8 @@ import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, Tra
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
-import IconApple from '@/app/shared/icons/IconApple';
-import IconAndroid from '@/app/shared/icons/IconAndroid';
+import {IconApple} from '@/app/shared/icons/IconApple';
+import {IconAndroid} from '@/app/shared/icons/IconAndroid';
 
 export const SecureTrading: React.FC = () => {
     const {theme} = useTheme();

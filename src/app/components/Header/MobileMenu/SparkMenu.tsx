@@ -15,15 +15,15 @@ import {
 import { useTheme } from "next-themes";
 import SubMenu from "./SubMenu";
 import styled from "@emotion/styled";
-import IconSpark from "@/app/shared/icons/IconSpark";
-import IconTransitionTop from "@/app/shared/icons/IconTransitionTop";
-import { IconCoins } from "@/app/shared";
-import IconArticle from "@/app/shared/icons/IconArticle";
-import IconInfinity from "@/app/shared/icons/IconInfinity";
-import IconRouteSquare from "@/app/shared/icons/IconRouteSquare";
-import IconBook2 from "@/app/shared/icons/IconBook2";
-import IconBrandGithubFilled from "@/app/shared/icons/IconBrandGithubFilled";
-import IconFireHydrant from "@/app/shared/icons/IconFireHydrant";
+import { IconSpark } from "@/app/shared/icons";
+import { IconTransitionTop } from "@/app/shared/icons";
+import { IconCoins } from "@/app/shared/icons";
+import { IconArticle } from "@/app/shared/icons";
+import { IconInfinity } from "@/app/shared/icons";
+import { IconRouteSquare } from "@/app/shared/icons";
+import { IconBook2 } from "@/app/shared/icons";
+import { IconBrandGithubFilled } from "@/app/shared/icons";
+import { IconFireHydrant } from "@/app/shared/icons";
 
 interface SparkMenuProps {
   isDark: boolean;

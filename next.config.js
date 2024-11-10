@@ -3,7 +3,6 @@ const nextConfig = {
   images: {
     domains: ['cdn.builder.io'],
   },
-  reactStrictMode: true,
   swcMinify: true,
 }
 

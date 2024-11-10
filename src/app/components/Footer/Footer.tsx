@@ -14,7 +14,7 @@ import {
   SocialItem,
   Texts
 } from "./Footer.styles";
-import SparkLogotype from "@/app/shared/icons/SparkLogotype";
+import {SparkLogotype} from "@/app/shared/icons/SparkLogotype";
 
 export const Footer = () => {
   const { theme } = useTheme();

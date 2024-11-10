@@ -14,8 +14,8 @@ import {useMemo, useState} from "react";
 import Link from 'next/link';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 import MobileMenu from './MobileMenu';
-import SparkLogotype from '@/app/shared/icons/SparkLogotype';
-import IconMenu2 from "@/app/shared/icons/IconMenu2";
+import { SparkLogotype } from '@/app/shared/icons';
+import { IconMenu2 } from "@/app/shared/icons";
 
 export const Header = () => {
   const { theme } = useTheme();

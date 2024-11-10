@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import IconArrowRight from "../icons/IconArrowRight";
+import { IconArrowRight } from "@/app/shared/icons";
 
 export const TradeButtonContainer = styled.button<{
   isDark: boolean;
