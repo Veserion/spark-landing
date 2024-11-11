@@ -9,7 +9,7 @@ interface MenuButtonProps {
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ({ icon, text, isDark, href }) => (
-  <StyledMenuButton isDark={isDark} href={href}>
+  <StyledMenuButton isDark={isDark} href={href} target="_blank">
     {icon}
     <MenuText isDark={isDark}>{text}</MenuText>
   </StyledMenuButton>

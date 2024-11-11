@@ -103,7 +103,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         onClick={handleMenuContainerClick}
       >
         <SparkMenuWrapper ref={sparkMenuRef}>
-          <SparkMenu isDark={isDark} />
+          <SparkMenu isDark={isDark} isOpen={isOpen} />
         </SparkMenuWrapper>
       </MenuContainer>
     </>

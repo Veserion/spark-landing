@@ -13,7 +13,7 @@ export const RootContainer = styled.div<{ isDark: boolean }>`
     isDark
       ? "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"
       : "var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))"};
-  animation: gradientAnimation 3s infinite alternate;
+  animation: gradientAnimation 2s infinite alternate;
   background-size: 200% 200%;
 `;
 
@@ -40,6 +40,7 @@ export const MenuSection = styled.div<ThemeProps>`
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   font-weight: 500;
   font-size: 16px;
+  position: relative;
 `;
 
 export const StyledMenuButton = styled(Link)<ThemeProps>`
@@ -94,7 +95,7 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   white-space: nowrap;
   background: transparent;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
   cursor: pointer;
   align-items: center;
   &:hover {
@@ -193,4 +194,47 @@ export const FooterIcon = styled.img`
 
 export const Social = styled.div`
   display: flex;
+`;
+
+export const MenuContainer = styled.div<{ isOpen: boolean }>`
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: auto;
+  transform: translateY(0);
+  transition: margin-top 0.6s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  margin-top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+`;
+
+export const MenuItemContainer = styled.div`
+  position: relative;
+  margin-top: 8px;
+  transition: all 0.4s ease;
+`;
+
+export const SubMenuContainer = styled.div<{ isOpen: boolean }>`
+  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+  overflow: hidden;
+  transition: all 0.4s ease;
+  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  transform-origin: top;
+  transform: ${({ isOpen }) => (isOpen ? 'scaleY(1)' : 'scaleY(0)')};
+  margin-bottom: ${({ isOpen }) => (isOpen ? '8px' : '0')};
+`;
+
+export const SubMenuContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0 0 16px;
+  transform-origin: top;
+  transition: transform 0.4s ease;
 `;
