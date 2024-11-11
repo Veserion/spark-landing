@@ -26,6 +26,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ isOpen, items, isDark }) => {
             text={item.text}
             isDark={isDark}
             href={item.href}
+            badge={item.badge}
           />
         ))}
       </SubMenuContent>
