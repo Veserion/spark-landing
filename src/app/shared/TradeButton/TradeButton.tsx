@@ -20,7 +20,7 @@ export const TradeButton: React.FC<TradeButtonProps> = ({
   const isDark = useMemo(() => theme !== "light", [theme]);
 
   return (
-    <TradeButtonContainer isDark={isDark} size={size}>
+    <TradeButtonContainer isDark={isDark} size={size} href="https://app.sprk.fi/" target="_blank">
       <BtnsContentWrapper id="btns-content-wrapper">
         <BtnsContentWrapper>
           <IconSparkSmallLogo />

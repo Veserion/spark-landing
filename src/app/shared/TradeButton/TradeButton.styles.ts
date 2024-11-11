@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import {IconArrowRight} from "@/shared";
+import Link from 'next/link';
 
-export const TradeButtonContainer = styled.button<{ isDark: boolean, size: 'large' | 'small' }>`
+export const TradeButtonContainer = styled(Link)<{ isDark: boolean, size: 'large' | 'small' }>`
     border-radius: 100px;
+    text-decoration: none;
     background-color: ${({ isDark }) => isDark ? 'rgba(103, 67, 238, 1)' : 'rgba(103, 67, 238, 1)'};
     display: flex;
     align-items: center;
