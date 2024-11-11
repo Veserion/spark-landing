@@ -27,17 +27,6 @@ export const TradeButtonContainer = styled.button<{
     size === "large" ? width ?? "212px" : "181px"};
   height: ${({ size }) => (size === "large" ? "61px" : "45px")};
 
-  #btns-content-wrapper {
-    > div {
-      > svg:first-child {
-        stroke: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-        color: ${({ isDark, backgroundColor }) =>
-          !backgroundColor ? "white" : isDark ? "#FFFFFF" : "#000000"};
-        fill: ${({ isDark }) => (isDark ? "#FFFFFF" : "#000000")};
-      }
-    }
-  }
-
   @media screen and (max-width: 680px) {
     font-size: ${({ size }) => (size === "large" ? "24px" : "16px")};
     width: ${({ size }) => (size === "large" ? "181px" : "108px")};

@@ -1,7 +1,6 @@
 'use client';
 import React, { useMemo } from 'react';
-import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized } from './SecureTrading.styles';
-import Image from 'next/image';
+import { SecureTradingContainer, TradingContent, TradingVisual, TradingInfo, TradingTitle, TradingDescription, ActionArea, MobileOptimized, DekstopImage, MobileImage } from './SecureTrading.styles';
 import { useTheme } from 'next-themes';
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
 import {IconApple} from '@/app/shared/icons/IconApple';
@@ -15,7 +14,8 @@ export const SecureTrading: React.FC = () => {
     <SecureTradingContainer isDark={isDark}>
       <TradingContent isDark={isDark}>
         <TradingVisual isDark={isDark}>
-          <Image src={`/images/mobile-${isDark ? 'dark' : 'light'}.png`} alt="" width={293} height={600} />
+          <DekstopImage src={`/images/mobile-${isDark ? 'dark' : 'light'}.png`} alt="" width={293} height={275} />
+          <MobileImage src={`/images/mobile-${isDark ? 'dark' : 'light'}-mob.png`} alt="" width={220} height={275} />
         </TradingVisual>
         <TradingInfo>
           <TradingTitle>Self Custody and Secure Trading</TradingTitle>
