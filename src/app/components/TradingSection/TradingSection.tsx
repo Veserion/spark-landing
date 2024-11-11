@@ -18,19 +18,36 @@ const Section = styled.section`
 `;
 
 const Header = styled.header`
-  text-align: center;
-  margin-bottom: 40px;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 64px;
+  row-gap: 8px;
+
+   @media screen and (max-width: 1024px) {
+    margin-bottom: 48px;
+  }
 `;
 
 const Title = styled.h1`
+  text-align: center;
   font-size: 48px;
   font-weight: 700;
+
+  @media screen and (max-width: 680px) {
+    font-size: 22px;
+  }
 `;
 
 const Subtitle = styled.p`
+  text-align: center;
   font-size: 28px;
   font-weight: 500;
+
+  @media screen and (max-width: 680px) {
+    font-weight: 400;
+    font-size: 16px;
+  }
 `;
 
 const Content = styled.div`
@@ -38,12 +55,9 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   column-gap: 32px;
-  @media screen and (max-width: 1280px) {
-    column-gap: 32px;
-  }
   @media screen and (max-width: 1024px) {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     row-gap: 48px;
   }
   @media screen and (max-width: 680px) {
@@ -61,7 +75,7 @@ const ImageWrapper = styled.div`
   height: fit-content;
   position: relative;
   @media screen and (max-width: 1024px) {
-    max-width: unset;
+    max-width: none;
     max-height: 576px;
     overflow: hidden;
   }
@@ -77,6 +91,14 @@ const ImageContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 688px;
+
+  @media screen and (max-width: 1280px) {
+    max-width: 518px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    max-width: none;
+  }
 `;
 
 const MainImage = styled(Image)`
@@ -86,6 +108,10 @@ const MainImage = styled(Image)`
   @media screen and (max-width: 1024px) {
     max-width: unset;
   }
+
+  @media screen and (max-width: 680px) {
+    min-height: 320px;
+  }
 `;
 
 const InfoBox = styled.div<{ isDark?: boolean }>`
@@ -94,8 +120,9 @@ const InfoBox = styled.div<{ isDark?: boolean }>`
   justify-content: center;
   padding: 24px;
   background-color: ${({ isDark }) =>
-    isDark ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"};
-  border: 1px solid rgba(219, 211, 255, 1);
+    isDark ? "rgba(20, 20, 20, 0.6)" : "rgba(255, 255, 255, 0.9)"};
+  border: ${({ isDark }) =>
+    isDark ? "1px solid rgba(255, 255, 255, 1)" : "1px solid rgba(219, 211, 255, 1)"};
   border-radius: 8px;
   position: absolute;
   backdrop-filter: blur(30px);
@@ -110,10 +137,19 @@ const FuelLogo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 12px;
   border-right: 1px solid rgba(219, 211, 255, 1);
+
+  @media screen and (max-width: 1280px) {
+    width: 181px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    height: 40px;
+  }
+
   @media screen and (max-width: 680px) {
     border-right: none;
+    width: 169px;
   }
 `;
 
@@ -149,6 +185,10 @@ const TradingFreedomCard = styled.div<{ isDark: boolean }>`
     }
   }
   background-size: 200% 200%;
+
+  @media screen and (max-width: 1024px) {
+    max-width: none;
+  }
 `;
 
 const CardContent = styled.div<{ isDark: boolean }>`
@@ -246,7 +286,7 @@ export const TradingSection: React.FC = () => {
               loading="lazy"
               src={"/images/trading-freedom.png"}
               alt="Trading platform interface"
-              width={688}
+              width={928}
               height={576}
             />
           </ImageContainer>

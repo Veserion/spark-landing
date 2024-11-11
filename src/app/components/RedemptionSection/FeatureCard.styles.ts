@@ -3,66 +3,64 @@ import { IconArrowRight } from '@/shared';
 
 
 export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColor: string, backgroundColorDark: string, borderColor: string, borderColorDark: string }>`
-    flex: 1;
-    min-width: 240px;
-    border-radius: 16px;
-    padding: 16px;
-    display: flex;
-    gap: 16px;
-    overflow: hidden;
-    background-color: ${({ isDark, backgroundColor, backgroundColorDark }) => isDark ? backgroundColorDark : backgroundColor};
-    border: 3px solid ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
-    :hover {
-        background: ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
-        #btns-content-wrapper {
-            >div {
-                transform: translateX(-30px);
-                transition: transform 0.5s ease;
-                >svg:first-child {
-                    opacity: 0;
-                    transition: opacity ease-out 0.5s;
-                }
-                >svg:last-child {
-                    opacity: 1;
-                    transition: opacity ease-out 0.5s;
-                }
-            }
-        }
-    }
-    transition: background 0.5s ease;
-    #btns-content-wrapper > div {
-        transform: translateX(0);
+  min-width: 240px;
+  border-radius: 16px;
+  padding: 36px 16px;
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  background-color: ${({ isDark, backgroundColor, backgroundColorDark }) => isDark ? backgroundColorDark : backgroundColor};
+  border: 3px solid ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
+  :hover {
+    background: ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
+    #btns-content-wrapper {
+      >div {
+        transform: translateX(-30px);
         transition: transform 0.5s ease;
         >svg:first-child {
-            opacity: 1;
-            transition: opacity ease-out 0.5s;
+          opacity: 0;
+          transition: opacity ease-out 0.5s;
         }
         >svg:last-child {
-            opacity: 0;
-            transition: opacity ease-out 0.5s;
+          opacity: 1;
+          transition: opacity ease-out 0.5s;
         }
+      }
     }
-    
-    @media screen and (max-width: 1280px) {
-        height: 340px;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    @media screen and (max-width: 1024px) {
-        height: 460px;
-        align-items: center;
-    }
-    @media screen and (max-width: 680px) {
-        height: 420px;
-    }
+  }
+  transition: background 0.5s ease;
+  #btns-content-wrapper > div {
+      transform: translateX(0);
+      transition: transform 0.5s ease;
+      >svg:first-child {
+          opacity: 1;
+          transition: opacity ease-out 0.5s;
+      }
+      >svg:last-child {
+          opacity: 0;
+          transition: opacity ease-out 0.5s;
+      }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 0 24px;
+  }
+
+	@media screen and (max-width: 680px) {
+		gap: 7px;
+		height: 416px;
+		position: relative;
+		justify-content: flex-end;
+	}
 `;
 
 export const CardContent = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
+    row-gap: 16px
 `;
 
 export const ActionButton = styled.button<{ isDark: boolean, buttonColor: string, buttonColorDark: string }>`
@@ -87,14 +85,32 @@ export const CardTitle = styled.h2`
     font-size: 38px;
     font-weight: 700;
 
-    @media screen and (max-width: 1024px) {
-        // height: 32px;
-    }
+		@media screen and (max-width: 680px) {
+			font-size: 32px;
+		}
 `;
 
 export const FeatureImage = styled.img`
-    width: 260px;
+		width: 100%;    
+		max-width: 260px;
     object-fit: contain;
+
+		@media screen and (max-width: 1440px) {
+			max-width: 200px;
+		}
+
+		@media screen and (max-width: 1280px) {
+			max-width: 220px;
+		}
+
+		@media screen and (max-width: 1024px) {
+			max-width: 260px;
+		}
+
+		@media screen and (max-width: 680px) {
+			position: absolute;
+			bottom: -52px
+		}
 `;
 
 export const IconArrowRightStyled = styled(IconArrowRight)`

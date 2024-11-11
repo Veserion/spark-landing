@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   left: 0;
   right: 0;
   height: 72px;
+  width: 100vw;
   backdrop-filter: blur(30px);
   z-index: 100;
 `;

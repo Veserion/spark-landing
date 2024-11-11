@@ -36,26 +36,40 @@ const RedemptionSectionContainer = styled.section`
 const SectionHeader = styled.header`
   text-align: center;
   margin-bottom: 64px;
+
+  @media screen and (max-width: 1280px) {
+    margin-bottom: 48px;
+  }
 `;
 
 const MainTitle = styled.h1`
   font-size: 48px;
   font-weight: 700;
+
+  @media screen and (max-width: 680px) {
+    font-size: 22px;
+  }
 `;
 
 const Subtitle = styled.p`
   font-size: 28px;
   font-weight: 500;
   margin-top: 8px;
+
+  @media screen and (max-width: 680px) {
+    font-size: 16px;
+  }
 `;
 
 const FeatureCardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
+  gap: 48px;
+
+  @media screen and (max-width: 1280px) {
+    gap: 24px;
+  }
 
   @media screen and (max-width: 680px) {
     grid-template-columns: 1fr;
@@ -72,29 +86,33 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
   border: 4px solid
     ${(props) =>
       props.isDark ? "rgba(25, 5, 78, 1)" : "rgba(219, 211, 255, 1)"};
-  padding: 16px;
+  padding: 36px 16px;
+  gap: 16px;
   display: flex;
   overflow: hidden;
   color: ${(props) =>
     props.isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)"};
   transition: background 0.5s ease;
 
-    @media screen and (max-width: 680px) {
-    flex-direction: column;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column-reverse;
     align-items: center;
-    height: 420px;
-    }
-  :hover {
-    background-color: ${(props) =>
-      props.isDark ? "rgba(25, 5, 78, 1)" : "rgba(219, 211, 255, 1)"};
+    justify-content: space-between;
+    padding: 24px 24px 0 24px;
   }
+
+  @media screen and (max-width: 680px) {
+		gap: 7px;
+		height: 416px;
+		position: relative;
+		justify-content: flex-end;
+	}
 `;
 
 const FeatureContent = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 16px;
+    row-gap: 16px;
 `;
 
 const FeatureTitle = styled.h3`
@@ -113,8 +131,27 @@ const FeatureDescription = styled.p`
 `;
 
 const StyledImage = styled(Image)`
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
   object-fit: contain;
+
+  @media screen and (max-width: 1440px) {
+    max-width: 200px;
+  }
+
+  @media screen and (max-width: 1280px) {
+		max-width: 220px;
+	}
+
+	@media screen and (max-width: 1024px) {
+		max-width: 260px;
+	}
+
+  @media screen and (max-width: 680px) {
+    position: absolute;
+    bottom: -52px
+  }
 `;
 
 const featureCards: FeatureCardProps[] = [
@@ -182,29 +219,29 @@ const additionalFeatures = [
 ];
 
 export const RedemptionSection: React.FC = () => {
-    const { theme } = useTheme();
-    const isDark = useMemo(() => theme !== 'light', [theme]);
-    return (
-        <RedemptionSectionContainer>
-            <SectionHeader>
-                <MainTitle>THE REDEMPTION IS HERE</MainTitle>
-                <Subtitle>Get Started Now</Subtitle>
-            </SectionHeader>
-            <FeatureCardsContainer>
-                {featureCards.map((card, index) => (
-                    <FeatureCard key={index} {...card} />
-                ))}
-                {additionalFeatures.map((feature, index) => (
-                    <AdditionalFeature key={index} isDark={isDark}>
-                        <FeatureContent>
-                            <FeatureTitle>{feature.title}</FeatureTitle>
-                            <FeatureDescription>{feature.description}</FeatureDescription>
-                        </FeatureContent>
-                        <StyledImage src={feature.imageSrc} alt="" width={260} height={260} />
-                    </AdditionalFeature>
-                ))}
-            </FeatureCardsContainer>
-            <SecureTrading />
-        </RedemptionSectionContainer>
-    );
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme !== 'light', [theme]);
+  return (
+    <RedemptionSectionContainer>
+      <SectionHeader>
+        <MainTitle>THE REDEMPTION IS HERE</MainTitle>
+        <Subtitle>Get Started Now</Subtitle>
+      </SectionHeader>
+      <FeatureCardsContainer>
+        {featureCards.map((card, index) => (
+          <FeatureCard key={index} {...card} />
+        ))}
+        {additionalFeatures.map((feature, index) => (
+          <AdditionalFeature key={index} isDark={isDark}>
+            <StyledImage src={feature.imageSrc} alt="" width={260} height={260} />
+            <FeatureContent>
+              <FeatureTitle>{feature.title}</FeatureTitle>
+              <FeatureDescription>{feature.description}</FeatureDescription>
+            </FeatureContent>
+          </AdditionalFeature>
+        ))}
+      </FeatureCardsContainer>
+      <SecureTrading />
+    </RedemptionSectionContainer>
+  );
 };
