@@ -34,10 +34,12 @@ interface SparkMenuProps {
 interface MenuItem {
   icon?: React.ReactNode;
   text: string;
+  href?: string;
   submenu?: Array<{
     icon: React.ReactNode;
     text: string;
     badge?: string;
+    href?: string;
   }>;
 }
 
@@ -45,6 +47,7 @@ const menuItems: MenuItem[] = [
   {
     icon: <IconSpark width={18} height={18}/>,
     text: "What is Spark?",
+    href: "https://docs.sprk.fi/more/spark-architecture-overview"
   },
   {
     icon: <IconTransitionTop width={18} height={18}/>,
@@ -53,6 +56,7 @@ const menuItems: MenuItem[] = [
   {
     icon: <IconCoins width={18} height={18}/>,
     text: "Provide Liquidity",
+    href: "https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker/market-maker-incentive-program"
   },
 ];
 
@@ -63,14 +67,17 @@ const mobileMenuItems: MenuItem[] = [
       {
         icon: <IconSpark width={18} height={18}/>,
         text: "What is Spark?",
+        href: "https://docs.sprk.fi/more/spark-architecture-overview"
       },
       {
         icon: <IconTransitionTop width={18} height={18}/>,
         text: "Trading 101",
+        badge: "soon",
       },
       {
         icon: <IconArticle width={18} height={18}/>,
         text: "Blog",
+        href: "https://mirror.xyz/sprkfi.eth"
       },
     ],
   },
@@ -80,6 +87,7 @@ const mobileMenuItems: MenuItem[] = [
       {
         icon: <IconTransitionTop width={18} height={18}/>,
         text: "Limit",
+        href: "https://app.sprk.fi/#/spot/BTC-USDC"
       },
       {
         icon: <IconInfinity width={18} height={18}/>,
@@ -99,14 +107,17 @@ const mobileMenuItems: MenuItem[] = [
       {
         icon: <IconBook2 width={18} height={18}/>,
         text: "Docs",
+        href: "https://docs.sprk.fi/"
       },
       {
         icon: <IconBrandGithubFilled width={18} height={18}/>,
         text: "Github",
+        href: "https://github.com/compolabs/"
       },
       {
         icon: <IconFireHydrant width={18} height={18}/>,
         text: "Faucet",
+        href: "https://app.sprk.fi/#/faucet"
       },
     ],
   },
@@ -166,11 +177,12 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
         </CallToActionSection>
         <FooterSection isDark={false}>
           <Social>
-            {socialListFooter.map(({ icon, title }, index) => {
+            {socialListFooter.map(({ icon, title, href }, index) => {
               const SocialComponent: React.FC<TIconProps> = icon;
               return (
                 <SocialItemWrapper
-                  href="#"
+                  href={href}
+                  target="_blank"
                   key={title}
                   isDark={isDark}
                   onMouseEnter={() => setHoveredIndex(index)}

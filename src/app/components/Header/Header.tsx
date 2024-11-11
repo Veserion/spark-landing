@@ -26,17 +26,18 @@ const navItems = {
       {
         icon: <IconSpark />,
         text: 'What is Spark?',
-        href: '/learn/what-is-spark'
+        href: 'https://docs.sprk.fi/more/spark-architecture-overview'
       },
       {
         icon: <IconTransitionTop />,
         text: 'Trading 101',
-        href: '/learn/trading-101'
+        href: '/',
+        badge: 'soon'
       },
       {
         icon: <IconArticle />,
         text: 'Blog',
-        href: '/blog'
+        href: 'https://mirror.xyz/sprkfi.eth'
       }
     ]
   },
@@ -46,18 +47,18 @@ const navItems = {
       {
         icon: <IconTransitionTop />,
         text: 'Limit',
-        href: '/trade/limit'
+        href: 'https://app.sprk.fi/#/spot/BTC-USDC'
       },
       {
         icon: <IconInfinity />,
         text: 'Perpetuals',
-        href: '/trade/perpetuals',
+        href: '/',
         badge: 'soon'
       },
       {
         icon: <IconRouteSquare />,
         text: 'Swap',
-        href: '/trade/swap',
+        href: '/',
         badge: 'soon'
       }
     ]
@@ -68,17 +69,17 @@ const navItems = {
       {
         icon: <IconBook2 />,
         text: 'Docs',
-        href: '/docs'
+        href: 'https://docs.sprk.fi/'
       },
       {
         icon: <IconBrandGithubFilled />,
         text: 'Github',
-        href: '/github'
+        href: 'https://github.com/compolabs/'
       },
       {
         icon: <IconFireHydrant />,
         text: 'Faucet',
-        href: '/faucet'
+        href: 'https://app.sprk.fi/#/faucet'
       }
     ]
   }
@@ -106,7 +107,7 @@ export const Header = () => {
     <HeaderWrapper isDark={isDark}>
       <Container isDark={isDark}>
         <LeftSection size="small">
-          <Link href="/public" style={{display: 'flex', alignItems: 'center', color: 'inherit'}}>
+          <Link href="/" style={{display: 'flex', alignItems: 'center', color: 'inherit'}}>
             <SparkLogotype width="110" height="33" />
           </Link>
 
@@ -130,7 +131,7 @@ export const Header = () => {
                 />
               </NavItem>
             ))}
-            <NavLink href="/liquidity">Liquidity</NavLink>
+            <NavLink href="https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker/market-maker-incentive-program" target="_blank">Liquidity</NavLink>
           </Nav>
         </LeftSection>
 

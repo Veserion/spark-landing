@@ -87,7 +87,7 @@ const DesktopSubmenu: React.FC<SubmenuProps> = ({ isDark, isOpen, items }) => {
     <SubMenuContainer isDark={isDark} isOpen={isOpen}>
       <MenuWrapper>
         {items.map((item, index) => (
-          <MenuItem key={index} isDark={isDark} href={item.href}>
+          <MenuItem key={index} isDark={isDark} href={item.href} target="_blank">
             <IconWrapper>
               {item.icon}
             </IconWrapper>

@@ -55,15 +55,16 @@ export const Subscriptions: React.FC = () => {
         </ButtonWrapper>
       </AuditBlock>
       <List>
-        {socialList.map(({ title, icon }, index) => {
+        {socialList.map(({ title, icon, href }, index) => {
           const SocialComponent: React.FC<TIconProps> = icon;
           return (
             <Item
-              href="#"
+              href={href}
               key={title}
               isDark={isDark}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              target="_blank"
             >
               <IconArrow
                 isDark={isDark}

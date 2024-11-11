@@ -28,32 +28,33 @@ export const Footer = () => {
       <Wrapper isDark={isDark}>
         <Info>
           <Link
-            href="/public"
+            href="/"
             style={{ display: "flex", alignItems: "center", color: "inherit" }}
           >
             <SparkLogotype width="110" height="33" />
           </Link>
           <List>
-            <ListItem href="/public" isDark={isDark}>
+            <ListItem href="https://docs.sprk.fi/" isDark={isDark} target="_blank">
               Docs
             </ListItem>
-            <ListItem href="/public" isDark={isDark}>
+            <ListItem href="https://t.co/EfXHTEhXHc" isDark={isDark} target="_blank">
               Support
             </ListItem>
-            <ListItem href="/public" isDark={isDark}>
+            <ListItem href="https://compo-labs.notion.site/93d1f8917cb64f88a222fe24e0df8a9e?v=503fafab97464f049e79bc66ca09afa9" isDark={isDark} target="_blank">
               Careers
             </ListItem>
           </List>
           <Social>
-            {socialListFooter.map(({ icon, title }, index) => {
+            {socialListFooter.map(({ icon, title, href }, index) => {
               const SocialComponent: React.FC<TIconProps> = icon;
               return (
                 <SocialItemWrapper
-                  href="#"
+                  href={href}
                   key={title}
                   isDark={isDark}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
+                  target="_blank"
                 >
                   <SocialItem
                     isDark={isDark}

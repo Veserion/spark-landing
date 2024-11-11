@@ -51,7 +51,7 @@ export const StyledMenuButton = styled.button<ThemeProps>`
   justify-content: flex-start;
   padding: 12px;
   margin-top: 8px;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 1)' : 'rgba(247, 247, 247, 1)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
 
