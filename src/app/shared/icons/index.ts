@@ -31,3 +31,4 @@ export * from './SparkLogotype';
 export * from './type';
 export * from './common'
 export * from './backedBest'
+export * from './IconCookie';

@@ -1,5 +1,6 @@
 import './globals.css';
 import { Providers } from './providers';
+import { CookieNotification } from '@/app/components/CookieNotification/CookieNotification';
 
 export default function RootLayout({
   children,
@@ -7,15 +8,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="ru">
       <body>
         <Providers>
           {children}
+          <CookieNotification />
           <div id="portal-root" />
         </Providers>
       </body>
