@@ -10,14 +10,16 @@ interface MobileMenuButtonProps {
   text: string;
   isDark: boolean;
   onClick?: () => void;
+  isOpen?: boolean;
 }
 
 const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ 
   text, 
   isDark,
-  onClick 
+  onClick,
+  isOpen
 }) => (
-  <StyledMobileMenuButton isDark={isDark} onClick={onClick}>
+  <StyledMobileMenuButton isDark={isDark} onClick={onClick} isOpen={isOpen}>
     <MobileMenuContent>
       <MenuText isDark={isDark}>{text}</MenuText>
     </MobileMenuContent>

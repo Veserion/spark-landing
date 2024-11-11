@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import MenuButton from "./MenuButton";
 import MobileMenuButton from "./MobileMenuButton";
 import CallToAction from "./CallToAction";
@@ -10,7 +10,8 @@ import {
   CallToActionSection,
   FooterSection,
   RootContainer,
-  Social
+  Social,
+  MenuItemContainer
 } from "./styles";
 import { useTheme } from "next-themes";
 import SubMenu from "./SubMenu";
@@ -29,6 +30,7 @@ import { socialListFooter } from "@/app/helpers";
 
 interface SparkMenuProps {
   isDark: boolean;
+  isOpen?: boolean;
 }
 
 interface MenuItem {
@@ -131,20 +133,20 @@ const mobileMenuItems: SubMenuItem[] = [
   },
 ];
 
-const MenuItemContainer = styled.div`
-  position: relative;
-`;
-
-const SparkMenu: React.FC<SparkMenuProps> = () => {
+const SparkMenu: React.FC<SparkMenuProps> = ({ isDark, isOpen }) => {
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme !== "light", [theme]);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setActiveSubmenu(null);
+    }
+  }, [isOpen]);
 
   const handleMenuClick = (menuName: string) => {
     setActiveSubmenu(activeSubmenu === menuName ? null : menuName);
   };
-
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <RootContainer isDark={isDark}>
@@ -165,6 +167,7 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
                 text={item.text}
                 isDark={isDark}
                 onClick={() => handleMenuClick(item.text)}
+                isOpen={activeSubmenu === item.text}
               />
               {item.submenu && (
                 <SubMenu

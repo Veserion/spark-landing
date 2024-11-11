@@ -13,7 +13,7 @@ export const RootContainer = styled.div<{ isDark: boolean }>`
     isDark
       ? "var(--Landing-Gradients-holo-dark, linear-gradient(128.85deg, #6B0D97 0%, #000000 33%, rgba(107, 13, 151, 0.956863) 66%, #000000 100%))"
       : "var(--Landing-Gradients-holo, linear-gradient(129deg, #fac8ff 0%, #c8ffee 33%, #e9ff44 66%, #35ebff 100%))"};
-  animation: gradientAnimation 2s infinite alternate;
+  animation: gradientAnimation 3s infinite alternate;
   background-size: 200% 200%;
 `;
 
@@ -85,7 +85,7 @@ export const MenuText = styled.span<ThemeProps>`
   font-size: 16px;
 `;
 
-export const StyledMobileMenuButton = styled.button<ThemeProps>`
+export const StyledMobileMenuButton = styled.button<{ isDark: boolean; isOpen?: boolean }>`
   display: flex;
   margin-top: 8px;
   width: 100%;
@@ -98,6 +98,12 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   transition: all 0.4s ease;
   cursor: pointer;
   align-items: center;
+  
+  svg {
+    transition: transform 0.4s ease;
+    transform: ${({ isOpen }) => isOpen ? 'rotate(180deg)' : 'rotate(0)'};
+  }
+  
   &:hover {
     background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
   }
