@@ -51,6 +51,9 @@ export default function HomePage() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
+    } else {
+      localStorage.setItem('theme', 'light');
+      setTheme('light');
     }
   }, [setTheme]);
 
