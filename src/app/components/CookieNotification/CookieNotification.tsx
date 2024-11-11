@@ -12,12 +12,16 @@ import {
 import { useTheme } from 'next-themes';
 
 export const CookieNotification: React.FC = () => {
-  const [isVisible, setIsVisible] = React.useState(true);
+  let defaultState;
+  if (typeof window !== 'undefined') {
+    defaultState = localStorage.getItem('cookie_consent') !== 'true';
+  };
+  const [isVisible, setIsVisible] = React.useState(defaultState);
   const {theme} = useTheme();
   const isDark = theme === 'dark';
   const handleAccept = () => {
     setIsVisible(false);
-    // Здесь можно добавить логику сохранения согласия в localStorage или cookies
+    localStorage.setItem('cookie_consent', 'true');
   };
 
   if (!isVisible) return null;
