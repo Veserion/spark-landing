@@ -52,8 +52,8 @@ export default function HomePage() {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      localStorage.setItem('theme', 'light');
-      setTheme('light');
+      localStorage.setItem('theme', 'dark');
+      setTheme('dark');
     }
   }, [setTheme]);
 
