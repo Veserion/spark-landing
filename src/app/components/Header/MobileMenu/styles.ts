@@ -55,7 +55,7 @@ export const StyledMenuButton = styled(Link)<ThemeProps>`
   background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
-
+  text-decoration: none;
   &:hover {
     background: ${({ isDark }) => (isDark ? "#333333" : "#EFEFEF")};
   }

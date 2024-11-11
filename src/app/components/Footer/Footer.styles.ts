@@ -48,11 +48,11 @@ export const List = styled.div`
 `;
 
 export const ListItem = styled(Link)<{ isDark: boolean }>`
+  text-decoration: none;
   width: 70px;
   font-weight: 400;
   font-size: 16px;
   color: ${({ isDark }) => (isDark ? "#ffffff" : "#171717")};
-  text-decoration: none;
   position: relative;
   text-align: center;
 
@@ -112,7 +112,7 @@ export const SocialItemWrapper = styled(Link)<{ isDark: boolean }>`
   background-size: 100%;
   padding: 8px;
   transition: 0.3s ease;
-
+  text-decoration: none;
   &:hover {
     transition: 0.3s ease;
     background: ${({ isDark }) =>
