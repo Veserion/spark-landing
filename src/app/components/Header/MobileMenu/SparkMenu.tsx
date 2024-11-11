@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MenuButton from "./MenuButton";
 import MobileMenuButton from "./MobileMenuButton";
 import CallToAction from "./CallToAction";
@@ -13,9 +13,7 @@ import {
   Social,
   MenuItemContainer
 } from "./styles";
-import { useTheme } from "next-themes";
 import SubMenu from "./SubMenu";
-import styled from "@emotion/styled";
 import { IconSpark, TIconProps } from "@/app/shared/icons";
 import { IconTransitionTop } from "@/app/shared/icons";
 import { IconCoins } from "@/app/shared/icons";
@@ -134,7 +132,6 @@ const mobileMenuItems: SubMenuItem[] = [
 ];
 
 const SparkMenu: React.FC<SparkMenuProps> = ({ isDark, isOpen }) => {
-  const { theme } = useTheme();
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
