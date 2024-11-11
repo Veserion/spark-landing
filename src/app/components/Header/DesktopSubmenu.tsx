@@ -65,7 +65,7 @@ const MenuItem = styled(Link)<{isDark: boolean}>`
   transition: background 0.2s ease;
   text-decoration: none;
   color: inherit;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
 `;
 
 const IconWrapper = styled.div`

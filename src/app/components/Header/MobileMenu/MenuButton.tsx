@@ -5,10 +5,11 @@ interface MenuButtonProps {
   icon: React.ReactNode;
   text: string;
   isDark: boolean;
+  href: string;
 }
 
-const MenuButton: React.FC<MenuButtonProps> = ({ icon, text, isDark }) => (
-  <StyledMenuButton isDark={isDark}>
+const MenuButton: React.FC<MenuButtonProps> = ({ icon, text, isDark, href }) => (
+  <StyledMenuButton isDark={isDark} href={href}>
     {icon}
     <MenuText isDark={isDark}>{text}</MenuText>
   </StyledMenuButton>

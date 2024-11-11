@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 interface ThemeProps {
   isDark: boolean;
@@ -41,7 +42,7 @@ export const MenuSection = styled.div<ThemeProps>`
   font-size: 16px;
 `;
 
-export const StyledMenuButton = styled.button<ThemeProps>`
+export const StyledMenuButton = styled(Link)<ThemeProps>`
   border-radius: 4px;
   display: flex;
   height: 43px;
@@ -51,7 +52,7 @@ export const StyledMenuButton = styled.button<ThemeProps>`
   justify-content: flex-start;
   padding: 12px;
   margin-top: 8px;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 1)' : 'rgba(247, 247, 247, 1)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
 
@@ -97,7 +98,7 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   cursor: pointer;
   align-items: center;
   &:hover {
-    background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
+    background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
   }
 `;
 

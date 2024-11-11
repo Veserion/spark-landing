@@ -32,16 +32,20 @@ interface SparkMenuProps {
 }
 
 interface MenuItem {
-  icon?: React.ReactNode;
+  icon: React.ReactNode;
   text: string;
-  href?: string;
-  submenu?: Array<{
-    icon: React.ReactNode;
-    text: string;
-    badge?: string;
-    href?: string;
-  }>;
+  href: string;
 }
+
+interface SubMenuItem {
+    text: string;
+    submenu?: Array<{
+      icon: React.ReactNode;
+      text: string;
+      badge?: string;
+      href: string;
+    }>;
+  }
 
 const menuItems: MenuItem[] = [
   {
@@ -52,6 +56,7 @@ const menuItems: MenuItem[] = [
   {
     icon: <IconTransitionTop width={18} height={18}/>,
     text: "Limit Trading",
+    href: "/"
   },
   {
     icon: <IconCoins width={18} height={18}/>,
@@ -60,7 +65,7 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const mobileMenuItems: MenuItem[] = [
+const mobileMenuItems: SubMenuItem[] = [
   {
     text: "Learn",
     submenu: [
@@ -73,6 +78,7 @@ const mobileMenuItems: MenuItem[] = [
         icon: <IconTransitionTop width={18} height={18}/>,
         text: "Trading 101",
         badge: "soon",
+        href: "/"
       },
       {
         icon: <IconArticle width={18} height={18}/>,
@@ -93,11 +99,13 @@ const mobileMenuItems: MenuItem[] = [
         icon: <IconInfinity width={18} height={18}/>,
         text: "Perpetuals",
         badge: "soon",
+        href: "/"
       },
       {
         icon: <IconRouteSquare width={18} height={18}/>,
         text: "Swap",
         badge: "soon",
+        href: "/"
       },
     ],
   },
@@ -148,13 +156,13 @@ const SparkMenu: React.FC<SparkMenuProps> = () => {
               icon={item.icon}
               text={item.text}
               isDark={isDark}
+              href={item.href}
             />
           ))}
           {mobileMenuItems.map((item, index) => (
             <MenuItemContainer key={index}>
               <MobileMenuButton
                 text={item.text}
-                icon={item.icon}
                 isDark={isDark}
                 onClick={() => handleMenuClick(item.text)}
               />

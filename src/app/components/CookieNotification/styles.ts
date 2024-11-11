@@ -21,6 +21,7 @@ export const NotificationContainer = styled.div<{isDark?: boolean}>`
   backdrop-filter: blur(30px);
 
   @media (max-width: 680px) {
+  bottom: 8px;
     width: calc(100% - 16px);
     padding: 8px;
     flex-direction: column;
