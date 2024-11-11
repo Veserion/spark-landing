@@ -56,7 +56,7 @@ const menuItems: MenuItem[] = [
   {
     icon: <IconTransitionTop width={18} height={18}/>,
     text: "Limit Trading",
-    href: "/"
+    href: "https://app.sprk.fi/#/spot/BTC-USDC"
   },
   {
     icon: <IconCoins width={18} height={18}/>,
