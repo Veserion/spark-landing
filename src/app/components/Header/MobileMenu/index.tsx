@@ -9,28 +9,18 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
-const Overlay = styled.div<{ isOpen: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  z-index: 998;
-  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
-`;
-
 const Background = styled.div<{ isOpen: boolean, isDark: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: ${({ isDark }) => isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)'};
-  opacity: ${({ isOpen }) => (isOpen ? 0.5 : 0)};
+  background: ${({ isDark }) => isDark ? 'rgba(180, 180, 180, 0.7)' : 'rgba(70, 70, 70, 0.7)'};
+  opacity: ${({ isOpen }) => (isOpen ? 0.7 : 0)};
   transition: opacity 0.6s ease;
   z-index: 999;
-  pointer-events: none;
+  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+  cursor: pointer;
 `;
 
 const MenuContainer = styled.div<{ isOpen: boolean }>`
@@ -47,10 +37,16 @@ const MenuContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  cursor: pointer;
+`;
+
+const SparkMenuWrapper = styled.div`
+  cursor: default;
 `;
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const menuRef = useRef<HTMLDivElement>(null);
+  const sparkMenuRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
   const [mounted, setMounted] = React.useState(false);
@@ -61,26 +57,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && 
-          !menuRef.current.contains(event.target as Node) && 
-          !(event.target as Element).closest('.burger-button')) {
-        onClose();
-      }
-    };
-
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
@@ -98,23 +84,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
+  const handleMenuContainerClick = (e: React.MouseEvent) => {
+    if (sparkMenuRef.current && !sparkMenuRef.current.contains(e.target as Node)) {
+      onClose();
+    }
+  };
+
   const menuContent = (
     <>
-      <Overlay 
-        className="mobile-menu-overlay" 
+      <Background 
         isOpen={isOpen} 
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }} 
+        isDark={isDark}
+        onClick={onClose}
       />
-      <Background isOpen={isOpen} isDark={isDark} />
       <MenuContainer 
         ref={menuRef} 
-        isOpen={isOpen} 
-        onClick={(e) => e.stopPropagation()}
+        isOpen={isOpen}
+        onClick={handleMenuContainerClick}
       >
-        <SparkMenu isDark={isDark} />
+        <SparkMenuWrapper ref={sparkMenuRef}>
+          <SparkMenu isDark={isDark} />
+        </SparkMenuWrapper>
       </MenuContainer>
     </>
   );

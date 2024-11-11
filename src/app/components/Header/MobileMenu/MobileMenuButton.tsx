@@ -4,6 +4,7 @@ import {
   MobileMenuContent,
   MenuText,
 } from './styles';
+import { IconChevronDown } from '@/app/shared';
 
 interface MobileMenuButtonProps {
   text: string;
@@ -23,6 +24,7 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({
       <MenuText isDark={isDark}>{text}</MenuText>
       {icon}
     </MobileMenuContent>
+    <IconChevronDown width={16} height={16}/>
   </StyledMobileMenuButton>
 );
 

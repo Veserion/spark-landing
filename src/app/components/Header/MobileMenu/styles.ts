@@ -23,7 +23,7 @@ export const Container = styled.nav<ThemeProps>`
   height: fit-content;
   flex-direction: column;
   padding: 8px;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 1)' : 'rgba(255, 255, 255, 0.9)'};
+  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 1)' : 'rgba(255, 255, 255, 1)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   font-family: "Syne", sans-serif;
   * {
@@ -49,7 +49,7 @@ export const StyledMenuButton = styled.button<ThemeProps>`
   align-items: center;
   gap: 12px;
   justify-content: flex-start;
-  padding: 12px 16px;
+  padding: 12px;
   margin-top: 8px;
   background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(247, 247, 247, 1)'};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
@@ -87,7 +87,8 @@ export const StyledMobileMenuButton = styled.button<ThemeProps>`
   display: flex;
   margin-top: 8px;
   width: 100%;
-  flex-direction: column;
+  padding: 0 8px;
+  justify-content: space-between;
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   white-space: nowrap;
   background: transparent;
@@ -105,7 +106,7 @@ export const MobileMenuContent = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 12px 0;
 `;
 
 export const CallToActionSection = styled.div`
