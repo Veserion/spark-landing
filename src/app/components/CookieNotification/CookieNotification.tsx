@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { IconCookie } from '@/app/shared/icons/IconCookie';
 import {
   NotificationContainer,
   Content,
