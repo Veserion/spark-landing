@@ -120,7 +120,6 @@ const FeatureTitle = styled.h3`
   font-weight: 700;
   margin: 0;
   word-break: break-all;
-  white-space: wrap;
   @media screen and (max-width: 1024px) {
     font-size: 32px;
   }

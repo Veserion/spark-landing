@@ -4,12 +4,13 @@ import React from 'react';
 import {
   NotificationContainer,
   Content,
-  Icon,
   ButtonsContainer,
   ConfirmButton,
-  DenyButton
+  DenyButton,
+  Icon
 } from './styles';
 import { useTheme } from 'next-themes';
+import { IconCookie } from '@/app/shared/icons/IconCookie';
 
 export const CookieNotification: React.FC = () => {
   let defaultState = false;
@@ -29,7 +30,9 @@ export const CookieNotification: React.FC = () => {
   return (
     <NotificationContainer isDark={isDark}>
       <Content>
-        <Icon />
+        <Icon>
+          <IconCookie width={32} height={32} />
+        </Icon>
         <p>
           If you continue browsing, we consider that you have accepted our Cookies Policy
         </p>

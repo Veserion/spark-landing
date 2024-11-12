@@ -1,6 +1,5 @@
 'use client';
 
-import { IconCookie } from '@/app/shared/icons/IconCookie';
 import styled from '@emotion/styled';
 
 export const NotificationContainer = styled.div<{isDark?: boolean}>`
@@ -9,8 +8,8 @@ export const NotificationContainer = styled.div<{isDark?: boolean}>`
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 700px;
-  padding: 24px;
+  max-width: 480px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,21 +35,13 @@ export const NotificationContainer = styled.div<{isDark?: boolean}>`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 16px;
-  @media (max-width: 680px) {
-    font-size: 12px;
-  }
+  gap: 4px;
+  font-size: 12px;
 `;
 
-export const Icon = styled(IconCookie)`
-  flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  @media (max-width: 680px) {
-    width: 32px;
-    height: 32px;
-  }
+export const Icon = styled.div`
+  width: 32px;
+  height: 32px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -63,13 +54,13 @@ export const ButtonsContainer = styled.div`
 `;
 
 const BaseButton = styled.button`
-  padding: 8px 24px;
+  padding: 8px 16px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 500;
-  height: 45px;
+  height: 35px;
   width: fit-content;
-  font-size: 24px;
+  font-size: 16px;
   transition: all 0.2s;
   box-sizing: border-box;
   display: flex;
