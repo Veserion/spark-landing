@@ -119,7 +119,8 @@ const FeatureTitle = styled.h3`
   font-size: 38px;
   font-weight: 700;
   margin: 0;
-word-break: break-all;
+  word-break: break-all;
+  white-space: wrap;
   @media screen and (max-width: 1024px) {
     font-size: 32px;
   }
@@ -207,12 +208,12 @@ const featureCards: FeatureCardProps[] = [
 
 const additionalFeatures = [
   {
-    title: "Composable Ecosystem.",
+    title: <>Composable<br/> Ecosystem.</>,
     description: "Shared liquidity with other protocols",
     imageSrc: "/images/composable.png",
   },
   {
-    title: "Bulletproof Infrastructure.",
+    title: <>Bulletproof<br/> Infrastructure.</>,
     description: "Top indexers, market makers, and Spark data relayers",
     imageSrc: "/images/bulletproof.png",
   },
