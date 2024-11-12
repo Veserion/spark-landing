@@ -37,6 +37,7 @@ export const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
       borderColor={borderColor}
       width={width}
       href={href}
+      target="_blank"
     >
       <BtnsContentWrapper id="btns-content-wrapper">
         <BtnsContentWrapper>

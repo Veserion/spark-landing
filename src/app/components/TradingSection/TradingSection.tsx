@@ -245,7 +245,7 @@ const ButtonContainer = styled.div`
   gap: 16px;
   margin-top: 40px;
   width: 100%;
-  > button {
+  > a {
     width: 50%;
   }
 
@@ -253,7 +253,7 @@ const ButtonContainer = styled.div`
     flex-direction: column;
     font-size: 16px;
     margin-top: 8px;
-    > button {
+    > a {
       width: 100%;
     }
   }
