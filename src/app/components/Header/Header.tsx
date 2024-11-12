@@ -9,7 +9,8 @@ import {
   RightSection,
   BurgerButton,
   NavItem,
-  NavButton
+  NavButton,
+  Backdrop
 } from './Header.styles';
 import { ThemeToggle } from './ThemeToggle';
 import {useMemo, useState} from "react";
@@ -105,6 +106,7 @@ export const Header = () => {
 
   return (
     <HeaderWrapper isDark={isDark}>
+      <Backdrop isDark={isDark} />
       <Container isDark={isDark}>
         <LeftSection size="small">
           <Link href="/" style={{display: 'flex', alignItems: 'center', color: 'inherit'}}>

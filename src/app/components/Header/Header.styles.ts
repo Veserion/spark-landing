@@ -5,14 +5,25 @@ export const HeaderWrapper = styled.header<{ isDark: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   height: 72px;
   width: 100vw;
-  backdrop-filter: blur(30px);
   z-index: 100;
 `;
 
+export const Backdrop = styled.div<{ isDark: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 72px;
+  width: 100vw;
+  backdrop-filter: blur(30px);
+  z-index: 101;
+`;
+
 export const Container = styled.div<{ isDark: boolean }>`
+  position: relative;
+  z-index: 102;
+
   //max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
