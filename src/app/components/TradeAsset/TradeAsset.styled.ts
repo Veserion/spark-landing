@@ -115,7 +115,7 @@ export const TradeAssetContainer = styled.div<{ isDark: boolean }>`
 `;
 
 export const ContentWrapper = styled.div`
-    max-width: 660px;
+    // max-width: 0px;
     text-align: left;
     gap: 16px;
     display: flex;
@@ -144,9 +144,8 @@ export const Description = styled.div<{ isDark: boolean }>`
 `
 
 export const Title2 = styled.h1`
-    font-size: 90px;
+    font-size: 75px;
     margin: 0;
-    // text-transform: uppercase;
     font-family: 'Syne', sans-serif;
     font-weight: 800;
 
