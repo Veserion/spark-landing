@@ -5,7 +5,6 @@ export const Logo5: FC<TIconProps> = ({
   className,
   width = 155,
   height = 56,
-  color = "#FFFFFF",
 }) => {
   return (
     <svg
