@@ -113,6 +113,7 @@ const FeatureContent = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 16px;
+    word-break: break-all;
 `;
 
 const FeatureTitle = styled.h3`

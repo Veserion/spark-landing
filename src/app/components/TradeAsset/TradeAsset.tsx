@@ -41,7 +41,7 @@ export const TradeAsset = () => {
         <TradeAssetContainer isDark={isDark}>
             <ContentWrapper>
                 <Description isDark={isDark}>
-                    The Onchain Trading Rollup
+                    The Onchain Exchange
                 </Description>
                 <Wrapper>
                     <AnimatedWrapper key={`${resetKey}-${isDark ? 'dark' : 'light'}`}>
@@ -56,8 +56,7 @@ export const TradeAsset = () => {
                     <Title2>ONCHAIN</Title2>
                 </Wrapper>
                 <Subtitle>
-                    Spark is an Ethereum rollup with an integrated order book, enabling truly decentralized and seamless
-                    trading.
+                    The first onchain orderbook exchange build on Fuel’s high-performance L2.
                 </Subtitle>
                 <TradeButton buttonText='Trade Now' />
             </ContentWrapper>
