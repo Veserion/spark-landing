@@ -29,7 +29,7 @@ export const TradeAsset = () => {
                     The Onchain Trading Rollup
                 </Description>
                 <Wrapper>
-                    <AnimatedWrapper>
+                    <AnimatedWrapper key={isDark ? 'dark' : 'light'}>
                         <AnimatedContainer>
                             <AnimatedTitleWrapper>
                                 <Title>TRADE</Title>

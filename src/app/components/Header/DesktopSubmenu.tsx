@@ -19,13 +19,15 @@ const SubMenuContainer = styled.div<{ isDark: boolean; isOpen: boolean }>`
   left: 50%;
   transform: translateX(-50%) scaleY(${({ isOpen }) => (isOpen ? '1' : '0')});
   min-width: 200px;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.9)' : 'rgba(255, 255, 255, 0.9)'};
+  background-color: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 0.9)'};
   transform-origin: top;
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
   transition: transform 0.2s ease, opacity 0.2s ease;
   z-index: 1000;
   border-radius: 8px;
   overflow: hidden;
+  backdrop-filter: blur(30px);
+  z-index: 1000;
   box-shadow: ${({ isDark }) => isDark 
     ? '0 4px 12px rgba(0, 0, 0, 0.5)' 
     : '0 4px 12px rgba(0, 0, 0, 0.1)'};
@@ -40,16 +42,16 @@ const MenuWrapper = styled.div`
 `;
 
 const Badge = styled.span<{isDark: boolean}>`
-  background: ${({isDark}) => isDark ? 'rgba(20, 1, 30, 1)' : 'rgba(246, 246, 246, 1)'};
+  background-color: ${({isDark}) => isDark ? 'rgba(20, 1, 30, 1)' : 'rgba(246, 246, 246, 1)'};
   width: 34px;
   height: 18px;
   padding: 2px 4px 2px 4px;
   gap: 10px;
   border-radius: 2px;
-  opacity: 0px;
   font-size: 12px;
   font-weight: 400; 
   color: rgba(177, 177, 177, 1);
+  backdrop-filter: blur(30px);
 `;
 
 const MenuItem = styled(Link)<{isDark: boolean}>`
