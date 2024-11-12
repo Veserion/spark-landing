@@ -12,7 +12,7 @@ import {
 import { useTheme } from 'next-themes';
 
 export const CookieNotification: React.FC = () => {
-  let defaultState;
+  let defaultState = false;
   if (typeof window !== 'undefined') {
     defaultState = localStorage.getItem('cookie_consent') !== 'true';
   };

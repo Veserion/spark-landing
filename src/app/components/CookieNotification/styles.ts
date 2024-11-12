@@ -1,3 +1,5 @@
+'use client';
+
 import { IconCookie } from '@/app/shared/icons/IconCookie';
 import styled from '@emotion/styled';
 

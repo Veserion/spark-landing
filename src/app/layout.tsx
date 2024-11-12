@@ -16,7 +16,6 @@ export default function RootLayout({
       <body>
         <Providers>
           {children}
-          <CookieNotification />
           <div id="portal-root" />
         </Providers>
       </body>

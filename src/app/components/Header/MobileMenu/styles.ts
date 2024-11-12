@@ -244,3 +244,14 @@ export const SubMenuContent = styled.div`
   transform-origin: top;
   transition: transform 0.4s ease;
 `;
+
+export const MobileMenuContainer = styled.div<{ isDark: boolean; isOpen: boolean }>`
+  position: fixed;
+  background-color: ${({ isDark }) => 
+    isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(255, 255, 255, 0.8)'};
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+  isolation: isolate;
+`;

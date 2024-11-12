@@ -12,6 +12,7 @@ import {
 } from "./components";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { CookieNotification } from "./components/CookieNotification/CookieNotification";
 
 const RootWrapper = styled.div`
   width: 100%;
@@ -73,6 +74,7 @@ export default function HomePage() {
       <Main>
         <Subscriptions />
       </Main>
+      <CookieNotification />
       <Footer />
     </RootWrapper>
   );

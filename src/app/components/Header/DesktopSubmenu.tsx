@@ -19,15 +19,13 @@ const SubMenuContainer = styled.div<{ isDark: boolean; isOpen: boolean }>`
   left: 50%;
   transform: translateX(-50%) scaleY(${({ isOpen }) => (isOpen ? '1' : '0')});
   min-width: 200px;
-  background-color: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 0.9)'};
+  background-color: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
   transform-origin: top;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
   transition: transform 0.2s ease, opacity 0.2s ease;
   z-index: 1000;
   border-radius: 8px;
   overflow: hidden;
   backdrop-filter: blur(30px);
-  z-index: 1000;
   box-shadow: ${({ isDark }) => isDark 
     ? '0 4px 12px rgba(0, 0, 0, 0.5)' 
     : '0 4px 12px rgba(0, 0, 0, 0.1)'};
