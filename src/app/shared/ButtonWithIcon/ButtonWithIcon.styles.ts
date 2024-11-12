@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { IconArrowRight } from "@/app/shared/icons";
+import Link from "next/link";
 
-export const TradeButtonContainer = styled.button<{
+export const TradeButtonContainer = styled(Link)<{
   isDark: boolean;
   size: "large" | "small";
   backgroundColor?: string;
@@ -26,7 +27,7 @@ export const TradeButtonContainer = styled.button<{
   width: ${({ size, width }) =>
     size === "large" ? width ?? "212px" : "181px"};
   height: ${({ size }) => (size === "large" ? "61px" : "45px")};
-
+  text-decoration: none;
   @media screen and (max-width: 680px) {
     font-size: ${({ size }) => (size === "large" ? "24px" : "16px")};
     width: ${({ size }) => (size === "large" ? "181px" : "108px")};

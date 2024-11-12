@@ -320,6 +320,7 @@ export const TradingSection: React.FC = () => {
                 LeftIcon={IconBrandGithubFilled}
                 buttonText="View code"
                 size="large"
+                href={'https://github.com/compolabs/'}
               />
               <ButtonWithIcon
                 LeftIcon={IconHashcloack}
@@ -327,6 +328,7 @@ export const TradingSection: React.FC = () => {
                 backgroundColor="unset"
                 borderColor={isDark ? "white" : "black"}
                 size="large"
+                href={'https://docs.sprk.fi/security/audits'}
               />
             </ButtonContainer>
           </CardContent>

@@ -1,6 +1,5 @@
 import './globals.css';
 import { Providers } from './providers';
-import { CookieNotification } from '@/app/components/CookieNotification/CookieNotification';
 
 export default function RootLayout({
   children,
