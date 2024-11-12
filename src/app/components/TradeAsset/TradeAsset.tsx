@@ -16,11 +16,26 @@ import {
     AnimatedWrapper
 } from "@/app/components/TradeAsset/TradeAsset.styled";
 import { TradeButton } from '@/app/shared/TradeButton/TradeButton';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 export const TradeAsset = () => {
     const {theme} = useTheme();
     const isDark = useMemo(() => theme !== 'light', [theme]);
+    const [resetKey, setResetKey] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setResetKey(prev => prev + 1);
+        };
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('orientationchange', handleResize);
+        };
+    }, []);
     
     return (
         <TradeAssetContainer isDark={isDark}>
@@ -29,7 +44,7 @@ export const TradeAsset = () => {
                     The Onchain Trading Rollup
                 </Description>
                 <Wrapper>
-                    <AnimatedWrapper key={isDark ? 'dark' : 'light'}>
+                    <AnimatedWrapper key={`${resetKey}-${isDark ? 'dark' : 'light'}`}>
                         <AnimatedContainer>
                             <AnimatedTitleWrapper>
                                 <Title>TRADE</Title>

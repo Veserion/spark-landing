@@ -59,6 +59,7 @@ export const AnimatedTitleWrapper = styled.div`
     animation: ${slideVertical} 4s infinite;
     display: flex;
     flex-direction: column;
+    will-change: transform;
     @media screen and (max-width: 680px) {
         animation: ${slideVerticalMobile} 4s infinite;
     }   
@@ -85,6 +86,7 @@ export const StaticTitle = styled.h1`
     text-transform: uppercase;
     display: inline-block;
     animation: ${slideHorizontal} 4s infinite;
+    will-change: transform;
 
     @media screen and (max-width: 680px) {
         font-size: 22px;
@@ -215,6 +217,7 @@ export const ImagesContainer = styled.div`
 export const AnimatedWrapper = styled.div`
     display: flex;
     align-items: center;
+    will-change: transform;
     
     @media screen and (min-width: 680px) and (max-width: 1024px) {
         animation: ${slideHorizontal3} 4s infinite;
