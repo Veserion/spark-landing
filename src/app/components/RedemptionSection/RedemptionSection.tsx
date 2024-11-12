@@ -113,14 +113,13 @@ const FeatureContent = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 16px;
-    word-break: break-all;
 `;
 
 const FeatureTitle = styled.h3`
   font-size: 38px;
   font-weight: 700;
   margin: 0;
-
+word-break: break-all;
   @media screen and (max-width: 1024px) {
     font-size: 32px;
   }

@@ -146,7 +146,7 @@ export const Description = styled.div<{ isDark: boolean }>`
 `
 
 export const Title2 = styled.h1`
-    font-size: 86px;
+    font-size: clamp(76px, 6vw, 86px);
     margin: 0;
     font-family: 'Syne', sans-serif;
     font-weight: 800;
