@@ -182,7 +182,7 @@ const featureCards: FeatureCardProps[] = [
     href: 'https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker'
   },
   {
-    title: "Develop the future dApps of DeFi.",
+    title: "Build the Future of DeFi dApps.",
     buttonText: "Build Now",
     icon: IconTerminal2,
     imageSrc: "/images/build-v2.png",
