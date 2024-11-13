@@ -20,6 +20,15 @@ const SubMenu: React.FC<SubMenuProps> = ({ isOpen, items, isDark }) => {
     <SubMenuContainer isOpen={isOpen}>
       <SubMenuContent>
         {items.map((item, index) => (
+            <div
+            onClick={(e) => {
+              if (item.href === "/") {
+                e.stopPropagation();
+                e.preventDefault();
+              }
+            }}
+            key={index}
+          >
           <MenuButton
             key={index}
             icon={item.icon}
@@ -28,6 +37,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ isOpen, items, isDark }) => {
             href={item.href}
             badge={item.badge}
           />
+          </div>
         ))}
       </SubMenuContent>
     </SubMenuContainer>

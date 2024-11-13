@@ -8,8 +8,8 @@ import {
   CardTitle,
   FeatureCardContainer,
   FeatureImage,
-  IconArrowRightStyled,
 } from "./FeatureCard.styles";
+import { IconArrowRightStyled } from "@/app/shared/TradeButton/TradeButton.styles";
 
 export interface FeatureCardProps {
   title: string;
@@ -40,6 +40,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);
+  const isDisabled = !href || href === "/";
 
   return (
     <FeatureCardContainer
@@ -48,6 +49,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       backgroundColorDark={backgroundColorDark}
       borderColor={borderColor}
       borderColorDark={borderColorDark}
+      isDisabled={isDisabled}
     >
       <FeatureImage src={imageSrc} alt="" />
       <CardContent>
@@ -55,21 +57,25 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           isDark={isDark}
           buttonColor={buttonColor}
           buttonColorDark={buttonColorDark}
+          isHome={isDisabled}
         >
-          <BtnsContentWrapper
-            id="btns-content-wrapper"
-            href={href}
-            target={href.startsWith("#") ? "_self" : "_blank"}
-          >
+          {isDisabled ? (
+            <div className="btns-content-wrapper">
+              <Icon />
+              <span>{buttonText}</span>
+              <IconArrowRightStyled />
+            </div>
+          ) : (
             <BtnsContentWrapper
+              id="btns-content-wrapper"
               href={href}
-              target={href === "/" ? "_self" : "_blank"}
+              target="_blank"
             >
               <Icon />
               <span>{buttonText}</span>
               <IconArrowRightStyled />
             </BtnsContentWrapper>
-          </BtnsContentWrapper>
+          )}
         </ActionButton>
         <CardTitle>{title}</CardTitle>
       </CardContent>

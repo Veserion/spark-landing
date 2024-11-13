@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { IconArrowRight } from "@/shared";
 import Link from "next/link";
 
 export const FeatureCardContainer = styled.div<{
@@ -8,6 +7,7 @@ export const FeatureCardContainer = styled.div<{
   backgroundColorDark: string;
   borderColor: string;
   borderColorDark: string;
+  isDisabled: boolean;
 }>`
   min-width: 240px;
   border-radius: 16px;
@@ -21,8 +21,8 @@ export const FeatureCardContainer = styled.div<{
     ${({ isDark, borderColor, borderColorDark }) =>
       isDark ? borderColorDark : borderColor};
   :hover {
-    background: ${({ isDark, borderColor, borderColorDark }) =>
-      isDark ? borderColorDark : borderColor};
+    background: ${({ isDark, isDisabled, borderColor, borderColorDark }) =>
+      isDisabled ? '' : isDark ? borderColorDark : borderColor};
     #btns-content-wrapper {
       > a {
         transform: translateX(-30px);
@@ -77,6 +77,7 @@ export const ActionButton = styled.button<{
   isDark: boolean;
   buttonColor: string;
   buttonColorDark: string;
+  isHome: boolean;
 }>`
   border-radius: 100px;
   background-color: ${({ isDark }) => (isDark ? "black" : "white")};
@@ -88,12 +89,47 @@ export const ActionButton = styled.button<{
   font-size: 24px;
   font-weight: 400;
   border: none;
-  cursor: pointer;
   width: fit-content;
   color: ${({ isDark, buttonColor, buttonColorDark }) =>
     isDark ? buttonColorDark : buttonColor};
   position: relative;
   overflow: hidden;
+  .btns-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: inherit;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    
+    svg:last-child {
+      position: absolute;
+      right: -30px;
+      opacity: 0;
+      transition: opacity ease-out 0.5s;
+    }
+    
+    svg:first-child {
+      opacity: 1;
+      transition: opacity ease-out 0.5s;
+    }
+  }
+
+  &:hover {
+    .btns-content-wrapper {
+      transform: translateX(-30px);
+      transition: transform 0.5s ease;
+      
+      svg:first-child {
+        opacity: 0;
+      }
+      
+      svg:last-child {
+        opacity: 1;
+      }
+    }
+  }
 `;
 
 export const CardTitle = styled.h2`
@@ -128,14 +164,6 @@ export const FeatureImage = styled.img`
   }
 `;
 
-export const IconArrowRightStyled = styled(IconArrowRight)`
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  right: -30px;
-  opacity: 0;
-`;
-
 export const BtnsContentWrapper = styled(Link)`
   display: flex;
   align-items: center;
@@ -143,4 +171,30 @@ export const BtnsContentWrapper = styled(Link)`
   background-color: inherit;
   text-decoration: none;
   color: inherit;
+  position: relative;
+  transition: transform 0.5s ease;
+  
+  svg:last-child {
+    position: absolute;
+    right: -30px;
+    opacity: 0;
+    transition: opacity ease-out 0.5s;
+  }
+  
+  svg:first-child {
+    opacity: 1;
+    transition: opacity ease-out 0.5s;
+  }
+  
+  &:hover {
+    transform: translateX(-30px);
+    
+    svg:first-child {
+      opacity: 0;
+    }
+    
+    svg:last-child {
+      opacity: 1;
+    }
+  }
 `;

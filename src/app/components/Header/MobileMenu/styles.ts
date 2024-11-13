@@ -44,7 +44,7 @@ export const MenuSection = styled.div<ThemeProps>`
   position: relative;
 `;
 
-export const StyledMenuButton = styled(Link)<ThemeProps>`
+export const StyledMenuButton = styled(Link)<ThemeProps & {isHome: boolean}>`
   border-radius: 4px;
   display: flex;
   height: 43px;
@@ -59,6 +59,7 @@ export const StyledMenuButton = styled(Link)<ThemeProps>`
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
   text-decoration: none;
+  cursor: ${({ isHome }) => (isHome ? "default" : "pointer")};
   &:hover {
     background: ${({ isDark }) => (isDark ? "#333333" : "#EFEFEF")};
   }

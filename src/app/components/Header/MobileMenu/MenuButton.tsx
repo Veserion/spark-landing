@@ -31,7 +31,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   href,
   badge,
 }) => (
-  <StyledMenuButton isDark={isDark} href={href} target="_blank">
+  <StyledMenuButton isDark={isDark} href={href} target="_blank" isHome={href === "/"}>
     {icon}
     <MenuText isDark={isDark}>{text}</MenuText>
     {badge && <Badge isDark={isDark}>{badge}</Badge>}
