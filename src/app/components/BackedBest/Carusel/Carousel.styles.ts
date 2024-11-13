@@ -79,31 +79,31 @@ export const List = styled.div<{ transform: number }>`
   width: calc(100% + 24px);
   max-width: 3198px;
   z-index: 1;
-  animation: ${(props) => moveList(props.transform, "187", 200)} 20s
+  animation: ${(props) => moveList(props.transform, "187", 200)} 80s
     cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
 
   @media screen and (max-width: 1620px) {
-    animation: ${(props) => moveList(props.transform, "120", 120)} 20s
+    animation: ${(props) => moveList(props.transform, "120", 120)} 80s
       cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 
   @media screen and (max-width: 1440px) {
-    animation: ${(props) => moveList(props.transform, "87", 100)} 20s
+    animation: ${(props) => moveList(props.transform, "87", 100)} 80s
       cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 
   @media screen and (max-width: 1280px) {
-    animation: ${(props) => moveList(props.transform, "67", 100)} 20s
+    animation: ${(props) => moveList(props.transform, "67", 100)} 80s
       cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 
   @media screen and (max-width: 1024px) {
-    animation: ${(props) => moveList(props.transform, "57", 70)} 20s
+    animation: ${(props) => moveList(props.transform, "57", 70)} 80s
       cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 
   @media screen and (max-width: 680px) {
-    animation: ${(props) => moveList(props.transform, "20", 40)} 20s
+    animation: ${(props) => moveList(props.transform, "20", 40)} 80s
       cubic-bezier(0.65, 0.1, 0.65, 1) infinite;
   }
 `;

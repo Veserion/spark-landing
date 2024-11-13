@@ -7,7 +7,6 @@ import { Logo6 } from './logo6';
 import { Logo7 } from './logo7';
 import { Logo8 } from './logo8';
 import { Logo9 } from './logo9';
-import { Logo10 } from './logo10';
 import { Logo11 } from './logo11';
 import { Logo12 } from './logo12';
 import { Logo13 } from './logo13';
@@ -27,7 +26,6 @@ export const logoList = {
   Logo7,
   Logo8,
   Logo9,
-  Logo10,
   Logo11,
   Logo12,
   Logo13,
