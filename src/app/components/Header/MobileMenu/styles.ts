@@ -44,7 +44,7 @@ export const MenuSection = styled.div<ThemeProps>`
   position: relative;
 `;
 
-export const StyledMenuButton = styled(Link)<ThemeProps & {isHome: boolean}>`
+export const StyledMenuButton = styled(Link)<ThemeProps & { isHome: boolean }>`
   border-radius: 4px;
   display: flex;
   height: 43px;

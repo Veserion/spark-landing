@@ -141,4 +141,4 @@ export const StyledImage = styled(Image)`
     position: absolute;
     bottom: -52px;
   }
-`; 
+`;

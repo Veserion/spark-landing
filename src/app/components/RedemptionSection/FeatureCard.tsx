@@ -71,13 +71,10 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
               href={href}
               target="_blank"
             >
-              <BtnsContentWrapper
-              href={href}
-              target="_blank"
-            >
-              <Icon />
-              <span>{buttonText}</span>
-              <IconArrowRightStyled />
+              <BtnsContentWrapper href={href} target="_blank">
+                <Icon />
+                <span>{buttonText}</span>
+                <IconArrowRightStyled />
               </BtnsContentWrapper>
             </BtnsContentWrapper>
           )}

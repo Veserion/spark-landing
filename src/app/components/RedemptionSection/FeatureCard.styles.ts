@@ -22,7 +22,7 @@ export const FeatureCardContainer = styled.div<{
       isDark ? borderColorDark : borderColor};
   :hover {
     background: ${({ isDark, isDisabled, borderColor, borderColorDark }) =>
-      isDisabled ? '' : isDark ? borderColorDark : borderColor};
+      isDisabled ? "" : isDark ? borderColorDark : borderColor};
     #btns-content-wrapper {
       > a {
         transform: translateX(-30px);
@@ -133,4 +133,4 @@ export const BtnsContentWrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
   position: relative;
-  `;
+`;
