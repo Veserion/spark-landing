@@ -39,19 +39,6 @@ export const FeatureCardContainer = styled.div<{
     }
   }
   transition: background 0.5s ease;
-  #btns-content-wrapper > a {
-    transform: translateX(0);
-    transition: transform 0.5s ease;
-    > svg:first-child {
-      opacity: 1;
-      transition: opacity ease-out 0.5s;
-    }
-    > svg:last-child {
-      opacity: 0;
-      transition: opacity ease-out 0.5s;
-    }
-  }
-
   @media screen and (max-width: 1024px) {
     flex-direction: column-reverse;
     align-items: center;
@@ -71,6 +58,16 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+`;
+
+export const DisabledBtnsContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: inherit;
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
 `;
 
 export const ActionButton = styled.button<{
@@ -94,42 +91,6 @@ export const ActionButton = styled.button<{
     isDark ? buttonColorDark : buttonColor};
   position: relative;
   overflow: hidden;
-  .btns-content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: inherit;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    
-    svg:last-child {
-      position: absolute;
-      right: -30px;
-      opacity: 0;
-      transition: opacity ease-out 0.5s;
-    }
-    
-    svg:first-child {
-      opacity: 1;
-      transition: opacity ease-out 0.5s;
-    }
-  }
-
-  &:hover {
-    .btns-content-wrapper {
-      transform: translateX(-30px);
-      transition: transform 0.5s ease;
-      
-      svg:first-child {
-        opacity: 0;
-      }
-      
-      svg:last-child {
-        opacity: 1;
-      }
-    }
-  }
 `;
 
 export const CardTitle = styled.h2`
@@ -172,29 +133,4 @@ export const BtnsContentWrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
   position: relative;
-  transition: transform 0.5s ease;
-  
-  svg:last-child {
-    position: absolute;
-    right: -30px;
-    opacity: 0;
-    transition: opacity ease-out 0.5s;
-  }
-  
-  svg:first-child {
-    opacity: 1;
-    transition: opacity ease-out 0.5s;
-  }
-  
-  &:hover {
-    transform: translateX(-30px);
-    
-    svg:first-child {
-      opacity: 0;
-    }
-    
-    svg:last-child {
-      opacity: 1;
-    }
-  }
-`;
+  `;

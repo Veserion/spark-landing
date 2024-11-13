@@ -6,6 +6,7 @@ import {
   BtnsContentWrapper,
   CardContent,
   CardTitle,
+  DisabledBtnsContentWrapper,
   FeatureCardContainer,
   FeatureImage,
 } from "./FeatureCard.styles";
@@ -60,20 +61,24 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           isHome={isDisabled}
         >
           {isDisabled ? (
-            <div className="btns-content-wrapper">
+            <DisabledBtnsContentWrapper>
               <Icon />
               <span>{buttonText}</span>
-              <IconArrowRightStyled />
-            </div>
+            </DisabledBtnsContentWrapper>
           ) : (
             <BtnsContentWrapper
               id="btns-content-wrapper"
               href={href}
               target="_blank"
             >
+              <BtnsContentWrapper
+              href={href}
+              target="_blank"
+            >
               <Icon />
               <span>{buttonText}</span>
               <IconArrowRightStyled />
+              </BtnsContentWrapper>
             </BtnsContentWrapper>
           )}
         </ActionButton>
