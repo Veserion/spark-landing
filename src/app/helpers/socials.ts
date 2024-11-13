@@ -15,7 +15,7 @@ const socialTitles: string[] = [
 
 const socialLinks: string[] = [
   "https://x.com/compolabs",
-  "https://discord.com/invite/rsZnUY3kgm",
+  "https://t.co/EfXHTEhXHc",
   "https://mirror.xyz/sprkfi.eth",
   "https://github.com/compolabs/",
 ];

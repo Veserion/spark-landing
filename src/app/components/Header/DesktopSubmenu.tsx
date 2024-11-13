@@ -52,7 +52,7 @@ const Badge = styled.span<{isDark: boolean}>`
   backdrop-filter: blur(30px);
 `;
 
-const MenuItem = styled(Link)<{isDark: boolean}>`
+const MenuItem = styled(Link)<{isDark: boolean, isHome: boolean}>`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -66,6 +66,7 @@ const MenuItem = styled(Link)<{isDark: boolean}>`
   text-decoration: none;
   color: inherit;
   background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
+  cursor: ${({ isHome }) => isHome ? 'default' : 'pointer'};
 `;
 
 const IconWrapper = styled.div`
@@ -87,13 +88,20 @@ const DesktopSubmenu: React.FC<SubmenuProps> = ({ isDark, isOpen, items }) => {
     <SubMenuContainer isDark={isDark} isOpen={isOpen}>
       <MenuWrapper>
         {items.map((item, index) => (
-          <MenuItem key={index} isDark={isDark} href={item.href} target="_blank">
+          <div onClick={(e) => {
+              if (item.href === '/') {
+                e.stopPropagation()
+                e.preventDefault()
+              }
+            }}>
+          <MenuItem key={index} isDark={isDark} href={item.href} target={item.href.startsWith('#') ? '_self' : '_blank'} isHome={item.href === '/'}>
             <IconWrapper>
               {item.icon}
             </IconWrapper>
             <MenuText>{item.text}</MenuText>
             {item.badge && <Badge isDark={isDark}>{item.badge}</Badge>}
-          </MenuItem>
+            </MenuItem>
+          </div>
         ))}
       </MenuWrapper>
     </SubMenuContainer>

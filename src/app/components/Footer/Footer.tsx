@@ -83,7 +83,13 @@ export const Footer = () => {
         </Info>
         <Texts>
           <p>© 2024 - Composability Labs</p>
-          <Link href="https://drive.google.com/file/d/1VEWD0WIO1BqnFoP6O9sa2ILRKX_pvFbv/view" target="_blank" style={{ color: 'inherit' }}>Terms of Service</Link>
+          <Link 
+            href="https://drive.google.com/file/d/1VEWD0WIO1BqnFoP6O9sa2ILRKX_pvFbv/view" 
+            target="_blank" 
+            style={{ color: 'inherit', textDecoration: 'none' }}
+          >
+            Terms of Service
+          </Link>
         </Texts>
       </Wrapper>
     </FooterContainer>
