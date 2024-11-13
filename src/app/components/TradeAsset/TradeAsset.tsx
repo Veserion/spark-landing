@@ -56,7 +56,7 @@ export const TradeAsset = () => {
                     <Title2>ONCHAIN</Title2>
                 </Wrapper>
                 <Subtitle>
-                    The first onchain orderbook exchange build on Fuel’s high-performance L2.
+                    The first onchain orderbook exchange built on Fuel’s high-performance L2.
                 </Subtitle>
                 <TradeButton buttonText='Trade Now' />
             </ContentWrapper>
