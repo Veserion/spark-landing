@@ -119,7 +119,7 @@ const mobileMenuItems: SubMenuItem[] = [
       },
       {
         icon: <IconBrandGithubFilled width={18} height={18} />,
-        text: "Github",
+        text: "GitHub",
         href: "https://github.com/compolabs/",
       },
       {

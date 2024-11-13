@@ -85,7 +85,7 @@ const navItems = {
       },
       {
         icon: <IconBrandGithubFilled />,
-        text: "Github",
+        text: "GitHub",
         href: "https://github.com/compolabs/",
       },
       {
