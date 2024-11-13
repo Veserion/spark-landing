@@ -8,9 +8,9 @@ type SocialItem = {
 
 const socialTitles: string[] = [
   "Stay Connected",
-  "Any requests?",
-  "Read our Blog",
-  "Start Building",
+  "Need help?",
+  "Check our blog",
+  "Check our code",
 ];
 
 const socialLinks: string[] = [
