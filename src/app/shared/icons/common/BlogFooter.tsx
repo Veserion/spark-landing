@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { type TIconProps } from "../type";
 
-export const BlogFooter: FC<TIconProps> = ({isHovered}) => {
+export const BlogFooter: FC<TIconProps> = ({ isHovered }) => {
   return isHovered ? (
     <svg
       id="DARK"
@@ -80,5 +80,5 @@ export const BlogFooter: FC<TIconProps> = ({isHovered}) => {
         </linearGradient>
       </defs>
     </svg>
-  )
+  );
 };

@@ -51,7 +51,7 @@ export const Subscriptions: React.FC = () => {
             buttonText="View Audit"
             LeftIcon={IconShieldHalfFilled}
             backgroundColor={isDark ? "#171717" : "#FFFFFF"}
-            href={'https://docs.sprk.fi/security/audits'}
+            href={"https://docs.sprk.fi/security/audits"}
           />
         </ButtonWrapper>
       </AuditBlock>

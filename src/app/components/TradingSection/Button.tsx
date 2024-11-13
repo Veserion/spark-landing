@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
 interface ButtonProps {
   primary?: boolean;
@@ -9,7 +9,7 @@ interface ButtonProps {
 }
 
 const StyledButton = styled.button<{ primary: boolean }>`
-width: fit-content;
+  width: fit-content;
   border-radius: 100px;
   align-self: stretch;
   display: flex;
@@ -21,9 +21,12 @@ width: fit-content;
   flex-basis: 0%;
   margin: auto 0;
   padding: 16px 24px;
-  border: ${({ primary }) => (primary ? '4px solid rgba(51, 34, 99, 0)' : '1px solid rgba(20, 1, 30, 1)')};
-  background-color: ${({ primary }) => (primary ? 'rgba(103, 67, 238, 1)' : 'transparent')};
-  color: ${({ primary }) => (primary ? 'var(--light, #fff)' : 'var(--dark-1000, #000)')};
+  border: ${({ primary }) =>
+    primary ? "4px solid rgba(51, 34, 99, 0)" : "1px solid rgba(20, 1, 30, 1)"};
+  background-color: ${({ primary }) =>
+    primary ? "rgba(103, 67, 238, 1)" : "transparent"};
+  color: ${({ primary }) =>
+    primary ? "var(--light, #fff)" : "var(--dark-1000, #000)"};
 
   @media screen and (max-width: 680px) {
     width: 100%;

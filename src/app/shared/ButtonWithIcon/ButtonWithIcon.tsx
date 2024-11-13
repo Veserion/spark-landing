@@ -24,7 +24,7 @@ export const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
   backgroundColor,
   borderColor,
   width,
-  href
+  href,
 }) => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== "light", [theme]);

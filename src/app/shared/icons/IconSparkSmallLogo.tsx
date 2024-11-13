@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface IconSparkSmallLogoProps {
   width?: string;
@@ -6,7 +6,10 @@ interface IconSparkSmallLogoProps {
   color?: string;
 }
 
-export const IconSparkSmallLogo = React.forwardRef<SVGSVGElement, IconSparkSmallLogoProps>((props, ref) => (
+export const IconSparkSmallLogo = React.forwardRef<
+  SVGSVGElement,
+  IconSparkSmallLogoProps
+>((props, ref) => (
   <svg
     width={props.width || "28"}
     height={props.height || "28"}
@@ -35,4 +38,4 @@ export const IconSparkSmallLogo = React.forwardRef<SVGSVGElement, IconSparkSmall
   </svg>
 ));
 
-IconSparkSmallLogo.displayName = 'IconSparkSmallLogo';
+IconSparkSmallLogo.displayName = "IconSparkSmallLogo";

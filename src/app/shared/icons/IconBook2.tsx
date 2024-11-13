@@ -1,6 +1,9 @@
-import React from 'react';
+import React from "react";
 
-export const IconBook2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconBook2 = React.forwardRef<
+  SVGSVGElement,
+  React.SVGProps<SVGSVGElement>
+>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -19,4 +22,4 @@ export const IconBook2 = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGEl
   </svg>
 ));
 
-IconBook2.displayName = 'IconBook2'; 
+IconBook2.displayName = "IconBook2";

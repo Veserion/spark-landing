@@ -4,7 +4,7 @@ import { keyframes } from "@emotion/react";
 const moveList = (
   transform: number,
   mainTransform: string,
-  calculate: number
+  calculate: number,
 ) => keyframes`
   0% {
     transform: translateX(${mainTransform}px);

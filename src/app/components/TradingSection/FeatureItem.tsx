@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
-import styled from '@emotion/styled';
-import {IconCircleCheckFilled} from '@/app/shared/icons/IconCircleCheckFilled';
+import React from "react";
+import styled from "@emotion/styled";
+import { IconCircleCheckFilled } from "@/app/shared/icons/IconCircleCheckFilled";
 
 interface FeatureItemProps {
   text: string;
@@ -28,15 +28,20 @@ const FeatureIcon = styled.div`
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background: linear-gradient(128.85deg, #FAC8FF 0%, #C8FFEE 33%, #E9FF44 66%, #35EBFF 100%);
+  background: linear-gradient(
+    128.85deg,
+    #fac8ff 0%,
+    #c8ffee 33%,
+    #e9ff44 66%,
+    #35ebff 100%
+  );
   color: rgba(103, 67, 238, 1);
-;
 `;
 
 const FeatureItem: React.FC<FeatureItemProps> = ({ text }) => (
   <FeatureItemContainer>
     <FeatureIcon>
-      <IconCircleCheckFilled width={19} height={19}/>
+      <IconCircleCheckFilled width={19} height={19} />
     </FeatureIcon>
     <FeatureText>{text}</FeatureText>
   </FeatureItemContainer>

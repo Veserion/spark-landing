@@ -35,12 +35,12 @@ const Main = styled.div`
     gap: 80px;
   }
 
-    @media screen and (max-width: 680px) {
-      max-width: 680px;
-      padding-right: 8px;
-      padding-left: 8px;
-      gap: 64px;
-    }
+  @media screen and (max-width: 680px) {
+    max-width: 680px;
+    padding-right: 8px;
+    padding-left: 8px;
+    gap: 64px;
+  }
 `;
 
 export default function HomePage() {
@@ -49,12 +49,12 @@ export default function HomePage() {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      localStorage.setItem('theme', 'dark');
-      setTheme('dark');
+      localStorage.setItem("theme", "dark");
+      setTheme("dark");
     }
   }, [setTheme]);
 

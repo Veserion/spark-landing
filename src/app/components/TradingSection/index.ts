@@ -1,1 +1,1 @@
-export {TradingSection} from './TradingSection';
+export { TradingSection } from "./TradingSection";

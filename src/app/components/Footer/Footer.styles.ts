@@ -98,8 +98,8 @@ export const SocialItem = styled.div<{ isDark: boolean; isHovered: boolean }>`
         ? "#000000"
         : "#FFFFFF"
       : isDark
-      ? "#FFFFFF"
-      : "transparent"};
+        ? "#FFFFFF"
+        : "transparent"};
 `;
 
 export const SocialItemWrapper = styled(Link)<{ isDark: boolean }>`

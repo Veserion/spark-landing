@@ -24,7 +24,7 @@ const Header = styled.header`
   margin-bottom: 64px;
   row-gap: 8px;
 
-   @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1024px) {
     margin-bottom: 48px;
   }
 `;
@@ -122,7 +122,9 @@ const InfoBox = styled.div<{ isDark?: boolean }>`
   background-color: ${({ isDark }) =>
     isDark ? "rgba(20, 20, 20, 0.6)" : "rgba(255, 255, 255, 0.9)"};
   border: ${({ isDark }) =>
-    isDark ? "1px solid rgba(255, 255, 255, 1)" : "1px solid rgba(219, 211, 255, 1)"};
+    isDark
+      ? "1px solid rgba(255, 255, 255, 1)"
+      : "1px solid rgba(219, 211, 255, 1)"};
   border-radius: 8px;
   position: absolute;
   backdrop-filter: blur(30px);
@@ -320,7 +322,7 @@ export const TradingSection: React.FC = () => {
                 LeftIcon={IconBrandGithubFilled}
                 buttonText="View code"
                 size="large"
-                href={'https://github.com/compolabs/'}
+                href={"https://github.com/compolabs/"}
               />
               <ButtonWithIcon
                 LeftIcon={IconHashcloack}
@@ -328,7 +330,7 @@ export const TradingSection: React.FC = () => {
                 backgroundColor="unset"
                 borderColor={isDark ? "white" : "black"}
                 size="large"
-                href={'https://docs.sprk.fi/security/audits'}
+                href={"https://docs.sprk.fi/security/audits"}
               />
             </ButtonContainer>
           </CardContent>

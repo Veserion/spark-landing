@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
-export const NotificationContainer = styled.div<{isDark?: boolean}>`
+export const NotificationContainer = styled.div<{ isDark?: boolean }>`
   position: fixed;
   bottom: 50px;
   left: 50%;
@@ -14,7 +14,8 @@ export const NotificationContainer = styled.div<{isDark?: boolean}>`
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  border: ${({isDark}) => isDark ? 'none' : '1px solid rgba(177, 177, 177, 1)'};
+  border: ${({ isDark }) =>
+    isDark ? "none" : "1px solid rgba(177, 177, 177, 1)"};
   z-index: 1000;
   border-radius: 8px;
   margin: 0 auto;
@@ -22,7 +23,7 @@ export const NotificationContainer = styled.div<{isDark?: boolean}>`
   backdrop-filter: blur(30px);
 
   @media (max-width: 680px) {
-  bottom: 8px;
+    bottom: 8px;
     width: calc(100% - 16px);
     padding: 8px;
     flex-direction: column;
@@ -76,20 +77,21 @@ const BaseButton = styled.button`
 `;
 
 export const ConfirmButton = styled(BaseButton)`
-  background-color: #7C3AED;
+  background-color: #7c3aed;
   color: white;
   border: none;
 
   &:hover {
-    background-color: #6D28D9;
+    background-color: #6d28d9;
   }
 `;
 
-export const DenyButton = styled(BaseButton)<{isDark?: boolean}>`
+export const DenyButton = styled(BaseButton)<{ isDark?: boolean }>`
   border: 1px solid rgba(177, 177, 177, 1);
-  background-color: ${({isDark}) => isDark ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 0)'};
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(255, 255, 255, 0)" : "rgba(255, 255, 255, 0)"};
   color: rgba(177, 177, 177, 1);
   &:hover {
     background-color: rgba(177, 177, 177, 0.3);
   }
-`; 
+`;

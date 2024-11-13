@@ -79,12 +79,14 @@ export const NavButton = styled.button<{ isActive?: boolean }>`
   background: transparent;
   border: none;
   cursor: pointer;
-  
+
   &:hover {
     color: #8a7cff;
   }
-  
-  ${({ isActive }) => isActive && `
+
+  ${({ isActive }) =>
+    isActive &&
+    `
     color: #8a7cff;
   `}
 `;
@@ -103,12 +105,14 @@ export const NavLink = styled(Link)<{ isActive?: boolean }>`
   background: transparent;
   border: none;
   cursor: pointer;
-  
+
   &:hover {
     color: #8a7cff;
   }
-  
-  ${({ isActive }) => isActive && `
+
+  ${({ isActive }) =>
+    isActive &&
+    `
     color: #8a7cff;
   `}
 `;
@@ -172,4 +176,3 @@ export const BurgerButton = styled.button<{ isDark: boolean }>`
     order: 2;
   }
 `;
-

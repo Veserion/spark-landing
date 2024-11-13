@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Link from 'next/link';
+import React from "react";
+import styled from "@emotion/styled";
+import Link from "next/link";
 
 interface SubmenuProps {
   isDark: boolean;
@@ -17,18 +17,20 @@ const SubMenuContainer = styled.div<{ isDark: boolean; isOpen: boolean }>`
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) scaleY(${({ isOpen }) => (isOpen ? '1' : '0')});
+  transform: translateX(-50%) scaleY(${({ isOpen }) => (isOpen ? "1" : "0")});
   min-width: 200px;
-  background-color: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(20, 20, 20, 0.2)" : "rgba(255, 255, 255, 0.2)"};
   transform-origin: top;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
   z-index: 1000;
   border-radius: 8px;
   overflow: hidden;
   backdrop-filter: blur(30px);
-  box-shadow: ${({ isDark }) => isDark 
-    ? '0 4px 12px rgba(0, 0, 0, 0.5)' 
-    : '0 4px 12px rgba(0, 0, 0, 0.1)'};
+  box-shadow: ${({ isDark }) =>
+    isDark ? "0 4px 12px rgba(0, 0, 0, 0.5)" : "0 4px 12px rgba(0, 0, 0, 0.1)"};
   margin-top: 8px;
 `;
 
@@ -39,20 +41,21 @@ const MenuWrapper = styled.div`
   gap: 4px;
 `;
 
-const Badge = styled.span<{isDark: boolean}>`
-  background-color: ${({isDark}) => isDark ? 'rgba(20, 1, 30, 1)' : 'rgba(246, 246, 246, 1)'};
+const Badge = styled.span<{ isDark: boolean }>`
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(20, 1, 30, 1)" : "rgba(246, 246, 246, 1)"};
   width: 34px;
   height: 18px;
   padding: 2px 4px 2px 4px;
   gap: 10px;
   border-radius: 2px;
   font-size: 12px;
-  font-weight: 400; 
+  font-weight: 400;
   color: rgba(177, 177, 177, 1);
   backdrop-filter: blur(30px);
 `;
 
-const MenuItem = styled(Link)<{isDark: boolean, isHome: boolean}>`
+const MenuItem = styled(Link)<{ isDark: boolean; isHome: boolean }>`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -65,8 +68,9 @@ const MenuItem = styled(Link)<{isDark: boolean, isHome: boolean}>`
   transition: background 0.2s ease;
   text-decoration: none;
   color: inherit;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
-  cursor: ${({ isHome }) => isHome ? 'default' : 'pointer'};
+  background: ${({ isDark }) =>
+    isDark ? "rgba(20, 20, 20, 0.8)" : "rgba(247, 247, 247, 1)"};
+  cursor: ${({ isHome }) => (isHome ? "default" : "pointer")};
 `;
 
 const IconWrapper = styled.div`
@@ -88,20 +92,24 @@ const DesktopSubmenu: React.FC<SubmenuProps> = ({ isDark, isOpen, items }) => {
     <SubMenuContainer isDark={isDark} isOpen={isOpen}>
       <MenuWrapper>
         {items.map((item, index) => (
-          <div onClick={(e) => {
-              if (item.href === '/') {
-                e.stopPropagation()
-                e.preventDefault()
+          <div
+            onClick={(e) => {
+              if (item.href === "/") {
+                e.stopPropagation();
+                e.preventDefault();
               }
             }}
             key={index}
           >
-            <MenuItem isDark={isDark} href={item.href} target={item.href.startsWith('#') ? '_self' : '_blank'} isHome={item.href === '/'}>
-              <IconWrapper>
-              {item.icon}
-            </IconWrapper>
-            <MenuText>{item.text}</MenuText>
-            {item.badge && <Badge isDark={isDark}>{item.badge}</Badge>}
+            <MenuItem
+              isDark={isDark}
+              href={item.href}
+              target={item.href.startsWith("#") ? "_self" : "_blank"}
+              isHome={item.href === "/"}
+            >
+              <IconWrapper>{item.icon}</IconWrapper>
+              <MenuText>{item.text}</MenuText>
+              {item.badge && <Badge isDark={isDark}>{item.badge}</Badge>}
             </MenuItem>
           </div>
         ))}
@@ -110,4 +118,4 @@ const DesktopSubmenu: React.FC<SubmenuProps> = ({ isDark, isOpen, items }) => {
   );
 };
 
-export default DesktopSubmenu; 
+export default DesktopSubmenu;

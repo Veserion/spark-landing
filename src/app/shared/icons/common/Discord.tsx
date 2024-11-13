@@ -9,7 +9,7 @@ export const Discord: FC<TIconProps> = ({
 }) => {
   return (
     <svg
-      id={'DiscordLight'}
+      id={"DiscordLight"}
       className={className}
       width={width}
       height={height}

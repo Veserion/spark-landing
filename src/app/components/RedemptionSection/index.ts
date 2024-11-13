@@ -1,1 +1,1 @@
-export * from './RedemptionSection';
+export * from "./RedemptionSection";

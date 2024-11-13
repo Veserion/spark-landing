@@ -102,17 +102,17 @@ const AdditionalFeature = styled.div<{ isDark: boolean }>`
   }
 
   @media screen and (max-width: 680px) {
-		gap: 7px;
-		height: 416px;
-		position: relative;
-		justify-content: flex-end;
-	}
+    gap: 7px;
+    height: 416px;
+    position: relative;
+    justify-content: flex-end;
+  }
 `;
 
 const FeatureContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
 `;
 
 const FeatureTitle = styled.h3`
@@ -141,16 +141,16 @@ const StyledImage = styled(Image)`
   }
 
   @media screen and (max-width: 1280px) {
-		max-width: 220px;
-	}
+    max-width: 220px;
+  }
 
-	@media screen and (max-width: 1024px) {
-		max-width: 260px;
-	}
+  @media screen and (max-width: 1024px) {
+    max-width: 260px;
+  }
 
   @media screen and (max-width: 680px) {
     position: absolute;
-    bottom: -52px
+    bottom: -52px;
   }
 `;
 
@@ -166,7 +166,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(42, 16, 0, 1)",
     buttonColor: "var(--copper-600, #2a1000)",
     buttonColorDark: "rgba(255, 225, 206, 1)",
-    href: 'https://app.sprk.fi/'
+    href: "https://app.sprk.fi/",
   },
   {
     title: "Earn rewards with Spark incentives.",
@@ -179,7 +179,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(0, 47, 56, 1)",
     buttonColor: "var(--blue-600, #002f38)",
     buttonColorDark: "rgba(191, 242, 252, 1)",
-    href: 'https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker'
+    href: "https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker",
   },
   {
     title: "Build the Future of DeFi dApps.",
@@ -192,7 +192,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(0, 39, 0, 1)",
     buttonColor: "var(--green-600, #002700)",
     buttonColorDark: "rgba(196, 255, 196, 1)",
-    href: 'https://docs.sprk.fi/'
+    href: "https://docs.sprk.fi/",
   },
   {
     title: "List any token, even meme coins.",
@@ -205,18 +205,28 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(58, 49, 1, 1)",
     buttonColor: "var(--yellow-600, #3a3101)",
     buttonColorDark: "rgba(255, 241, 162, 1)",
-    href: '/'
+    href: "/",
   },
 ];
 
 const additionalFeatures = [
   {
-    title: <>Composable<br/> Ecosystem.</>,
+    title: (
+      <>
+        Composable
+        <br /> Ecosystem.
+      </>
+    ),
     description: "Shared liquidity with other protocols",
     imageSrc: "/images/composable.png",
   },
   {
-    title: <>Bulletproof<br/> Infrastructure.</>,
+    title: (
+      <>
+        Bulletproof
+        <br /> Infrastructure.
+      </>
+    ),
     description: "Top indexers, market makers, and Spark data relayers",
     imageSrc: "/images/bulletproof.png",
   },
@@ -224,7 +234,7 @@ const additionalFeatures = [
 
 export const RedemptionSection: React.FC = () => {
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme !== 'light', [theme]);
+  const isDark = useMemo(() => theme !== "light", [theme]);
   return (
     <RedemptionSectionContainer>
       <SectionHeader>
@@ -237,7 +247,12 @@ export const RedemptionSection: React.FC = () => {
         ))}
         {additionalFeatures.map((feature, index) => (
           <AdditionalFeature key={index} isDark={isDark}>
-            <StyledImage src={feature.imageSrc} alt="" width={260} height={260} />
+            <StyledImage
+              src={feature.imageSrc}
+              alt=""
+              width={260}
+              height={260}
+            />
             <FeatureContent>
               <FeatureTitle>{feature.title}</FeatureTitle>
               <FeatureDescription>{feature.description}</FeatureDescription>

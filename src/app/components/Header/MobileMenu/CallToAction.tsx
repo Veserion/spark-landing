@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import {
   StyledCallToAction,
   CallToActionContent,
   CallToActionTitle,
-  CallToActionSubtitle
-} from './styles';
+  CallToActionSubtitle,
+} from "./styles";
 
 interface CallToActionProps {
   icon: React.ReactNode;
@@ -12,7 +12,11 @@ interface CallToActionProps {
   subtitle: string;
 }
 
-const CallToAction: React.FC<CallToActionProps> = ({ icon, title, subtitle }) => (
+const CallToAction: React.FC<CallToActionProps> = ({
+  icon,
+  title,
+  subtitle,
+}) => (
   <StyledCallToAction>
     {icon}
     <CallToActionContent>

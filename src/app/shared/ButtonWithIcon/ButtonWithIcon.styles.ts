@@ -25,7 +25,7 @@ export const TradeButtonContainer = styled(Link)<{
   transition: background 0.5s ease;
   font-size: ${({ size }) => (size === "large" ? "26px" : "24px")};
   width: ${({ size, width }) =>
-    size === "large" ? width ?? "212px" : "181px"};
+    size === "large" ? (width ?? "212px") : "181px"};
   height: ${({ size }) => (size === "large" ? "61px" : "45px")};
   text-decoration: none;
   @media screen and (max-width: 680px) {

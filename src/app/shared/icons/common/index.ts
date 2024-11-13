@@ -3,9 +3,9 @@ import { XComponent } from "./XComponent";
 import { Blog } from "./Blog";
 import { Git } from "./Git";
 import { BlogFooter } from "./BlogFooter";
-import { XComponentFooter } from './XComponentFooter';
-import { DiscordFooter } from './DiscordFooter';
-import { GitFooter } from './GitFooter';
+import { XComponentFooter } from "./XComponentFooter";
+import { DiscordFooter } from "./DiscordFooter";
+import { GitFooter } from "./GitFooter";
 
 export const socialsSub = {
   XComponent,

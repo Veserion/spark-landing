@@ -1,6 +1,6 @@
-import React from 'react';
-import { SubMenuContainer, SubMenuContent } from './styles';
-import MenuButton from './MenuButton';
+import React from "react";
+import { SubMenuContainer, SubMenuContent } from "./styles";
+import MenuButton from "./MenuButton";
 
 interface SubMenuItem {
   icon: React.ReactNode;
@@ -34,4 +34,4 @@ const SubMenu: React.FC<SubMenuProps> = ({ isOpen, items, isDark }) => {
   );
 };
 
-export default SubMenu; 
+export default SubMenu;

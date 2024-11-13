@@ -1,6 +1,9 @@
-import React from 'react';
+import React from "react";
 
-export const IconArrowBigUpLinesFilled = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
+export const IconArrowBigUpLinesFilled = React.forwardRef<
+  SVGSVGElement,
+  React.SVGProps<SVGSVGElement>
+>((props, ref) => (
   <svg
     width={props.width || "24"}
     height={props.height || "24"}
@@ -25,4 +28,4 @@ export const IconArrowBigUpLinesFilled = React.forwardRef<SVGSVGElement, React.S
   </svg>
 ));
 
-IconArrowBigUpLinesFilled.displayName = 'IconArrowBigUpLinesFilled'; 
+IconArrowBigUpLinesFilled.displayName = "IconArrowBigUpLinesFilled";

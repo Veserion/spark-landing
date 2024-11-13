@@ -1,5 +1,5 @@
-import './globals.css';
-import { Providers } from './providers';
+import "./globals.css";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -10,7 +10,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Spark | Trade &amp; Swap on Fuel</title>
-        <link rel="icon" href="/icons/spark.ico" type="image/icon" sizes="any" />
+        <link
+          rel="icon"
+          href="/icons/spark.ico"
+          type="image/icon"
+          sizes="any"
+        />
       </head>
       <body>
         <Providers>

@@ -21,7 +21,9 @@ const socialLinks: string[] = [
 ];
 
 const socialKeysSub = Object.keys(socialsSub) as (keyof typeof socialsSub)[];
-const socialKeysFooter = Object.keys(socialsFooter) as (keyof typeof socialsFooter)[];
+const socialKeysFooter = Object.keys(
+  socialsFooter,
+) as (keyof typeof socialsFooter)[];
 
 export const socialList: SocialItem[] = socialTitles.map((title, index) => ({
   title: title,
@@ -29,7 +31,9 @@ export const socialList: SocialItem[] = socialTitles.map((title, index) => ({
   href: socialLinks[index],
 }));
 
-export const socialListFooter: SocialItem[] = socialKeysFooter.map((key, index) => ({
-  icon: socialsFooter[key],
-  href: socialLinks[index],
-}));
+export const socialListFooter: SocialItem[] = socialKeysFooter.map(
+  (key, index) => ({
+    icon: socialsFooter[key],
+    href: socialLinks[index],
+  }),
+);

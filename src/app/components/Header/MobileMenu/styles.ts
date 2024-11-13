@@ -24,7 +24,8 @@ export const Container = styled.nav<ThemeProps>`
   height: fit-content;
   flex-direction: column;
   padding: 8px;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 1)' : 'rgba(255, 255, 255, 1)'};
+  background: ${({ isDark }) =>
+    isDark ? "rgba(20, 20, 20, 1)" : "rgba(255, 255, 255, 1)"};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   font-family: "Syne", sans-serif;
   * {
@@ -53,7 +54,8 @@ export const StyledMenuButton = styled(Link)<ThemeProps>`
   justify-content: flex-start;
   padding: 12px;
   margin-top: 8px;
-  background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
+  background: ${({ isDark }) =>
+    isDark ? "rgba(20, 20, 20, 0.8)" : "rgba(247, 247, 247, 1)"};
   color: ${({ isDark }) => (isDark ? "#FFFFFF" : "#1C012A")};
   transition: background-color 0.2s ease;
   text-decoration: none;
@@ -85,7 +87,10 @@ export const MenuText = styled.span<ThemeProps>`
   font-size: 16px;
 `;
 
-export const StyledMobileMenuButton = styled.button<{ isDark: boolean; isOpen?: boolean }>`
+export const StyledMobileMenuButton = styled.button<{
+  isDark: boolean;
+  isOpen?: boolean;
+}>`
   display: flex;
   margin-top: 8px;
   width: 100%;
@@ -98,14 +103,15 @@ export const StyledMobileMenuButton = styled.button<{ isDark: boolean; isOpen?: 
   transition: all 0.4s ease;
   cursor: pointer;
   align-items: center;
-  
+
   svg {
     transition: transform 0.4s ease;
-    transform: ${({ isOpen }) => isOpen ? 'rotate(180deg)' : 'rotate(0)'};
+    transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0)")};
   }
-  
+
   &:hover {
-    background: ${({ isDark }) => isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(247, 247, 247, 1)'};
+    background: ${({ isDark }) =>
+      isDark ? "rgba(20, 20, 20, 0.8)" : "rgba(247, 247, 247, 1)"};
   }
 `;
 
@@ -217,7 +223,7 @@ export const MenuContainer = styled.div<{ isOpen: boolean }>`
   flex-direction: column;
   justify-content: flex-start;
   cursor: pointer;
-  margin-top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+  margin-top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
 `;
 
 export const MenuItemContainer = styled.div`
@@ -227,13 +233,13 @@ export const MenuItemContainer = styled.div`
 `;
 
 export const SubMenuContainer = styled.div<{ isOpen: boolean }>`
-  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+  max-height: ${({ isOpen }) => (isOpen ? "500px" : "0")};
   overflow: hidden;
   transition: all 0.4s ease;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   transform-origin: top;
-  transform: ${({ isOpen }) => (isOpen ? 'scaleY(1)' : 'scaleY(0)')};
-  margin-bottom: ${({ isOpen }) => (isOpen ? '8px' : '0')};
+  transform: ${({ isOpen }) => (isOpen ? "scaleY(1)" : "scaleY(0)")};
+  margin-bottom: ${({ isOpen }) => (isOpen ? "8px" : "0")};
 `;
 
 export const SubMenuContent = styled.div`
@@ -245,10 +251,13 @@ export const SubMenuContent = styled.div`
   transition: transform 0.4s ease;
 `;
 
-export const MobileMenuContainer = styled.div<{ isDark: boolean; isOpen: boolean }>`
+export const MobileMenuContainer = styled.div<{
+  isDark: boolean;
+  isOpen: boolean;
+}>`
   position: fixed;
-  background-color: ${({ isDark }) => 
-    isDark ? 'rgba(20, 20, 20, 0.8)' : 'rgba(255, 255, 255, 0.8)'};
+  background-color: ${({ isDark }) =>
+    isDark ? "rgba(20, 20, 20, 0.8)" : "rgba(255, 255, 255, 0.8)"};
   -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px);
   transform: translateZ(0);

@@ -1,7 +1,15 @@
-'use client';
-import React, { useMemo } from 'react';
+"use client";
+import React, { useMemo } from "react";
 import { useTheme } from "next-themes";
-import { ActionButton, BtnsContentWrapper, CardContent, CardTitle, FeatureCardContainer, FeatureImage, IconArrowRightStyled } from './FeatureCard.styles';
+import {
+  ActionButton,
+  BtnsContentWrapper,
+  CardContent,
+  CardTitle,
+  FeatureCardContainer,
+  FeatureImage,
+  IconArrowRightStyled,
+} from "./FeatureCard.styles";
 
 export interface FeatureCardProps {
   title: string;
@@ -17,7 +25,6 @@ export interface FeatureCardProps {
   href: string;
 }
 
-
 export const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   buttonText,
@@ -29,10 +36,10 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   borderColorDark,
   buttonColor,
   buttonColorDark,
-  href
+  href,
 }) => {
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme !== 'light', [theme]);
+  const isDark = useMemo(() => theme !== "light", [theme]);
 
   return (
     <FeatureCardContainer
@@ -42,16 +49,23 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       borderColor={borderColor}
       borderColorDark={borderColorDark}
     >
-			<FeatureImage src={imageSrc} alt="" />
+      <FeatureImage src={imageSrc} alt="" />
       <CardContent>
         <ActionButton
           isDark={isDark}
           buttonColor={buttonColor}
           buttonColorDark={buttonColorDark}
         >
-          <BtnsContentWrapper id='btns-content-wrapper' href={href} target={href.startsWith('#') ? '_self' : '_blank'}>
-            <BtnsContentWrapper href={href} target={href === '/' ? '_self' : '_blank'}>
-              <Icon/>
+          <BtnsContentWrapper
+            id="btns-content-wrapper"
+            href={href}
+            target={href.startsWith("#") ? "_self" : "_blank"}
+          >
+            <BtnsContentWrapper
+              href={href}
+              target={href === "/" ? "_self" : "_blank"}
+            >
+              <Icon />
               <span>{buttonText}</span>
               <IconArrowRightStyled />
             </BtnsContentWrapper>

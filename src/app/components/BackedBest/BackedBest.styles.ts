@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Container = styled.section`
   margin: 64px 0;
@@ -16,4 +16,4 @@ export const Title = styled.h2`
   @media screen and (max-width: 680px) {
     font-size: 22px;
   }
-`; 
+`;

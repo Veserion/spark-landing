@@ -11,7 +11,7 @@ import {
   FooterSection,
   RootContainer,
   Social,
-  MenuItemContainer
+  MenuItemContainer,
 } from "./styles";
 import SubMenu from "./SubMenu";
 import { IconSpark, TIconProps } from "@/app/shared/icons";
@@ -38,30 +38,30 @@ interface MenuItem {
 }
 
 interface SubMenuItem {
+  text: string;
+  submenu?: Array<{
+    icon: React.ReactNode;
     text: string;
-    submenu?: Array<{
-      icon: React.ReactNode;
-      text: string;
-      badge?: string;
-      href: string;
-    }>;
-  }
+    badge?: string;
+    href: string;
+  }>;
+}
 
 const menuItems: MenuItem[] = [
   {
-    icon: <IconSpark width={18} height={18}/>,
+    icon: <IconSpark width={18} height={18} />,
     text: "What is Spark?",
-    href: "https://docs.sprk.fi/more/spark-architecture-overview"
+    href: "https://docs.sprk.fi/more/spark-architecture-overview",
   },
   {
-    icon: <IconTransitionTop width={18} height={18}/>,
+    icon: <IconTransitionTop width={18} height={18} />,
     text: "Limit Trading",
-    href: "https://app.sprk.fi/#/spot/BTC-USDC"
+    href: "https://app.sprk.fi/#/spot/BTC-USDC",
   },
   {
-    icon: <IconCoins width={18} height={18}/>,
+    icon: <IconCoins width={18} height={18} />,
     text: "Provide Liquidity",
-    href: "https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker/market-maker-incentive-program"
+    href: "https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker/market-maker-incentive-program",
   },
 ];
 
@@ -70,20 +70,20 @@ const mobileMenuItems: SubMenuItem[] = [
     text: "Learn",
     submenu: [
       {
-        icon: <IconSpark width={18} height={18}/>,
+        icon: <IconSpark width={18} height={18} />,
         text: "What is Spark?",
-        href: "https://docs.sprk.fi/more/spark-architecture-overview"
+        href: "https://docs.sprk.fi/more/spark-architecture-overview",
       },
       {
-        icon: <IconTransitionTop width={18} height={18}/>,
+        icon: <IconTransitionTop width={18} height={18} />,
         text: "Trading 101",
         badge: "soon",
-        href: "/"
+        href: "/",
       },
       {
-        icon: <IconArticle width={18} height={18}/>,
+        icon: <IconArticle width={18} height={18} />,
         text: "Blog",
-        href: "https://mirror.xyz/sprkfi.eth"
+        href: "https://mirror.xyz/sprkfi.eth",
       },
     ],
   },
@@ -91,21 +91,21 @@ const mobileMenuItems: SubMenuItem[] = [
     text: "Trade",
     submenu: [
       {
-        icon: <IconTransitionTop width={18} height={18}/>,
+        icon: <IconTransitionTop width={18} height={18} />,
         text: "Limit",
-        href: "https://app.sprk.fi/#/spot/BTC-USDC"
+        href: "https://app.sprk.fi/#/spot/BTC-USDC",
       },
       {
-        icon: <IconInfinity width={18} height={18}/>,
+        icon: <IconInfinity width={18} height={18} />,
         text: "Perpetuals",
         badge: "soon",
-        href: "/"
+        href: "/",
       },
       {
-        icon: <IconRouteSquare width={18} height={18}/>,
+        icon: <IconRouteSquare width={18} height={18} />,
         text: "Swap",
         badge: "soon",
-        href: "/"
+        href: "/",
       },
     ],
   },
@@ -113,19 +113,19 @@ const mobileMenuItems: SubMenuItem[] = [
     text: "Build",
     submenu: [
       {
-        icon: <IconBook2 width={18} height={18}/>,
+        icon: <IconBook2 width={18} height={18} />,
         text: "Docs",
-        href: "https://docs.sprk.fi/"
+        href: "https://docs.sprk.fi/",
       },
       {
-        icon: <IconBrandGithubFilled width={18} height={18}/>,
+        icon: <IconBrandGithubFilled width={18} height={18} />,
         text: "Github",
-        href: "https://github.com/compolabs/"
+        href: "https://github.com/compolabs/",
       },
       {
-        icon: <IconFireHydrant width={18} height={18}/>,
+        icon: <IconFireHydrant width={18} height={18} />,
         text: "Faucet",
-        href: "https://app.sprk.fi/#/faucet"
+        href: "https://app.sprk.fi/#/faucet",
       },
     ],
   },
@@ -196,10 +196,23 @@ const SparkMenu: React.FC<SparkMenuProps> = ({ isDark, isOpen }) => {
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <SocialItem isDark={isDark} isHovered={hoveredIndex === index}>
+                  <SocialItem
+                    isDark={isDark}
+                    isHovered={hoveredIndex === index}
+                  >
                     <SocialComponent
-                      isHovered={index === 2 && !isDark ? false : hoveredIndex === index}
-                      color={index === 2 ? "#1C012A" : (hoveredIndex === index ? (isDark ? "#FFFFFF" : "#1C012A") : "#1C012A")}
+                      isHovered={
+                        index === 2 && !isDark ? false : hoveredIndex === index
+                      }
+                      color={
+                        index === 2
+                          ? "#1C012A"
+                          : hoveredIndex === index
+                            ? isDark
+                              ? "#FFFFFF"
+                              : "#1C012A"
+                            : "#1C012A"
+                      }
                       isDark={isDark}
                     />
                   </SocialItem>
