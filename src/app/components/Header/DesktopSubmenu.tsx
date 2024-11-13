@@ -93,9 +93,11 @@ const DesktopSubmenu: React.FC<SubmenuProps> = ({ isDark, isOpen, items }) => {
                 e.stopPropagation()
                 e.preventDefault()
               }
-            }}>
-          <MenuItem key={index} isDark={isDark} href={item.href} target={item.href.startsWith('#') ? '_self' : '_blank'} isHome={item.href === '/'}>
-            <IconWrapper>
+            }}
+            key={index}
+          >
+            <MenuItem isDark={isDark} href={item.href} target={item.href.startsWith('#') ? '_self' : '_blank'} isHome={item.href === '/'}>
+              <IconWrapper>
               {item.icon}
             </IconWrapper>
             <MenuText>{item.text}</MenuText>
