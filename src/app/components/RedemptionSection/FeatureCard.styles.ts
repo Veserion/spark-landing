@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { IconArrowRight } from '@/shared';
+import Link from 'next/link';
 
 
 export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColor: string, backgroundColorDark: string, borderColor: string, borderColorDark: string }>`
@@ -14,7 +15,7 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
   :hover {
     background: ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
     #btns-content-wrapper {
-      >div {
+      >a {
         transform: translateX(-30px);
         transition: transform 0.5s ease;
         >svg:first-child {
@@ -29,7 +30,7 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
     }
   }
   transition: background 0.5s ease;
-  #btns-content-wrapper > div {
+  #btns-content-wrapper > a {
       transform: translateX(0);
       transition: transform 0.5s ease;
       >svg:first-child {
@@ -121,9 +122,11 @@ export const IconArrowRightStyled = styled(IconArrowRight)`
     opacity: 0;
 `;
 
-export const BtnsContentWrapper = styled.div`
+export const BtnsContentWrapper = styled(Link)`
     display: flex;
     align-items: center;
     gap: 8px;
     background-color: inherit;
+    text-decoration: none;
+    color: inherit;
 `;

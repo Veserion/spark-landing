@@ -166,6 +166,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(42, 16, 0, 1)",
     buttonColor: "var(--copper-600, #2a1000)",
     buttonColorDark: "rgba(255, 225, 206, 1)",
+    href: 'https://app.sprk.fi/'
   },
   {
     title: "Earn rewards with Spark incentives.",
@@ -178,6 +179,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(0, 47, 56, 1)",
     buttonColor: "var(--blue-600, #002f38)",
     buttonColorDark: "rgba(191, 242, 252, 1)",
+    href: 'https://docs.sprk.fi/provide-liquidity/getting-started-as-a-market-maker'
   },
   {
     title: "Develop the future dApps of DeFi.",
@@ -190,6 +192,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(0, 39, 0, 1)",
     buttonColor: "var(--green-600, #002700)",
     buttonColorDark: "rgba(196, 255, 196, 1)",
+    href: 'https://docs.sprk.fi/'
   },
   {
     title: "List any token, even meme coins.",
@@ -202,6 +205,7 @@ const featureCards: FeatureCardProps[] = [
     borderColorDark: "rgba(58, 49, 1, 1)",
     buttonColor: "var(--yellow-600, #3a3101)",
     buttonColorDark: "rgba(255, 241, 162, 1)",
+    href: '/'
   },
 ];
 

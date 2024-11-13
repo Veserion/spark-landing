@@ -14,6 +14,7 @@ export interface FeatureCardProps {
   borderColorDark: string;
   buttonColor: string;
   buttonColorDark: string;
+  href: string;
 }
 
 
@@ -27,7 +28,8 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   borderColor,
   borderColorDark,
   buttonColor,
-  buttonColorDark
+  buttonColorDark,
+  href
 }) => {
   const { theme } = useTheme();
   const isDark = useMemo(() => theme !== 'light', [theme]);
@@ -47,8 +49,8 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           buttonColor={buttonColor}
           buttonColorDark={buttonColorDark}
         >
-          <BtnsContentWrapper id='btns-content-wrapper'>
-            <BtnsContentWrapper>
+          <BtnsContentWrapper id='btns-content-wrapper' href={href} target={href.startsWith('#') ? '_self' : '_blank'}>
+            <BtnsContentWrapper href={href} target={href === '/' ? '_self' : '_blank'}>
               <Icon/>
               <span>{buttonText}</span>
               <IconArrowRightStyled />
