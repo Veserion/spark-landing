@@ -11,7 +11,7 @@ export const FeatureCardContainer = styled.div<{ isDark: boolean, backgroundColo
   gap: 16px;
   overflow: hidden;
   background-color: ${({ isDark, backgroundColor, backgroundColorDark }) => isDark ? backgroundColorDark : backgroundColor};
-  border: 3px solid ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
+  border: 4px solid ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
   :hover {
     background: ${({ isDark, borderColor, borderColorDark }) => isDark ? borderColorDark : borderColor};
     #btns-content-wrapper {
